@@ -14,6 +14,11 @@ config/name="Mental Record"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+InventoryManager="*res://scripts/autoload/inventory_manager.gd"
+SignalBus="*res://scripts/autoload/signal_bus.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
