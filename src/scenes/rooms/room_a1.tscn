@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://b0tr8yt6n4jwr"]
+[gd_scene load_steps=2 format=3 uid="uid://b0tr8yt6n4jwr"]
+
+[ext_resource type="Texture2D" uid="uid://dhen58e6khlm0" path="res://assets/ui/Paper9Slice.png" id="1_weh1r"]
 
 [node name="RoomA1" type="Node2D"]
+
+[node name="Paper9Slice" type="Sprite2D" parent="."]
+position = Vector2(56, 50)
+texture = ExtResource("1_weh1r")

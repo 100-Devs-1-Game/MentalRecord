@@ -6,6 +6,7 @@ extends Node2D
 @export var target_scene: String
 @export var locked_sprite: Texture2D
 @export var unlocked_sprite: Texture2D
+@export var start_unlocked: bool
 
 # --- onready variables ---
 @onready var sprite = $Sprite2D
@@ -15,7 +16,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	InventoryManager.set_door_state(door_id, true)
 	update_visual()
 	SignalBus.door_state_changed.connect(received_update_signal)
 
@@ -30,7 +30,7 @@ func update_visual():
 
 ## Gets the unlocked state of this door
 func is_door_unlocked():
-	return InventoryManager.is_door_open(door_id)
+	return start_unlocked or InventoryManager.is_door_open(door_id)
 	
 ### --- private methods ---
 
