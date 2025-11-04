@@ -62,7 +62,6 @@ func _on_drop() -> void:
 					_reject(door)
 					return
 	# No door matched
-	_reject(null)
 
 ## Called when the statement is dropped on an invalid or non-matching area.  
 ## Can be expanded with animations or sound effects.

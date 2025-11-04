@@ -22,9 +22,13 @@ offset_left = 423.0
 offset_top = 175.0
 offset_right = 514.0
 offset_bottom = 206.0
-is_in_ui = null
-id = null
-statement_text = null
+
+[node name="Statment2" parent="." instance=ExtResource("3_ojdsf")]
+offset_left = 644.0
+offset_top = 107.0
+offset_right = 735.0
+offset_bottom = 138.0
+statement_text = "wrong"
 
 [connection signal="input_event" from="Door/Area2D" to="Door" method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Door/Area2D" to="Door" method="_on_area_2d_mouse_entered"]
