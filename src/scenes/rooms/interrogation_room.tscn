@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4u7ql6i3s7bu"]
+[gd_scene load_steps=6 format=3 uid="uid://c4u7ql6i3s7bu"]
 
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_13bab"]
 [ext_resource type="Texture2D" uid="uid://dhen58e6khlm0" path="res://assets/ui/Paper9Slice.png" id="2_ojdsf"]
 [ext_resource type="Texture2D" uid="uid://mecr3f443kgk" path="res://assets/ui/PurpleBubble9Slice.png" id="3_m0xdu"]
 [ext_resource type="PackedScene" uid="uid://x54ebkynsfi7" path="res://scenes/UI/inventory.tscn" id="4_ojdsf"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="5_xwctq"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -20,6 +21,19 @@ position = Vector2(-0.5, 1.5)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inventory" parent="CanvasLayer" instance=ExtResource("4_ojdsf")]
+
+[node name="Statment" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
+offset_left = -336.0
+offset_top = -321.0
+offset_right = -245.0
+offset_bottom = -290.0
+
+[node name="Statment2" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
+offset_left = -377.0
+offset_top = -261.0
+offset_right = -286.0
+offset_bottom = -230.0
+statement_text = "wrong"
 
 [connection signal="input_event" from="Door/Area2D" to="Door" method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Door/Area2D" to="Door" method="_on_area_2d_mouse_entered"]

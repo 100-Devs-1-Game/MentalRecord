@@ -101,3 +101,5 @@ func _on_return_tween_finished() -> void:
 ## Typically called when first clicked in a non-UI context.
 func _set_to_ui() -> void:
 	is_in_ui = true
+	var inv = get_tree().get_first_node_in_group("inventory")
+	inv.add_statement(self)
