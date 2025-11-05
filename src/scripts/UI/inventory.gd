@@ -1,6 +1,6 @@
 extends Control
 
-@onready var inv_slots: VBoxContainer = $VBoxContainer
+@onready var inv_slots: VBoxContainer = $NinePatchRect/VBoxContainer
 
 func add_statement(node: Control):
 
