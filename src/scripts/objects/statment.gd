@@ -61,7 +61,7 @@ func _on_drop() -> void:
 	for door in get_tree().get_nodes_in_group("doors"):
 		if door is Door:
 			if door.contains_point(get_global_mouse_position()):
-				if door.statement_to_unlock == statement_text:
+				if door.statement_id_to_unlock == id:
 					print("Door unlocked with matching statement:", statement_text)
 					door.unlock()
 					queue_free()

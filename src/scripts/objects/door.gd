@@ -8,7 +8,7 @@ class_name Door
 @export var locked_sprite: Texture2D
 @export var unlocked_sprite: Texture2D
 @export var start_unlocked: bool
-@export var statement_to_unlock: String = "Statement"
+@export var statement_id_to_unlock: String = "StatementID"
 
 # --- onready variables ---
 @onready var sprite: Sprite2D = $Sprite2D

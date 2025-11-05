@@ -9,10 +9,11 @@
 
 [node name="Door" parent="." instance=ExtResource("2_13bab")]
 position = Vector2(354, 255)
-door_id = "a1"
+door_id = "da1"
 target_scene = "res://scenes/rooms/room_a1.tscn"
 locked_sprite = ExtResource("2_ojdsf")
 unlocked_sprite = ExtResource("3_m0xdu")
+statement_id_to_unlock = "sa1"
 
 [node name="CollisionShape2D" parent="Door/Area2D" index="0"]
 position = Vector2(-0.5, 1.5)
@@ -24,12 +25,14 @@ offset_left = -336.0
 offset_top = -321.0
 offset_right = -245.0
 offset_bottom = -290.0
+id = "sa1"
 
 [node name="Statment2" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
 offset_left = -377.0
 offset_top = -261.0
 offset_right = -286.0
 offset_bottom = -230.0
+id = "sa2"
 statement_text = "wrong"
 
 [connection signal="input_event" from="Door/Area2D" to="Door" method="_on_area_2d_input_event"]
