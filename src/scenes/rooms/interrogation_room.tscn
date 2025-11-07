@@ -1,22 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4u7ql6i3s7bu"]
+[gd_scene load_steps=6 format=3 uid="uid://c4u7ql6i3s7bu"]
 
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_13bab"]
 [ext_resource type="Texture2D" uid="uid://dhen58e6khlm0" path="res://assets/ui/Paper9Slice.png" id="2_ojdsf"]
 [ext_resource type="Texture2D" uid="uid://mecr3f443kgk" path="res://assets/ui/PurpleBubble9Slice.png" id="3_m0xdu"]
+[ext_resource type="Material" uid="uid://djkj354dybgq3" path="res://materials/outline_material.tres" id="4_xwctq"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="5_xwctq"]
 
 [node name="InterrogationRoom" type="Node2D"]
 
 [node name="Door" parent="." instance=ExtResource("2_13bab")]
-position = Vector2(354, 255)
+offset_left = 988.0
+offset_top = 539.0
+offset_right = 988.0
+offset_bottom = 539.0
 door_id = "da1"
 target_scene = "res://scenes/rooms/room_a1.tscn"
 locked_sprite = ExtResource("2_ojdsf")
 unlocked_sprite = ExtResource("3_m0xdu")
 statement_id_to_unlock = "sa1"
 
-[node name="CollisionShape2D" parent="Door/Area2D" index="0"]
-position = Vector2(-0.5, 1.5)
+[node name="Sprite" parent="Door" index="1"]
+material = ExtResource("4_xwctq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -34,9 +38,5 @@ offset_right = -286.0
 offset_bottom = -230.0
 id = "sa2"
 statement_text = "wrong"
-
-[connection signal="input_event" from="Door/Area2D" to="Door" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Door/Area2D" to="Door" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Door/Area2D" to="Door" method="_on_area_2d_mouse_exited"]
 
 [editable path="Door"]

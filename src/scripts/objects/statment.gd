@@ -58,9 +58,11 @@ func _on_button_up() -> void:
 ## Checks all Door nodes in the "doors" group to see if this statement was dropped on one.  
 ## If the statement text matches the door’s required statement, unlocks it and removes the statement.
 func _on_drop() -> void:
+	var my_rect = get_global_rect()
 	for door in get_tree().get_nodes_in_group("doors"):
-		if door is Door:
-			if door.contains_point(get_global_mouse_position()):
+		var door_rects = door.get_all_rects()
+		for rect in door_rects:
+			if my_rect.intersects(rect):
 				if door.statement_id_to_unlock == id:
 					print("Door unlocked with matching statement:", statement_text)
 					door.unlock()
