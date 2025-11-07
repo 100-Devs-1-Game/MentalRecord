@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mental Record"
-run/main_scene="uid://qwnvu8ckkpcy"
+run/main_scene="uid://dhj2i7vawwhnx"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
