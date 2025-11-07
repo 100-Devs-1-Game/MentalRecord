@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvl0gsfvf08x3"]
+
+[ext_resource type="Texture2D" uid="uid://cf808gct10pwk" path="res://assets/ui/BackButton.png" id="1_p7sup"]
+[ext_resource type="Script" uid="uid://dpyymeu5x0uv" path="res://scripts/UI/back_button.gd" id="2_aqcm7"]
+
+[node name="BackButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_aqcm7")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+icon = ExtResource("1_p7sup")
+flat = true
+icon_alignment = 1
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_pressed"]

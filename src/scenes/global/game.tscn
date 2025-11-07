@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://qwnvu8ckkpcy"]
+[gd_scene load_steps=3 format=3 uid="uid://qwnvu8ckkpcy"]
 
 [ext_resource type="PackedScene" uid="uid://x54ebkynsfi7" path="res://scenes/UI/inventory.tscn" id="1_88tbq"]
+[ext_resource type="PackedScene" uid="uid://bvl0gsfvf08x3" path="res://scenes/UI/back_button.tscn" id="2_n6osc"]
 
 [node name="Game" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inventory" parent="CanvasLayer" instance=ExtResource("1_88tbq")]
+
+[node name="BackButton" parent="CanvasLayer" instance=ExtResource("2_n6osc")]
+offset_left = 1827.0
+offset_top = 86.0
+offset_right = 1827.0
+offset_bottom = 86.0

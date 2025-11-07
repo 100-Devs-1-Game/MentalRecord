@@ -16,4 +16,8 @@ signal dialogue_removed(dialogue_id: String)
 ## @param is_open: True if the door is open, false if closed.
 signal door_state_changed(door_id: String, is_open: bool)
 
+## Emitted when the level stack is updated
+## @param stack_size: Size of level stack.
+signal level_stack_updated(stack_size: int)
+
 @warning_ignore_restore("unused_signal")
