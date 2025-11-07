@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name Door
 # Handles door locking, unlocking, and scene transitions.
 
@@ -9,38 +9,38 @@ class_name Door
 @export var unlocked_sprite: Texture2D
 @export var start_unlocked: bool
 @export var statement_id_to_unlock: String = "StatementID"
+@export var lie_text: String = "Lie"
 
 # --- onready variables ---
-@onready var sprite: Sprite2D = $Sprite2D
-@onready var area: Area2D = $Area2D
+@onready var sprite: TextureRect = $Sprite
+@onready var lie: Label = $Lie
 
 # --- built-in methods ---
 
 func _ready() -> void:
 	add_to_group("doors")
 	update_visual()
+	lie.text = lie_text
 	SignalBus.door_state_changed.connect(received_update_signal)
 
 # --- public methods ---
 
-## Checks if a global-space point lies within the visual bounds of this door.
-## @param point: Global mouse position or drop point.
-## @return bool: True if the point overlaps the sprite area.
-# ? Should I make it check if rect intersect? i think that will be better for players
-func contains_point(point: Vector2) -> bool:
-	var local_point = to_local(point)
-	var tex_size = sprite.texture.get_size() * sprite.scale
-	
-	var buffer = Vector2(10, 10) # 10 pixels extra on width and height
-	var rect = Rect2(-tex_size * 0.5 - buffer * 0.5, tex_size + buffer)
-	
-	return rect.has_point(local_point)
-
+## Returns all the rects that will respond to statement collisions
+func get_all_rects() -> Array[Rect2]:
+	var rects: Array[Rect2] = []
+	var sprite_rect = Rect2(
+		sprite.global_position - (sprite.texture.get_size() * sprite.scale / 2.0),
+		sprite.texture.get_size() * sprite.scale
+	)
+	rects.append(sprite_rect)
+	rects.append(lie.get_global_rect())
+	return rects
 
 ## Updates the door sprite to match its current locked/unlocked state.
 func update_visual() -> void:
 	if is_door_unlocked():
 		sprite.texture = unlocked_sprite
+		lie.hide()
 	else:
 		sprite.texture = locked_sprite
 
@@ -65,7 +65,7 @@ func unlock() -> void:
 ### --- private methods ---
 
 ## Handles mouse click events on the door.
-func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+func _on_sprite_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if is_door_unlocked():
 			SceneManager.change_room(target_scene)
@@ -73,13 +73,16 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			# TODO: Play locked-door sound or show hint.
 			pass
 
-## Slightly enlarges the door when hovered.
-func _on_area_2d_mouse_entered() -> void:
-	sprite.scale = Vector2(1.1, 1.1)
+## Adds outline when hovered.
+func _on_mouse_entered() -> void:
+	if (is_door_unlocked()):
+		if sprite.material is ShaderMaterial:
+			sprite.material.set_shader_parameter("show_outline", true)
 
-## Restores original scale when no longer hovered.
-func _on_area_2d_mouse_exited() -> void:
-	sprite.scale = Vector2(1, 1)
+## Removes outline when no longer hovered.
+func _on_mouse_exited() -> void:
+	if sprite.material is ShaderMaterial:
+			sprite.material.set_shader_parameter("show_outline", false)
 
 ## Responds to door-state updates from other systems via SignalBus.
 ## @param updated_door_id: Unique door ID that changed.
@@ -87,11 +90,3 @@ func _on_area_2d_mouse_exited() -> void:
 func received_update_signal(updated_door_id: String, _is_open: bool) -> void:
 	if door_id == updated_door_id:
 		update_visual()
-
-# for debug
-# func _draw():
-# 	if sprite.texture:
-# 		var tex_size = sprite.texture.get_size() * sprite.scale
-# 		var buffer = Vector2(10, 10) # 10 pixels extra on width and height
-# 		var rect = Rect2(-tex_size * 0.5 - buffer * 0.5, tex_size + buffer)
-# 		draw_rect(rect, Color(1, 0, 0, 0.5), false) # red outline

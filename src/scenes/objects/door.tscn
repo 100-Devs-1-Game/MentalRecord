@@ -1,19 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq1v33lmadmcd"]
+[gd_scene load_steps=3 format=3 uid="uid://cq1v33lmadmcd"]
 
 [ext_resource type="Script" uid="uid://lh0bkv4n03f4" path="res://scripts/objects/door.gd" id="1_yar34"]
+[ext_resource type="Texture2D" uid="uid://mecr3f443kgk" path="res://assets/ui/PurpleBubble9Slice.png" id="2_uw3m6"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_ofk05"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yar34"]
-size = Vector2(95, 95)
-
-[node name="Door" type="Node2D"]
+[node name="Door" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_yar34")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("ImageTexture_ofk05")
+[node name="Lie" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -95.0
+offset_right = 35.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0.5, 0.5)
+text = "LieText"
+horizontal_alignment = 1
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Lie"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19793725, 0.19793722, 0.19793722, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_yar34")
+[node name="Sprite" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uw3m6")
+stretch_mode = 3
+
+[connection signal="gui_input" from="Sprite" to="." method="_on_sprite_gui_input"]
+[connection signal="mouse_entered" from="Sprite" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite" to="." method="_on_mouse_exited"]
