@@ -9,6 +9,7 @@ extends Node
 # --- private variables ---
 var _dialogues: Dictionary[String, Dictionary] = {} ## Keys = dialogue_id, Values = metadata.
 var _doors: Dictionary[String, bool] = {} ## Keys = door_id, Values = true if open.
+var _discovered_speakers: Array = []
 
 # --- public methods ---
 
@@ -22,6 +23,12 @@ func add_dialogue(dialogue_id: String, meta: Dictionary = {}) -> bool:
 	if _dialogues.size() >= capacity:
 		return false
 	_dialogues[dialogue_id] = meta.duplicate()
+	
+	# Add to discovered speakers
+	var speaker = meta["speaker"]
+	if not _discovered_speakers.has(speaker):
+		_discovered_speakers.append(speaker)
+	
 	SignalBus.emit_signal("dialogue_added", dialogue_id)
 	return true
 
@@ -51,6 +58,17 @@ func get_collected_statements(speaker_filter: String = "") -> Array:
 ## @return True if the dialogue exists in the collection.
 func has_dialogue(dialogue_id: String) -> bool:
 	return _dialogues.has(dialogue_id)
+	
+## Gets the dictionary assicoated with the dialogue id.
+## @param dialogue_id: The ID to get.
+## @return Dictionary if the dialogue exists in the collection, otherwise null.
+func get_dialogue(dialogue_id: String) -> Dictionary:
+	return _dialogues.get(dialogue_id)
+	
+## Gets the list of discovered speakers
+## @return Array of discovered speakers
+func get_discovered_speakers() -> Array:
+	return _discovered_speakers
 
 ## Sets the state of a door (open or closed).
 ## @param door_id: Unique ID of the door.
@@ -71,6 +89,7 @@ func is_door_open(door_id: String) -> bool:
 func to_dict() -> Dictionary:
 	return {
 		"dialogues": _dialogues.duplicate(true),
+		"discovered_speakers": _discovered_speakers.duplicate(),
 		"doors": _doors.duplicate()
 	}
 
@@ -78,6 +97,7 @@ func to_dict() -> Dictionary:
 ## @param data: Dictionary in the format returned by to_dict().
 func from_dict(data: Dictionary) -> void:
 	_dialogues = data.get("dialogues", {}).duplicate(true)
+	_discovered_speakers = data.get("discovered_speakers", []).duplicate()
 	_doors = data.get("doors", {}).duplicate()
 
 # --- save system ---
