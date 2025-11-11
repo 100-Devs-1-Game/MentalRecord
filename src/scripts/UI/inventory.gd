@@ -30,6 +30,7 @@ func refresh_list() -> void:
 	var statements = InventoryManager.get_collected_statements(speaker_filter)
 	for statement in statements:
 		var btn = statement_item_scene.instantiate()
+		btn.canvas_parent = self
 		btn.set_meta_info(statement)
 		inv_slots.add_child(btn)
 
