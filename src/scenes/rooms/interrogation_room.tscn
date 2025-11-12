@@ -26,7 +26,6 @@ target_scene = "res://scenes/rooms/room_a1.tscn"
 locked_sprite = ExtResource("2_ojdsf")
 unlocked_sprite = ExtResource("3_m0xdu")
 statement_id_to_unlock = "sa1"
-metadata/depth = 0.9
 
 [node name="Sprite" parent="Background/Door" index="1"]
 material = ExtResource("4_xwctq")
