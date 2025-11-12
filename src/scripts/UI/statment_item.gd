@@ -1,0 +1,139 @@
+extends Button
+class_name StatementItem
+# Represents a draggable statement button that can be dropped on a Door to unlock it.
+
+# --- exported variables ---
+@export var meta: Dictionary = {}
+
+# --- public variables ---
+var canvas_parent: Control = null
+
+# --- internal state ---
+var is_dragging: bool = false
+var drag_offset: Vector2 = Vector2.ZERO
+var original_parent: Control = null
+var original_pos: Vector2 = Vector2.ZERO
+var original_index := -1
+var placeholder: Control = null
+var _return_tween = null  # SceneTreeTween | null
+
+# --- built-in methods ---
+
+func _ready() -> void:
+	set_process_input(true)
+
+func _process(_delta: float) -> void:
+	if is_dragging:
+		global_position = get_global_mouse_position() - drag_offset
+		
+## --- public methods ---
+
+## Sets the meta and updates variables
+func set_meta_info(new_meta: Dictionary) -> void:
+	meta = new_meta.duplicate()
+	text = meta["text"]
+
+# --- signal handlers ---
+
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed and get_global_rect().has_point(get_global_mouse_position()):
+			drag_offset = get_global_mouse_position() - global_position
+			_start_drag()
+		elif not event.pressed and is_dragging:
+			_end_drag()
+
+## Starts dragging if the statement is already in the UI.	
+func _start_drag() -> void:
+	if (_return_tween != null):
+		return
+	is_dragging = true
+	original_pos = global_position
+	original_parent = get_parent()
+	original_index = original_parent.get_children().find(self)
+	
+	# Create a placeholder to maintain space in the VBox
+	placeholder = Control.new()
+	placeholder.custom_minimum_size = size
+	original_parent.add_child(placeholder)
+	original_parent.move_child(placeholder, original_index)
+	
+	# Cancel any running return tween when user grabs the button.
+	if _return_tween != null:
+		_return_tween.kill()
+		_return_tween = null
+		
+	# Move to canvas panel so it’s not clipped
+	original_parent.remove_child(self)
+	canvas_parent.add_child(self)
+	position = original_pos
+
+## Stops dragging and attempts to drop the statement on a Door.
+func _on_button_up() -> void:
+	_end_drag()
+
+func _end_drag() -> void:
+	if is_dragging:
+		is_dragging = false
+		_on_drop()
+
+# --- private methods ---
+
+## Performs drop logic when the button is released.  
+## Checks all Door nodes in the "doors" group to see if this statement was dropped on one.  
+## If the statement text matches the door’s required statement, unlocks it and removes the statement.
+func _on_drop() -> void:
+	var my_rect = get_global_rect()
+	for door in get_tree().get_nodes_in_group("doors"):
+		var door_rects = door.get_all_rects()
+		for rect in door_rects:
+			if my_rect.intersects(rect):
+				if door.statement_id_to_unlock == meta["id"]:
+					queue_free()
+					_remove_placeholder()
+					door.unlock()
+					return
+				else:
+					_reject(door)
+					return
+	# No door matched
+	_reject(null)
+
+## Called when the statement is dropped on an invalid or non-matching area.  
+## Plays a smooth return animation (tween) back to the original position.
+## Cancels any previous return tween before creating a new one.
+## @param door: The Door or object where the drop failed (may be null).
+func _reject(door) -> void:
+	print("Drop rejected by ", door)
+
+	# ensure dragging stopped
+	is_dragging = false
+
+	# cancel any existing tween
+	if _return_tween != null:
+		_return_tween.kill()
+		_return_tween = null
+
+	# create a short tween to return to original_pos
+	# adjust duration and easing as needed
+	_return_tween = create_tween()
+	_return_tween.tween_property(self, "global_position", original_pos, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	# clear the reference when done
+	_return_tween.connect("finished", Callable(self, "_on_return_tween_finished"))
+
+func _on_return_tween_finished() -> void:
+	_return_tween = null
+	
+	var root = get_parent()
+	root.remove_child(self)
+	original_parent.add_child(self)
+	original_parent.move_child(self, original_index)
+	position = Vector2.ZERO
+	
+	_remove_placeholder()
+	
+func _remove_placeholder() -> void:
+	# Remove placeholder
+	if placeholder:
+		placeholder.queue_free()
+		placeholder = null

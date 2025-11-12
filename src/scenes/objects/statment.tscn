@@ -3,20 +3,10 @@
 [ext_resource type="Script" uid="uid://bxg2ixm6hvdgw" path="res://scripts/objects/statment.gd" id="1_g2w7l"]
 
 [node name="Statment" type="Button"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -45.5
-offset_top = -15.5
-offset_right = 45.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 128.0
+offset_bottom = 40.0
 text = "STATMENT"
+text_overrun_behavior = 3
 script = ExtResource("1_g2w7l")
 
-[connection signal="button_down" from="." to="." method="_on_button_down"]
-[connection signal="button_up" from="." to="." method="_on_button_up"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

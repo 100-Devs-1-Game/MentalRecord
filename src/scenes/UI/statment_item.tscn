@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://boydtsnmtwq1x"]
+
+[ext_resource type="Script" uid="uid://dvh6hq4ou3tc6" path="res://scripts/UI/statment_item.gd" id="1_ehj32"]
+
+[node name="StatmentItem" type="Button"]
+offset_right = 128.0
+offset_bottom = 40.0
+text = "STATMENT"
+text_overrun_behavior = 4
+autowrap_mode = 3
+script = ExtResource("1_ehj32")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

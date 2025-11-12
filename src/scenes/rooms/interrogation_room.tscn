@@ -25,18 +25,63 @@ material = ExtResource("4_xwctq")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Statment" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
-offset_left = -336.0
-offset_top = -321.0
-offset_right = -245.0
-offset_bottom = -290.0
-id = "sa1"
+offset_left = 685.0
+offset_top = 347.0
+offset_right = 776.0
+offset_bottom = 378.0
+default_meta = {
+"collected": false,
+"id": "sa1",
+"speaker": "a",
+"text": "Statement"
+}
 
 [node name="Statment2" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
-offset_left = -377.0
-offset_top = -261.0
-offset_right = -286.0
-offset_bottom = -230.0
-id = "sa2"
-statement_text = "wrong"
+offset_left = 644.0
+offset_top = 407.0
+offset_right = 735.0
+offset_bottom = 438.0
+default_meta = {
+"collected": false,
+"id": "sa2",
+"speaker": "a",
+"text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+}
+
+[node name="Statment3" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
+offset_left = 387.0
+offset_top = 111.0
+offset_right = 478.0
+offset_bottom = 142.0
+default_meta = {
+"collected": false,
+"id": "sa3",
+"speaker": "a",
+"text": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+}
+
+[node name="Statment4" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
+offset_left = 915.0
+offset_top = 201.0
+offset_right = 1006.0
+offset_bottom = 232.0
+default_meta = {
+"collected": false,
+"id": "sa4",
+"speaker": "a",
+"text": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+}
+
+[node name="Statment5" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
+offset_left = 318.0
+offset_top = 462.0
+offset_right = 409.0
+offset_bottom = 493.0
+default_meta = {
+"collected": false,
+"id": "sa5",
+"speaker": "a",
+"text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
+}
 
 [editable path="Door"]

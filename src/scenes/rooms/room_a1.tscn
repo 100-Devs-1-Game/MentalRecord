@@ -1,9 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0tr8yt6n4jwr"]
+[gd_scene load_steps=3 format=3 uid="uid://b0tr8yt6n4jwr"]
 
 [ext_resource type="Texture2D" uid="uid://dhen58e6khlm0" path="res://assets/ui/Paper9Slice.png" id="1_weh1r"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="2_h7444"]
 
 [node name="RoomA1" type="Node2D"]
 
 [node name="Paper9Slice" type="Sprite2D" parent="."]
 position = Vector2(560, 61)
 texture = ExtResource("1_weh1r")
+
+[node name="Statment6" parent="." instance=ExtResource("2_h7444")]
+offset_left = 922.0
+offset_top = 425.0
+offset_right = 1013.0
+offset_bottom = 456.0
+default_meta = {
+"collected": false,
+"id": "sb6",
+"speaker": "b",
+"text": "Blah blah blah"
+}
+
+[node name="Statment7" parent="." instance=ExtResource("2_h7444")]
+offset_left = 1190.0
+offset_top = 592.0
+offset_right = 1281.0
+offset_bottom = 623.0
+default_meta = {
+"collected": false,
+"id": "sb7",
+"speaker": "b",
+"text": "Blah blah blah"
+}
