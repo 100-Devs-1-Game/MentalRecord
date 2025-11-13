@@ -28,7 +28,7 @@ func _ready() -> void:
 	lie.text = lie_text
 	SignalBus.door_state_changed.connect(received_update_signal)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if use_3d_anchor and anchor_marker and camera:
 		update_3d_position()
 
@@ -37,14 +37,10 @@ func update_3d_position() -> void:
 	# Project the 3D marker position to screen space
 	var screen_pos = camera.unproject_position(anchor_marker.global_transform.origin)
 	
-	# Optionally hide if behind the camera
-	if screen_pos.z < 0:
-		hide()
-		return
+	visible = not get_viewport().get_camera_3d().is_position_behind(anchor_marker.global_transform.origin)
 	
 	# Move Control to projected position
 	position = screen_pos
-	show()
 
 # --- public methods ---
 
