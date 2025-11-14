@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bskk16xpsru6p"]
+
+[ext_resource type="Script" uid="uid://dffrhh5nadfl7" path="res://scripts/objects/door3d.gd" id="1_7soci"]
+[ext_resource type="Texture2D" uid="uid://mecr3f443kgk" path="res://assets/ui/PurpleBubble9Slice.png" id="2_352f5"]
+[ext_resource type="Texture2D" uid="uid://dhen58e6khlm0" path="res://assets/ui/Paper9Slice.png" id="3_goltf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_352f5"]
+size = Vector3(1, 1, 0.44140625)
+
+[node name="door3d" type="StaticBody3D"]
+script = ExtResource("1_7soci")
+door_id = "da1"
+target_scene = "res://scenes/rooms/room_a1.tscn"
+statement_id_to_unlock = "sa1"
+texture_locked = ExtResource("2_352f5")
+texture_unlocked = ExtResource("3_goltf")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.013671875)
+shape = SubResource("BoxShape3D_352f5")

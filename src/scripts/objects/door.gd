@@ -1,6 +1,6 @@
 extends Control
 class_name Door
-# Handles door locking, unlocking, and scene transitions.
+# Handles door locking, unlocking, and scene transitions, with optional 3D anchoring.
 
 # --- exported variables ---
 @export var door_id: String
@@ -14,6 +14,7 @@ class_name Door
 # --- onready variables ---
 @onready var sprite: TextureRect = $Sprite
 @onready var lie: Label = $Lie
+@onready var camera: Camera3D = get_viewport().get_camera_3d()
 
 # --- built-in methods ---
 
@@ -22,6 +23,7 @@ func _ready() -> void:
 	update_visual()
 	lie.text = lie_text
 	SignalBus.door_state_changed.connect(received_update_signal)
+
 
 # --- public methods ---
 
@@ -82,7 +84,7 @@ func _on_mouse_entered() -> void:
 ## Removes outline when no longer hovered.
 func _on_mouse_exited() -> void:
 	if sprite.material is ShaderMaterial:
-			sprite.material.set_shader_parameter("show_outline", false)
+		sprite.material.set_shader_parameter("show_outline", false)
 
 ## Responds to door-state updates from other systems via SignalBus.
 ## @param updated_door_id: Unique door ID that changed.
