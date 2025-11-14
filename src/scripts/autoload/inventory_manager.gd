@@ -48,13 +48,21 @@ func remove_dialogue(dialogue_id: String) -> bool:
 	SignalBus.emit_signal("dialogue_removed", dialogue_id)
 	return true
 	
+## Sets the "used" flag on a statement
+## @param dialogue_id: The ID to update
+func set_dialogue_used(dialogue_id: String) -> void:
+	if not _dialogues.has(dialogue_id):
+		return
+	var data: Dictionary = _dialogues.get(dialogue_id)
+	data.set("used", true)
+	
 ## Returns an array of collected statements
 ## @param speaker_filter: The value to filter the "speaker" field by
 func get_collected_statements(speaker_filter: String = "") -> Array:
 	var results = []
 	for key in _dialogues.keys():
 		var data = _dialogues[key]
-		if data.get("collected", false):
+		if data.get("collected", false) and not data.get("used", false):
 			if speaker_filter == "" or data.get("speaker", "") == speaker_filter:
 				results.append(data)
 	return results
