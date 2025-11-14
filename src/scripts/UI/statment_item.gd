@@ -89,6 +89,7 @@ func _on_drop() -> void:
 		for rect in door_rects:
 			if my_rect.intersects(rect):
 				if door.statement_id_to_unlock == meta["id"]:
+					InventoryManager.set_dialogue_used(meta["id"])
 					queue_free()
 					_remove_placeholder()
 					door.unlock()

@@ -8,6 +8,7 @@ class_name Statement
 	"text": "Statement",
 	"speaker": "",
 	"collected": false,
+	"used": false
 }
 
 # --- built-in methods ---
