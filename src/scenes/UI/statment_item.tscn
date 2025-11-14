@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://boydtsnmtwq1x"]
+[gd_scene load_steps=3 format=3 uid="uid://boydtsnmtwq1x"]
 
 [ext_resource type="Script" uid="uid://dvh6hq4ou3tc6" path="res://scripts/UI/statment_item.gd" id="1_ehj32"]
+[ext_resource type="Theme" uid="uid://p0hn422nuqnl" path="res://themes/statement_item.tres" id="1_rq0ax"]
 
 [node name="StatmentItem" type="Button"]
-offset_right = 128.0
-offset_bottom = 40.0
+offset_right = 265.0
+offset_bottom = 87.0
+theme = ExtResource("1_rq0ax")
 text = "STATMENT"
 text_overrun_behavior = 4
 autowrap_mode = 3

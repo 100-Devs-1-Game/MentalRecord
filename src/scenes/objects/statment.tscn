@@ -1,12 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3usjuo7k3r75"]
+[gd_scene load_steps=4 format=3 uid="uid://d3usjuo7k3r75"]
 
 [ext_resource type="Script" uid="uid://bxg2ixm6hvdgw" path="res://scripts/objects/statment.gd" id="1_g2w7l"]
+[ext_resource type="Material" uid="uid://iych61o7e7oh" path="res://materials/line_jitter_material.tres" id="1_lm36j"]
+[ext_resource type="Theme" uid="uid://2bjpa5xjl22y" path="res://themes/statement.tres" id="1_nbp4k"]
 
 [node name="Statment" type="Button"]
+material = ExtResource("1_lm36j")
+custom_minimum_size = Vector2(256, 0)
 offset_right = 128.0
-offset_bottom = 40.0
+offset_bottom = 87.0
+theme = ExtResource("1_nbp4k")
 text = "STATMENT"
-text_overrun_behavior = 3
+text_overrun_behavior = 5
 script = ExtResource("1_g2w7l")
+metadata/depth = 1.0
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

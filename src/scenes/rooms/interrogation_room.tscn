@@ -30,14 +30,11 @@ statement_id_to_unlock = "sa1"
 [node name="Sprite" parent="Background/Door" index="1"]
 material = ExtResource("4_xwctq")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
-
-[node name="Statment" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
-offset_left = 685.0
-offset_top = 347.0
-offset_right = 776.0
-offset_bottom = 378.0
+[node name="Statment" parent="Background" instance=ExtResource("5_xwctq")]
+offset_left = 4.0
+offset_top = -386.0
+offset_right = 260.0
+offset_bottom = -299.0
 default_meta = {
 "collected": false,
 "id": "sa1",
@@ -45,11 +42,11 @@ default_meta = {
 "text": "Statement"
 }
 
-[node name="Statment2" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
-offset_left = 644.0
-offset_top = 407.0
-offset_right = 735.0
-offset_bottom = 438.0
+[node name="Statment2" parent="Background" instance=ExtResource("5_xwctq")]
+offset_left = 361.0
+offset_top = 152.0
+offset_right = 617.0
+offset_bottom = 239.0
 default_meta = {
 "collected": false,
 "id": "sa2",
@@ -57,11 +54,11 @@ default_meta = {
 "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 }
 
-[node name="Statment3" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
-offset_left = 387.0
-offset_top = 111.0
-offset_right = 478.0
-offset_bottom = 142.0
+[node name="Statment3" parent="Background" instance=ExtResource("5_xwctq")]
+offset_left = -342.0
+offset_top = -142.0
+offset_right = -86.0
+offset_bottom = -55.0
 default_meta = {
 "collected": false,
 "id": "sa3",
@@ -69,11 +66,11 @@ default_meta = {
 "text": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
 }
 
-[node name="Statment4" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
-offset_left = 915.0
-offset_top = 201.0
-offset_right = 1006.0
-offset_bottom = 232.0
+[node name="Statment4" parent="Background" instance=ExtResource("5_xwctq")]
+offset_left = 416.0
+offset_top = -219.0
+offset_right = 672.0
+offset_bottom = -132.0
 default_meta = {
 "collected": false,
 "id": "sa4",
@@ -81,11 +78,11 @@ default_meta = {
 "text": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 }
 
-[node name="Statment5" parent="CanvasLayer" instance=ExtResource("5_xwctq")]
-offset_left = 318.0
-offset_top = 462.0
-offset_right = 409.0
-offset_bottom = 493.0
+[node name="Statment5" parent="Background" instance=ExtResource("5_xwctq")]
+offset_left = -219.0
+offset_top = 166.0
+offset_right = 37.0
+offset_bottom = 253.0
 default_meta = {
 "collected": false,
 "id": "sa5",
