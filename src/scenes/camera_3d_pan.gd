@@ -19,10 +19,10 @@ func _process(_delta) -> void:
 
 	# Apply offset (invert X to make it feel natural)
 	var target = _base_position + Vector3(
-		offset.x * -pan_strength,
-		offset.y *  pan_strength,
+		offset.x * pan_strength,
+		offset.y * -pan_strength,
 		0.0
 	)
 
 	# Smooth movement
-	global_position = global_position.lerp(target, 0.1)
+	global_position = target
