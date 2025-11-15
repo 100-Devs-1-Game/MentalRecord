@@ -4,6 +4,7 @@ extends VBoxContainer
 ## --- exported variables ---
 @export var game_scene: String
 @export var credits_scene: String
+@export var settings: Control
 
 ## --- private methods ---
 
@@ -17,6 +18,10 @@ func _new_game() -> void:
 func _load_game() -> void:
 	get_tree().change_scene_to_file(game_scene)
 	SceneManager.load_start_room()
+	
+## Opens the settings menu
+func _open_settings() -> void:
+	settings.show()
 	
 ## Loads credits scene
 func _goto_credits() -> void:

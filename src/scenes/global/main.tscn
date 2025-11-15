@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhj2i7vawwhnx"]
+[gd_scene load_steps=3 format=3 uid="uid://dhj2i7vawwhnx"]
 
 [ext_resource type="Script" uid="uid://v3ot1ydrxl8b" path="res://scripts/menu/main_menu_buttons.gd" id="1_1y04j"]
+[ext_resource type="PackedScene" uid="uid://brtlbuty384ai" path="res://scenes/UI/settings.tscn" id="2_klkgf"]
 
-[node name="MarginContainer" type="MarginContainer"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,59 +25,64 @@ theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 120
 
-[node name="HSplitContainer" type="HBoxContainer" parent="."]
+[node name="HSplitContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="Title" type="TextureRect" parent="HSplitContainer/VBoxContainer"]
+[node name="Title" type="TextureRect" parent="MarginContainer/HSplitContainer/VBoxContainer"]
 layout_mode = 2
 stretch_mode = 4
 
-[node name="MenuContainer" type="VBoxContainer" parent="HSplitContainer/VBoxContainer"]
+[node name="MenuContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/VBoxContainer" node_paths=PackedStringArray("settings")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 alignment = 1
 script = ExtResource("1_1y04j")
 game_scene = "res://scenes/global/game.tscn"
+settings = NodePath("../../../../Settings")
 
-[node name="NewGameButton" type="Button" parent="HSplitContainer/VBoxContainer/MenuContainer"]
+[node name="NewGameButton" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "New Game"
 
-[node name="ContinueButton" type="Button" parent="HSplitContainer/VBoxContainer/MenuContainer"]
+[node name="ContinueButton" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "Continue"
 
-[node name="SettingsButton" type="Button" parent="HSplitContainer/VBoxContainer/MenuContainer"]
+[node name="SettingsButton" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "Settings"
 
-[node name="CreditsButton" type="Button" parent="HSplitContainer/VBoxContainer/MenuContainer"]
+[node name="CreditsButton" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "Credits"
 
-[node name="QuitButton" type="Button" parent="HSplitContainer/VBoxContainer/MenuContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "Quit"
 
-[node name="Version" type="Label" parent="HSplitContainer/VBoxContainer"]
+[node name="Version" type="Label" parent="MarginContainer/HSplitContainer/VBoxContainer"]
 layout_mode = 2
 text = "v0.1"
 
-[node name="CenterContainer" type="CenterContainer" parent="HSplitContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Graphic" type="TextureRect" parent="HSplitContainer/CenterContainer"]
+[node name="Graphic" type="TextureRect" parent="MarginContainer/HSplitContainer/CenterContainer"]
 layout_mode = 2
 stretch_mode = 4
 
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/MenuContainer/NewGameButton" to="HSplitContainer/VBoxContainer/MenuContainer" method="_new_game"]
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/MenuContainer/ContinueButton" to="HSplitContainer/VBoxContainer/MenuContainer" method="_load_game"]
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/MenuContainer/SettingsButton" to="HSplitContainer/VBoxContainer/MenuContainer" method="_goto_credits"]
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/MenuContainer/CreditsButton" to="HSplitContainer/VBoxContainer/MenuContainer" method="_goto_credits"]
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/MenuContainer/QuitButton" to="HSplitContainer/VBoxContainer/MenuContainer" method="_quit_game"]
+[node name="Settings" parent="." instance=ExtResource("2_klkgf")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer/NewGameButton" to="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer" method="_new_game"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer/ContinueButton" to="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer" method="_load_game"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer/SettingsButton" to="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer" method="_open_settings"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer/CreditsButton" to="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer" method="_goto_credits"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer/QuitButton" to="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer" method="_quit_game"]
