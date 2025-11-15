@@ -32,6 +32,19 @@ func _process(_delta: float) -> void:
 func set_meta_info(new_meta: Dictionary) -> void:
 	meta = new_meta.duplicate()
 	text = meta["text"]
+	if (new_meta["new"]):
+		do_reveal()
+	
+## --- private methods ---
+func do_reveal():
+	var original_material = material
+	var unique_material = original_material.duplicate()
+	material = unique_material
+	
+	var tween := create_tween()
+	tween.tween_method(func(p):
+		material.set_shader_parameter("progress", p)
+	, 1.0, 0.0, 0.5)
 
 # --- signal handlers ---
 

@@ -43,8 +43,9 @@ func refresh_list(filter_speaker: String = "") -> void:
 	for statement in statements:
 		var btn = statement_item_scene.instantiate()
 		btn.canvas_parent = self
-		btn.set_meta_info(statement)
 		inv_slots.add_child(btn)
+		btn.set_meta_info(statement)
+		statement["new"] = false
 		
 ## --- listener methods ---
 

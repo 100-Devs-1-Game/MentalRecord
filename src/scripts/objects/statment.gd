@@ -8,7 +8,8 @@ class_name Statement
 	"text": "Statement",
 	"speaker": "",
 	"collected": false,
-	"used": false
+	"used": false,
+	"new": true
 }
 
 # --- private variables ---
@@ -32,6 +33,8 @@ func _on_pressed() -> void:
 		return
 	var id = default_meta["id"]
 	default_meta["collected"] = true
+	default_meta["used"] = false
+	default_meta["new"] = true
 
 	InventoryManager.add_dialogue(id, default_meta.duplicate())
 	

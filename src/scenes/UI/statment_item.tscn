@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://boydtsnmtwq1x"]
+[gd_scene load_steps=5 format=3 uid="uid://boydtsnmtwq1x"]
 
 [ext_resource type="Script" uid="uid://dvh6hq4ou3tc6" path="res://scripts/UI/statment_item.gd" id="1_ehj32"]
 [ext_resource type="Theme" uid="uid://p0hn422nuqnl" path="res://themes/statement_item.tres" id="1_rq0ax"]
+[ext_resource type="Shader" uid="uid://dwwapkff5uikt" path="res://shaders/wipe.gdshader" id="1_y7jtu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jn6uv"]
+shader = ExtResource("1_y7jtu")
+shader_parameter/progress = 0.0
+shader_parameter/move_amount = 1.0
+shader_parameter/fade_start = 1.0
 
 [node name="StatmentItem" type="Button"]
+material = SubResource("ShaderMaterial_jn6uv")
 offset_right = 265.0
 offset_bottom = 87.0
 theme = ExtResource("1_rq0ax")
