@@ -4,6 +4,7 @@ class_name GameManager
 
 ## --- onready variables ---
 @onready var pause_menu: Control = $CanvasLayer/PauseMenu
+@onready var settings: Control = $CanvasLayer/Settings
 
 ## --- public variables ---
 var paused = false
@@ -28,3 +29,7 @@ func toggle_pause() -> void:
 		Engine.time_scale = 0
 		
 	paused = !paused
+	
+## Pauses or unpauses the game
+func open_settings() -> void:
+	settings.show()

@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mko1u"]
 shader = ExtResource("2_bl585")
 shader_parameter/amount = 3.0000001425
-shader_parameter/tint_color = Color(0.9155859, 0.54199624, 0.98931056, 1)
+shader_parameter/tint_color = Color(0.957, 0.792, 0.99, 1)
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3

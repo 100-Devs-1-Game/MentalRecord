@@ -13,7 +13,7 @@ func _on_resume_pressed() -> void:
 	game.toggle_pause()
 
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	game.open_settings()
 
 func _on_quit_pressed() -> void:
 	# Return to main menu

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://qwnvu8ckkpcy"]
+[gd_scene load_steps=7 format=3 uid="uid://qwnvu8ckkpcy"]
 
 [ext_resource type="PackedScene" uid="uid://x54ebkynsfi7" path="res://scenes/UI/inventory.tscn" id="1_88tbq"]
 [ext_resource type="Script" uid="uid://bvvws720f0bce" path="res://scripts/game_manager.gd" id="1_k5k1s"]
 [ext_resource type="PackedScene" uid="uid://bvl0gsfvf08x3" path="res://scenes/UI/back_button.tscn" id="2_n6osc"]
 [ext_resource type="PackedScene" uid="uid://b5334jomq2ckf" path="res://scenes/UI/pause_menu.tscn" id="3_oib67"]
 [ext_resource type="PackedScene" uid="uid://dy7mamrbbl62h" path="res://scenes/UI/menu_button.tscn" id="4_hcul0"]
+[ext_resource type="PackedScene" uid="uid://brtlbuty384ai" path="res://scenes/UI/settings.tscn" id="6_qawow"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_k5k1s")
@@ -28,3 +29,6 @@ offset_left = 73.0
 offset_top = 53.0
 offset_right = 73.0
 offset_bottom = 53.0
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("6_qawow")]
+visible = false
