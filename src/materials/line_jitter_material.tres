@@ -1,6 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://iych61o7e7oh"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://iych61o7e7oh"]
 
 [ext_resource type="Shader" uid="uid://c3kedlvm0tag8" path="res://shaders/line_jitter.gdshader" id="1_54an4"]
+[ext_resource type="Texture2D" uid="uid://w6t3kim5l1xn" path="res://textures/dissolve_noise.tres" id="2_m8t2e"]
 
 [resource]
 shader = ExtResource("1_54an4")
@@ -8,3 +9,5 @@ shader_parameter/shaking = true
 shader_parameter/amplitude = 2.0
 shader_parameter/noise_scale = 20.0
 shader_parameter/noise_speed = 2.0
+shader_parameter/dissolve_texture = ExtResource("2_m8t2e")
+shader_parameter/dissolve_value = 0.0

@@ -5,6 +5,9 @@ uniform float amplitude    = 1.0;
 uniform float noise_scale  = 20.0;
 uniform float noise_speed  = 20.0;
 
+uniform sampler2D dissolve_texture : hint_default_black;
+uniform float dissolve_value : hint_range(0,1);
+
 float hash(vec2 p) {
   return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453123);
 }
@@ -42,6 +45,11 @@ void fragment() {
 
     // Offset along a random direction
     vec2 uv2 = uv + rand_dir * off * TEXTURE_PIXEL_SIZE;
+
     COLOR = texture(TEXTURE, uv2);
+
+	// Calculate disolve
+	vec4 noise_texture = texture(dissolve_texture, UV);
+	COLOR.a *= floor((1.0 - dissolve_value) + min(1, noise_texture.x)) * min(1.0, (1.0 - dissolve_value)*2.0);
   }
 }
