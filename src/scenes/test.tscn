@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3kr4u5uw6pbj"]
+[gd_scene load_steps=9 format=3 uid="uid://c3kr4u5uw6pbj"]
 
+[ext_resource type="Script" uid="uid://c3wivtbuttsvf" path="res://scenes/camera_3d_pan.gd" id="1_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="2_bl13t"]
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="2_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://bskk16xpsru6p" path="res://scenes/objects/door3d.tscn" id="3_iyx0m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bl13t"]
@@ -28,22 +30,25 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
+script = ExtResource("1_iyx0m")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38754648, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6591751, 0)
 mesh = SubResource("BoxMesh_bl13t")
 
 [node name="door3d" parent="." instance=ExtResource("3_iyx0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1119852, -4.648307)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056062818, 0.7035291, -4.648307)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
 
-[node name="Statment" parent="CanvasLayer" instance=ExtResource("2_bl13t")]
+[node name="Background" parent="CanvasLayer" instance=ExtResource("2_iyx0m")]
+
+[node name="Statment" parent="CanvasLayer/Background" instance=ExtResource("2_bl13t")]
 offset_left = 685.0
 offset_top = 347.0
-offset_right = 776.0
-offset_bottom = 378.0
+offset_right = 941.0
+offset_bottom = 439.0
 default_meta = {
 "collected": false,
 "id": "sa1",
@@ -51,11 +56,11 @@ default_meta = {
 "text": "Statement"
 }
 
-[node name="Statment2" parent="CanvasLayer" instance=ExtResource("2_bl13t")]
-offset_left = 644.0
-offset_top = 407.0
-offset_right = 735.0
-offset_bottom = 438.0
+[node name="Statment2" parent="CanvasLayer/Background" instance=ExtResource("2_bl13t")]
+offset_left = 850.0
+offset_top = 620.0
+offset_right = 1106.0
+offset_bottom = 712.0
 default_meta = {
 "collected": false,
 "id": "sa2",
@@ -63,11 +68,11 @@ default_meta = {
 "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 }
 
-[node name="Statment3" parent="CanvasLayer" instance=ExtResource("2_bl13t")]
+[node name="Statment3" parent="CanvasLayer/Background" instance=ExtResource("2_bl13t")]
 offset_left = 387.0
 offset_top = 111.0
-offset_right = 478.0
-offset_bottom = 142.0
+offset_right = 643.0
+offset_bottom = 203.0
 default_meta = {
 "collected": false,
 "id": "sa3",
@@ -75,11 +80,11 @@ default_meta = {
 "text": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
 }
 
-[node name="Statment4" parent="CanvasLayer" instance=ExtResource("2_bl13t")]
+[node name="Statment4" parent="CanvasLayer/Background" instance=ExtResource("2_bl13t")]
 offset_left = 915.0
 offset_top = 201.0
-offset_right = 1006.0
-offset_bottom = 232.0
+offset_right = 1171.0
+offset_bottom = 293.0
 default_meta = {
 "collected": false,
 "id": "sa4",
@@ -87,11 +92,11 @@ default_meta = {
 "text": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 }
 
-[node name="Statment5" parent="CanvasLayer" instance=ExtResource("2_bl13t")]
+[node name="Statment5" parent="CanvasLayer/Background" instance=ExtResource("2_bl13t")]
 offset_left = 318.0
 offset_top = 462.0
-offset_right = 409.0
-offset_bottom = 493.0
+offset_right = 574.0
+offset_bottom = 554.0
 default_meta = {
 "collected": false,
 "id": "sa5",
