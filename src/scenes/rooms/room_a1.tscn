@@ -17,7 +17,7 @@ offset_bottom = 517.0
 default_meta = {
 "collected": false,
 "id": "sb6",
-"speaker": "b",
+"speaker": "Activist",
 "text": "Blah blah blah"
 }
 
@@ -29,6 +29,6 @@ offset_bottom = 684.0
 default_meta = {
 "collected": false,
 "id": "sb7",
-"speaker": "b",
+"speaker": "Activist",
 "text": "Blah blah blah"
 }
