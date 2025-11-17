@@ -21,9 +21,6 @@ func _ready() -> void:
 	if InventoryManager.has_dialogue(default_meta["id"]):
 		queue_free()
 	text = default_meta["text"]
-	var original_material = material
-	var unique_material = original_material.duplicate()
-	material = unique_material
 
 # --- signal handlers ---
 
@@ -41,10 +38,10 @@ func _on_pressed() -> void:
 	# Do animation
 	_animating = true
 	
-	var mat = material
+	material = material.duplicate()
 	var tween := create_tween()
 	tween.tween_method(func(p):
-		mat.set_shader_parameter("dissolve_value", p)
+		material.set_shader_parameter("dissolve_value", p)
 	, 0.0, 1.0, 1.0)
 	
 	tween.tween_callback(func():

@@ -28,9 +28,7 @@ func set_meta_info(new_meta: Dictionary) -> void:
 	
 ## --- private methods ---
 func do_reveal():
-	var original_material = material
-	var unique_material = original_material.duplicate()
-	material = unique_material
+	material = material.duplicate()
 	
 	var tween := create_tween()
 	tween.tween_method(func(p):

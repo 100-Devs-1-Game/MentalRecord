@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dp76re34dkvyy"]
+
+[ext_resource type="StyleBox" uid="uid://d11kejcnvmk5k" path="res://themes/stylebox/PurpleBubble/purple_bubble.tres" id="1_baywt"]
+
+[resource]
+Label/font_sizes/font_size = 32
+Label/styles/focus = ExtResource("1_baywt")
+Label/styles/normal = ExtResource("1_baywt")

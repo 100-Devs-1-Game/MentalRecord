@@ -41,10 +41,10 @@ offset_bottom = 120.25
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_32w1k")
-patch_margin_left = 32
-patch_margin_top = 32
-patch_margin_right = 32
-patch_margin_bottom = 32
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 

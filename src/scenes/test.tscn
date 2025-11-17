@@ -38,6 +38,7 @@ mesh = SubResource("BoxMesh_bl13t")
 
 [node name="door3d" parent="." instance=ExtResource("3_iyx0m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056062818, 0.7035291, -4.648307)
+door_id = "da2"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
