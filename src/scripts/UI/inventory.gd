@@ -81,7 +81,7 @@ func _refresh_speaker_filter_menu():
 	var speakers = InventoryManager.get_discovered_speakers()
 	var idx = 0
 	for speaker_name in speakers:
-		speaker_filter_menu.add_item(speaker_name)
+		speaker_filter_menu.add_item("")
 		speaker_filter_menu.set_item_metadata(idx, speaker_name)
 
 		# Set icon if available

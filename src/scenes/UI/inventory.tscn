@@ -54,7 +54,7 @@ size_flags_vertical = 3
 layout_mode = 0
 offset_left = 298.0
 offset_top = 4.0
-offset_right = 373.0
+offset_right = 354.0
 offset_bottom = 47.0
 theme = ExtResource("3_lvvmf")
 
