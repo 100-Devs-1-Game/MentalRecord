@@ -1,21 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3usjuo7k3r75"]
+[gd_scene load_steps=4 format=3 uid="uid://d3usjuo7k3r75"]
 
 [ext_resource type="Script" uid="uid://bxg2ixm6hvdgw" path="res://scripts/objects/statment.gd" id="1_g2w7l"]
-[ext_resource type="Shader" uid="uid://c3kedlvm0tag8" path="res://shaders/line_jitter.gdshader" id="1_lm36j"]
+[ext_resource type="Material" uid="uid://cou30e5j6gexb" path="res://materials/ui_line_jitter.tres" id="1_lm36j"]
 [ext_resource type="Theme" uid="uid://2bjpa5xjl22y" path="res://themes/statement.tres" id="1_nbp4k"]
-[ext_resource type="Texture2D" uid="uid://w6t3kim5l1xn" path="res://textures/dissolve_noise.tres" id="2_geau1"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_geau1"]
-shader = ExtResource("1_lm36j")
-shader_parameter/shaking = true
-shader_parameter/amplitude = 2.0
-shader_parameter/noise_scale = 15.0
-shader_parameter/noise_speed = 2.0
-shader_parameter/dissolve_texture = ExtResource("2_geau1")
-shader_parameter/dissolve_value = 0.0
 
 [node name="Statment" type="Button"]
-material = SubResource("ShaderMaterial_geau1")
+material = ExtResource("1_lm36j")
 custom_minimum_size = Vector2(256, 0)
 offset_right = 128.0
 offset_bottom = 87.0

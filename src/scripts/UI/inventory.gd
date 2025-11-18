@@ -5,13 +5,13 @@ var speaker_filter: String = ""
 
 ## --- private variables ---
 var _speaker_icons: Dictionary = {
-	"Curator": null,
-	"Activist": null,
-	"Guard": null,
-	"Medium": null,
-	"Mole": null,
-	"Scientist": null,
-	"Culprit": null
+	"Curator": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
+	"Activist": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
+	"Guard": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
+	"Medium": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
+	"Mole": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
+	"Scientist": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
+	"Culprit": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 }
 
 ## --- onready variables ---
@@ -23,6 +23,7 @@ var _speaker_icons: Dictionary = {
 func _ready():
 	SignalBus.dialogue_added.connect(dialogue_added)
 	refresh_list()
+	_refresh_speaker_filter_menu()
 	
 ## --- public methods ---
 
@@ -42,6 +43,9 @@ func refresh_list(filter_speaker: String = "") -> void:
 	var statements = InventoryManager.get_collected_statements(speaker_filter)
 	for statement in statements:
 		var btn = statement_item_scene.instantiate()
+		# Set icon if available
+		if _speaker_icons.has(speaker_filter):
+			btn.icon = load(_speaker_icons[speaker_filter])
 		inv_slots.add_child(btn)
 		btn.set_meta_info(statement)
 		statement["new"] = false
@@ -78,14 +82,19 @@ func _refresh_speaker_filter_menu():
 	var speakers = InventoryManager.get_discovered_speakers()
 	var idx = 0
 	for speaker_name in speakers:
-		speaker_filter_menu.add_item(speaker_name)
+		speaker_filter_menu.add_item("")
 		speaker_filter_menu.set_item_metadata(idx, speaker_name)
 
 		# Set icon if available
 		if _speaker_icons.has(speaker_name):
-			speaker_filter_menu.set_item_icon(idx, _speaker_icons[speaker_name])
+			speaker_filter_menu.set_item_icon(idx, load(_speaker_icons[speaker_name]))
 
 		idx += 1
+		
+	if (idx > 0):
+		speaker_filter_menu.show()
+	else:
+		speaker_filter_menu.hide()
 		
 	# Set selected
 	speaker_filter_menu.select(speakers.find(speaker_filter))

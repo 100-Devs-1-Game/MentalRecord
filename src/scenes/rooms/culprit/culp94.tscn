@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://fnaol6eicif5"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_dd5ln"]
-[ext_resource type="Texture2D" uid="uid://bk00pb68q2qpo" path="res://assets/backgrounds/checkers/CheckersBG.png" id="2_dd5ln"]
-[ext_resource type="Texture2D" uid="uid://dn8lov4kycnq4" path="res://assets/backgrounds/checkers/CheckersMG.png" id="3_fhdr5"]
-[ext_resource type="Texture2D" uid="uid://bkop104yvr442" path="res://assets/backgrounds/checkers/CheckersFG.png" id="4_ckd1i"]
+[ext_resource type="Texture2D" uid="uid://bk00pb68q2qpo" path="res://assets/backgrounds/culprit/checkers/CheckersBG.png" id="2_dd5ln"]
+[ext_resource type="Texture2D" uid="uid://dn8lov4kycnq4" path="res://assets/backgrounds/culprit/checkers/CheckersMG.png" id="3_fhdr5"]
+[ext_resource type="Texture2D" uid="uid://bkop104yvr442" path="res://assets/backgrounds/culprit/checkers/CheckersFG.png" id="4_ckd1i"]
+
 
 [node name="Culp99" type="Node2D"]
 

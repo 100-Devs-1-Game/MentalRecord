@@ -24,7 +24,6 @@ func _ready() -> void:
 	lie.text = lie_text
 	SignalBus.door_state_changed.connect(received_update_signal)
 
-
 # --- public methods ---
 
 ## Returns all the rects that will respond to statement collisions
@@ -42,7 +41,6 @@ func get_all_rects() -> Array[Rect2]:
 func update_visual() -> void:
 	if is_door_unlocked():
 		sprite.texture = unlocked_sprite
-		lie.hide()
 	else:
 		sprite.texture = locked_sprite
 
@@ -59,6 +57,17 @@ func unlock() -> void:
 
 	# Update visuals locally.
 	update_visual()
+	
+	# Do lie dissolve animation
+	lie.material = lie.material.duplicate()
+	var tween := create_tween()
+	tween.tween_method(func(p):
+		lie.material.set_shader_parameter("dissolve_value", p)
+	, 0.0, 1.0, 1.0)
+	
+	tween.tween_callback(func():
+		lie.hide()
+	)
 
 	# Emit global signal for others to update.
 	if SignalBus.has_signal("door_state_changed"):
