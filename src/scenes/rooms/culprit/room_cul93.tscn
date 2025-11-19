@@ -1,12 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdymyyr5w67et"]
+[gd_scene load_steps=6 format=3 uid="uid://cdymyyr5w67et"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_sd6i4"]
+[ext_resource type="Texture2D" uid="uid://c1rogj2phc6cx" path="res://assets/backgrounds/culprit/signs/SignsBG.png" id="2_ei8my"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_ei8my"]
+[ext_resource type="Texture2D" uid="uid://dc4qdat72fveh" path="res://assets/backgrounds/culprit/signs/SignsMG.png" id="3_nex7n"]
+[ext_resource type="Texture2D" uid="uid://deuod3i6yefup" path="res://assets/backgrounds/culprit/signs/SignsFG.png" id="4_08jjg"]
 
 [node name="RoomTemplate" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_sd6i4")]
 position = Vector2(960, 540)
+
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_ei8my")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("3_nex7n")
+
+[node name="ForegroundSprite" parent="Background" index="2"]
+texture = ExtResource("4_08jjg")
 
 [node name="Statment" parent="Background" instance=ExtResource("3_ei8my")]
 offset_left = -392.0
