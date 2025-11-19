@@ -80,7 +80,8 @@ func unlock() -> void:
 func _on_sprite_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if is_door_unlocked():
-			SceneManager.change_room(target_scene, global_position)
+			var screen_pos = Vector2(get_viewport().size) * global_position/Vector2(1920,1080)
+			SceneManager.change_room(target_scene, screen_pos)
 		else:
 			# TODO: Play locked-door sound or show hint.
 			pass

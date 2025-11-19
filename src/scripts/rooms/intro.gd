@@ -56,11 +56,10 @@ func _on_scroll_changed(_value: float) -> void:
 		return
 
 	# How far down the player has scrolled
-	var current := scroll.get_v_scroll_bar().value
-	print(current)
+	var current = scroll.get_v_scroll_bar().value
 
 	# Check if scrolled
-	if current >= 800:
+	if current >= 0:
 		_is_bottom_reached = true
 		_show_continue_prompt()
 

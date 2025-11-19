@@ -114,7 +114,8 @@ func check_click(event: InputEventMouseButton) -> void:
 
 		var result = space_state.intersect_ray(query)
 		if result and result.collider == self:
-			SceneManager.change_room(target_scene, camera.unproject_position(global_position))
+			var screen_pos = Vector2(get_viewport().size) * camera.unproject_position(global_position) / Vector2(1920, 1080)
+			SceneManager.change_room(target_scene, screen_pos)
 
 
 # --- signal handling ---
