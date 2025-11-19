@@ -22,7 +22,7 @@ func _ready() -> void:
 	update_visual()
 	SignalBus.door_state_changed.connect(received_update_signal)
 	
-	if (start_unlocked):
+	if (is_door_unlocked()):
 		lie.hide()
 
 # --- public methods ---
