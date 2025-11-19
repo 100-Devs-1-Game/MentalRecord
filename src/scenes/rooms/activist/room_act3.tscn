@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgmyr6beq0tum"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_qkn8i"]
+[ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_lyaem"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_n6c6d"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_qkn8i")]
+position = Vector2(960, 540)
+
+[node name="Door" parent="Background" instance=ExtResource("2_lyaem")]
+offset_left = -25.0
+offset_top = 213.0
+offset_right = -25.0
+offset_bottom = 213.0
+door_id = "act3a"
+target_scene = "res://scenes/rooms/culprit/room_cul99.tscn"
+statement_id_to_unlock = "sci3b"
+
+[node name="Lie" parent="Background/Door" index="0"]
+text = "The voice is a hallucination."
+
+[node name="Door2" parent="Background" instance=ExtResource("2_lyaem")]
+offset_left = 610.0
+offset_top = 277.0
+offset_right = 610.0
+offset_bottom = 277.0
+door_id = "act3b"
+
+[node name="Lie" parent="Background/Door2" index="0"]
+text = "I must be losing it. "
+
+[node name="Statment" parent="Background" instance=ExtResource("3_n6c6d")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "In the car, while we were being taken away, I was handed the egg..."
+id = "act3a"
+speaker = "Activist"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_n6c6d")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "I hear a soothing voice right now, but I’m all alone."
+id = "act3b"
+speaker = "Activist"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_n6c6d")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "You don’t hear it? It’s almost welcoming."
+id = "act3c"
+speaker = "Activist"
+
+[editable path="Background"]
+[editable path="Background/Door"]
+[editable path="Background/Door2"]

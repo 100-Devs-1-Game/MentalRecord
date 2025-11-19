@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx8tjkttqrsbu"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_h1uo5"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_rexlc"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_h1uo5")]
+position = Vector2(960, 540)
+
+[node name="Statment" parent="Background" instance=ExtResource("3_rexlc")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "The egg. It came up through the pipes. And I just had to take a look at it..."
+id = "sci3a"
+speaker = "Scientist"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_rexlc")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "The egg seems to be able to relay a specific frequency of waves, like those a brain would produce."
+id = "sci3b"
+speaker = "Scientist"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_rexlc")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "I gave it away to get out of trouble... I’m not like that mute."
+id = "sci3c"
+speaker = "Scientist"
+
+[editable path="Background"]

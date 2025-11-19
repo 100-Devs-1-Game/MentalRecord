@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://dop1w6eed5ku8"]
+
+[ext_resource type="Script" uid="uid://c3wivtbuttsvf" path="res://scripts/3d_parts/camera_3d_pan.gd" id="1_qihfr"]
+[ext_resource type="PackedScene" uid="uid://bskk16xpsru6p" path="res://scenes/objects/door3d.tscn" id="2_hb0u5"]
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="3_qdex2"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="4_2fbs6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bl13t"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_iyx0m"]
+sky_material = SubResource("ProceduralSkyMaterial_bl13t")
+
+[sub_resource type="Environment" id="Environment_74lek"]
+background_mode = 2
+sky = SubResource("Sky_iyx0m")
+tonemap_mode = 2
+
+[node name="test" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_74lek")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+script = ExtResource("1_qihfr")
+
+[node name="door3d" parent="." instance=ExtResource("2_hb0u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056062818, 0.7035291, -4.648307)
+door_id = ""
+target_scene = ""
+statement_id_to_unlock = ""
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Background" parent="CanvasLayer" instance=ExtResource("3_qdex2")]
+
+[node name="Statment" parent="CanvasLayer/Background" instance=ExtResource("4_2fbs6")]
+offset_left = 619.0
+offset_top = 319.0
+offset_right = 875.0
+offset_bottom = 411.0
+
+[node name="Statment2" parent="CanvasLayer/Background" instance=ExtResource("4_2fbs6")]
+offset_left = 1013.0
+offset_top = 153.0
+offset_right = 1269.0
+offset_bottom = 245.0
+
+[node name="Statment3" parent="CanvasLayer/Background" instance=ExtResource("4_2fbs6")]
+offset_left = 1411.0
+offset_top = 309.0
+offset_right = 1667.0
+offset_bottom = 401.0

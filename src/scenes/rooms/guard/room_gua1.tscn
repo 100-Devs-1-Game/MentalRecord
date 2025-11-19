@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://csb5bbxcgdn8u"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_6ynhh"]
+[ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_qs148"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_uwj12"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_6ynhh")]
+position = Vector2(960, 540)
+
+[node name="Door" parent="Background" instance=ExtResource("2_qs148")]
+offset_left = 188.0
+offset_top = 204.0
+offset_right = 188.0
+offset_bottom = 204.0
+door_id = "gua1a"
+target_scene = "res://scenes/rooms/guard/room_gua2.tscn"
+statement_id_to_unlock = "act2a"
+
+[node name="Lie" parent="Background/Door" index="0"]
+text = "CHECKED VISITOR’S LIST. ALL WELCOME TODAY. "
+
+[node name="Statment" parent="Background" instance=ExtResource("3_uwj12")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "ARTIFACTS UNDER THREAT. MUST PROTECT!"
+id = "gua1a"
+speaker = "Guard"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_uwj12")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "ON LOOKOUT FOR PREVIOUS THIEF."
+id = "gua1b"
+speaker = "Guard"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_uwj12")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "ON LOOKOUT FOR SMELLY MOLE MEN."
+id = "gua1c"
+speaker = "Guard"
+
+[editable path="Background"]
+[editable path="Background/Door"]

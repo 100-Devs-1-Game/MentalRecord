@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://7wsw53pacs30"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_vmr3u"]
+[ext_resource type="Texture2D" uid="uid://bbraprsnnitc5" path="res://assets/backgrounds/culprit/rockpaperscissors/RockPaperScissorsBG.png" id="2_2yswc"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_2yswc"]
+[ext_resource type="Texture2D" uid="uid://bw6jiama0qn5" path="res://assets/backgrounds/culprit/rockpaperscissors/RockPaperScissorsMG.png" id="3_gl12b"]
+[ext_resource type="Texture2D" uid="uid://ds2avugng1ytt" path="res://assets/backgrounds/culprit/rockpaperscissors/RockPaperScissorsFG.png" id="4_0u5df"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_vmr3u")]
+position = Vector2(960, 540)
+
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_2yswc")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("3_gl12b")
+
+[node name="ForegroundSprite" parent="Background" index="2"]
+texture = ExtResource("4_0u5df")
+
+[node name="Statment" parent="Background" instance=ExtResource("3_2yswc")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "This museum showing, such fuss, such spectacle. They don’t even know its power, its history."
+id = "cul98a"
+speaker = "Culprit"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_2yswc")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "Let me tell you a story... There once lived a chicken with the face of a man."
+id = "cul98b"
+speaker = "Culprit"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_2yswc")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "Upon its discovery, the locals cut its head. Believing it to be cursed, they sealed it away. "
+id = "cul98c"
+speaker = "Culprit"
+
+[editable path="Background"]

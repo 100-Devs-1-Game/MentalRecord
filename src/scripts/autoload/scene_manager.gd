@@ -3,9 +3,25 @@ extends Node
 
 ## --- private variables ---
 var _current_level: Node = null
-var _default_level: String = "res://scenes/test.tscn"
+var _default_level: String = "res://scenes/rooms/room_hallway.tscn"
 var _level_stack: Array = []
 var transitioning: bool = false
+
+var _culprit_level_stack: Array = [
+	"res://scenes/rooms/culprit/room_cul99.tscn",
+	"res://scenes/rooms/culprit/room_cul98.tscn",
+	"res://scenes/rooms/culprit/room_cul97.tscn",
+	"res://scenes/rooms/culprit/room_cul96.tscn",
+	"res://scenes/rooms/culprit/room_cul95.tscn",
+	"res://scenes/rooms/culprit/room_cul94.tscn",
+	"res://scenes/rooms/culprit/room_cul93.tscn",
+	"res://scenes/rooms/culprit/room_cul92.tscn",
+	"res://scenes/rooms/culprit/room_cul91.tscn",
+	"res://scenes/rooms/culprit/room_cul90.tscn",
+	"res://scenes/rooms/culprit/room_cul89.tscn",
+	"res://scenes/rooms/culprit/room_cul88.tscn"
+	
+]
 
 ## --- onready variables ---
 @onready var _transition_rect: ColorRect = $TransitionManager/TransitionRect
@@ -41,6 +57,10 @@ func change_room(scene_path: String, door_center: Vector2 = Vector2.ZERO) -> voi
 	
 	# Add to stack
 	_level_stack.push_front(scene_path)
+	
+	# Check if in culprit
+	if (scene_path == _culprit_level_stack[0]):
+		_level_stack = _culprit_level_stack.duplicate()
 	
 	# Send update stack signal
 	SignalBus.level_stack_updated.emit(_level_stack.size())

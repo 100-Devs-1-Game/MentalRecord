@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc18eq3f07wac"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_3chn2"]
+[ext_resource type="Texture2D" uid="uid://ddxux5k51e10m" path="res://assets/backgrounds/culprit/moontrees/MoonTreesBG.png" id="2_0j8yl"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_0j8yl"]
+[ext_resource type="Texture2D" uid="uid://cqkvoeu3jb8ok" path="res://assets/backgrounds/culprit/moontrees/MoonTreesMG.png" id="3_4ifji"]
+[ext_resource type="Texture2D" uid="uid://bbcw3wnheff2e" path="res://assets/backgrounds/culprit/moontrees/MoonTreesFG.png" id="4_hxwnr"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_3chn2")]
+position = Vector2(960, 540)
+
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_0j8yl")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("3_4ifji")
+
+[node name="ForegroundSprite" parent="Background" index="2"]
+texture = ExtResource("4_hxwnr")
+
+[node name="Statment" parent="Background" instance=ExtResource("3_0j8yl")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "It wouldn’t take long for the chick to find its mother’s head, hoping to rejoin its family. "
+id = "cul96a"
+speaker = "Culprit"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_0j8yl")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "But their reunion didn’t go as the chick had hoped. "
+id = "cul96b"
+speaker = "Culprit"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_0j8yl")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "After decades of isolation, the mother’s head swallowed its child, and an egg was created. "
+id = "cul96c"
+speaker = "Culprit"
+
+[editable path="Background"]

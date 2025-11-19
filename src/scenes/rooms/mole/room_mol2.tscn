@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://crkytcplhs4d5"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_f3h3b"]
+[ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_qgnf2"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_81hnl"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_f3h3b")]
+position = Vector2(960, 540)
+
+[node name="Door" parent="Background" instance=ExtResource("2_qgnf2")]
+offset_left = 188.0
+offset_top = 204.0
+offset_right = 188.0
+offset_bottom = 204.0
+door_id = "mol2a"
+target_scene = "res://scenes/rooms/mole/room_mol3.tscn"
+statement_id_to_unlock = "cur2b"
+
+[node name="Lie" parent="Background/Door" index="0"]
+text = "I had no way to cause a robbery or a flood."
+
+[node name="Statment" parent="Background" instance=ExtResource("3_81hnl")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "A long time ago, I got scammed, made a bad deal... and lost my most favorite job as a curator! At least I can be close to the museum from the sewers."
+id = "mol2a"
+speaker = "Mole"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_81hnl")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "Back when I was the curator, I worked with this mute. I heard they got into some trouble, too... Maybe I can use them as a scapegoat."
+id = "mol2b"
+speaker = "Mole"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_81hnl")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "Some kid is always writing me letters, talking to me about my old pet - what!"
+id = "mol2c"
+speaker = "Mole"
+
+[editable path="Background"]
+[editable path="Background/Door"]

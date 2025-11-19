@@ -9,7 +9,6 @@ class_name Door
 @export var unlocked_sprite: Texture2D
 @export var start_unlocked: bool
 @export var statement_id_to_unlock: String = "StatementID"
-@export var lie_text: String = "Lie"
 
 # --- onready variables ---
 @onready var sprite: TextureRect = $Sprite
@@ -21,8 +20,10 @@ class_name Door
 func _ready() -> void:
 	add_to_group("doors")
 	update_visual()
-	lie.text = lie_text
 	SignalBus.door_state_changed.connect(received_update_signal)
+	
+	if (is_door_unlocked()):
+		lie.hide()
 
 # --- public methods ---
 

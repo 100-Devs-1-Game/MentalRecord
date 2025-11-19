@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://dykxtpu7wndbi"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_a2mce"]
+[ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_atuid"]
+[ext_resource type="Texture2D" uid="uid://mecr3f443kgk" path="res://assets/ui/PurpleBubble9Slice.png" id="3_mhekm"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_mo54i"]
+[ext_resource type="Texture2D" uid="uid://dhen58e6khlm0" path="res://assets/ui/Paper9Slice.png" id="4_jchnw"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_a2mce")]
+position = Vector2(960, 540)
+
+[node name="Door" parent="Background" instance=ExtResource("2_atuid")]
+offset_left = 188.0
+offset_top = 204.0
+offset_right = 188.0
+offset_bottom = 204.0
+door_id = "cur2a"
+target_scene = "res://scenes/rooms/curator/room_cur3.tscn"
+locked_sprite = ExtResource("3_mhekm")
+unlocked_sprite = ExtResource("4_jchnw")
+statement_id_to_unlock = "act3a"
+
+[node name="Lie" parent="Background/Door" index="0"]
+offset_left = -248.0
+offset_top = -270.0
+offset_right = 264.0
+offset_bottom = -73.0
+text = "Could you believe it? All of those people, and not one of them knows who ended up with the egg?"
+
+[node name="Statment" parent="Background" instance=ExtResource("3_mo54i")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "I heard about that sickly person in the sewers. Quite a shame really. However, I intend to keep my reputation out of the waste below."
+id = "cur2a"
+speaker = "Curator"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_mo54i")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "I do wish the museum pipes didn’t run through the sewers. It makes maintenance rather difficult."
+id = "cur2b"
+speaker = "Curator"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_mo54i")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "Rumors about a former employee committing theft are true. The MoAA has since learned from their mistakes by investing in security technology."
+id = "cur2c"
+speaker = "Curator"
+
+[editable path="Background"]
+[editable path="Background/Door"]

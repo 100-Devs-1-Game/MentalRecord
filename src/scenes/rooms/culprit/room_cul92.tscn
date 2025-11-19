@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf4e0pxnwdgnj"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_mtxa3"]
+[ext_resource type="Texture2D" uid="uid://bkkn4f3df3ej3" path="res://assets/backgrounds/culprit/hairs/HairsBG.png" id="2_rxrsh"]
+[ext_resource type="Texture2D" uid="uid://bkbqpmpj0ojmn" path="res://assets/backgrounds/culprit/hairs/HairsMG.png" id="3_4lnrt"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_rxrsh"]
+[ext_resource type="Texture2D" uid="uid://br5p04s1cwyq1" path="res://assets/backgrounds/culprit/hairs/HairsFG.png" id="4_ylotr"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_mtxa3")]
+position = Vector2(960, 540)
+
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_rxrsh")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("3_4lnrt")
+
+[node name="ForegroundSprite" parent="Background" index="2"]
+texture = ExtResource("4_ylotr")
+
+[node name="Statment" parent="Background" instance=ExtResource("3_rxrsh")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "Once again I was surprised, as the egg found its way into the hands of a sewer-dweller."
+id = "cul92a"
+speaker = "Culprit"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_rxrsh")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "The mole. A good man, truly. As you saw, he can be a little rough around the edges, but at his heart, he cared more about this place than anyone."
+id = "cul92b"
+speaker = "Culprit"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_rxrsh")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "Not sure if he could tell it was me who told him to send the egg back through the pipes. After all, it was his first time hearing me."
+id = "cul92c"
+speaker = "Culprit"
+
+[node name="Statment4" parent="Background" instance=ExtResource("3_rxrsh")]
+offset_left = 413.0
+offset_top = 94.0
+offset_right = 669.0
+offset_bottom = 186.0
+text = "Once the scientist got her hands on the egg, it was easy to tell she’d been waiting for this."
+id = "cul92d"
+speaker = "Culprit"
+
+[editable path="Background"]

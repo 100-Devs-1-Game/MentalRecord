@@ -3,9 +3,13 @@ class_name Statement
 # Represents a draggable statement button that can be dropped on a Door to unlock it.
 
 # --- exported variables ---
-@export var default_meta: Dictionary = {
+@export var id: String
+@export var speaker: String
+
+# --- local variables ---
+var statement_meta: Dictionary = {
 	"id": "",
-	"text": "Statement",
+	"text": "",
 	"speaker": "",
 	"collected": false,
 	"used": false,
@@ -18,9 +22,12 @@ var _animating = false
 # --- built-in methods ---
 
 func _ready() -> void:
-	if InventoryManager.has_dialogue(default_meta["id"]):
+	statement_meta["id"] = id
+	statement_meta["text"] = text
+	statement_meta["speaker"] = speaker
+	
+	if InventoryManager.has_dialogue(statement_meta["id"]):
 		queue_free()
-	text = default_meta["text"]
 
 # --- signal handlers ---
 
@@ -28,12 +35,9 @@ func _ready() -> void:
 func _on_pressed() -> void:
 	if (_animating):
 		return
-	var id = default_meta["id"]
-	default_meta["collected"] = true
-	default_meta["used"] = false
-	default_meta["new"] = true
+	statement_meta["collected"] = true
 
-	InventoryManager.add_dialogue(id, default_meta.duplicate())
+	InventoryManager.add_dialogue(id, statement_meta.duplicate())
 	
 	# Do animation
 	_animating = true

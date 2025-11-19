@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://v224c7h43ak2"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_4j3he"]
+[ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_m5rti"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_trry5"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_4j3he")]
+position = Vector2(960, 540)
+
+[node name="Door" parent="Background" instance=ExtResource("2_m5rti")]
+offset_left = -66.0
+offset_top = 213.0
+offset_right = -66.0
+offset_bottom = 213.0
+door_id = "gua2a"
+target_scene = "res://scenes/rooms/guard/room_gua3.tscn"
+statement_id_to_unlock = "mol3c"
+
+[node name="Lie" parent="Background/Door" index="0"]
+text = "EGG MOVED TO VAULT AFTER DISTURBANCE."
+
+[node name="Door2" parent="Background" instance=ExtResource("2_m5rti")]
+offset_left = 544.0
+offset_top = 282.0
+offset_right = 544.0
+offset_bottom = 282.0
+door_id = "gua2b"
+
+[node name="Lie" parent="Background/Door2" index="0"]
+text = "THE SET OF ALL SETS DOES NOT CONTAIN ITSELF."
+
+[node name="Statment" parent="Background" instance=ExtResource("3_trry5")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "ALARM SOUNDED AND CAUSED PAINT ATTACK. THREAT DETECTED!"
+id = "gua2a"
+speaker = "Guard"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_trry5")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "SCIENTIST UNDER WATCH. PREVIOUS DISTURBANCES."
+id = "gua2b"
+speaker = "Guard"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_trry5")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "DURING EMERGENCY, ARTIFACTS MOVED TO VAULT UNLESS STATED OTHERWISE."
+id = "gua2c"
+speaker = "Guard"
+
+[editable path="Background"]
+[editable path="Background/Door"]
+[editable path="Background/Door2"]

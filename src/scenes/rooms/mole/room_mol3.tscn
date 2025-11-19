@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6pj44nklfxf2"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_yv5go"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_3dgjc"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_yv5go")]
+position = Vector2(960, 540)
+
+[node name="Statment" parent="Background" instance=ExtResource("3_3dgjc")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "For the first time in years, someone called out to me. But their voice... it didn’t bounce off the pipes like normal. "
+id = "mol3a"
+speaker = "Mole"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_3dgjc")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "When the egg came through the pipes, they told me to send it back up through the water system."
+id = "mol3b"
+speaker = "Mole"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_3dgjc")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "I heard the vault open just once before the ceremony, but that’s it! Did they really put it back in?"
+id = "mol3c"
+speaker = "Mole"
+
+[editable path="Background"]

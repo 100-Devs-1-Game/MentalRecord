@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddxx7ngpap4jy"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_2mfwu"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_31qq4"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_2mfwu")]
+position = Vector2(960, 540)
+
+[node name="Statment" parent="Background" instance=ExtResource("3_31qq4")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "I must have the egg. I haven’t held a conversation like this in decades.  Would you take that from me?"
+id = "cul89a"
+speaker = "Culprit"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_31qq4")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "When I worked at the museum, I was like dirt. Glanced and passed over. A mute."
+id = "cul89b"
+speaker = "Culprit"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_31qq4")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "Now, my voice finally returns to me. The world would know I’m something. Will you really be the last to hear me?"
+id = "cul89c"
+speaker = "Culprit"
+
+[editable path="Background"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://1rnwdxht6ydr"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_lgox1"]
+[ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_tm8a3"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_f4oj3"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_lgox1")]
+position = Vector2(960, 540)
+
+[node name="Door" parent="Background" instance=ExtResource("2_tm8a3")]
+offset_left = 188.0
+offset_top = 204.0
+offset_right = 188.0
+offset_bottom = 204.0
+door_id = "med1a"
+target_scene = "res://scenes/rooms/medium/room_med2.tscn"
+statement_id_to_unlock = "mol2c"
+
+[node name="Lie" parent="Background/Door" index="0"]
+text = "Today was my first day at the museum, so… yeah."
+
+[node name="Statment" parent="Background" instance=ExtResource("3_f4oj3")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "I was visiting the museum with my mom when the alarm rang, and later the building ended up flooding."
+id = "med1a"
+speaker = "Medium"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_f4oj3")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "There’s a person that listens from under the museum, you know. Their pet died... but you probably won’t believe me."
+id = "med1b"
+speaker = "Medium"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_f4oj3")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "Can I poke you...?"
+id = "med1c"
+speaker = "Medium"
+
+[editable path="Background"]
+[editable path="Background/Door"]

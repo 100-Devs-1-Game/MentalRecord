@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://22s8eliqignm"]
+
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_2xfnn"]
+[ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_ktsct"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_5f5m1"]
+[ext_resource type="Texture2D" uid="uid://mecr3f443kgk" path="res://assets/ui/PurpleBubble9Slice.png" id="3_cpsbs"]
+[ext_resource type="Texture2D" uid="uid://dhen58e6khlm0" path="res://assets/ui/Paper9Slice.png" id="4_juypk"]
+
+[node name="RoomTemplate" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_2xfnn")]
+position = Vector2(960, 540)
+
+[node name="Door" parent="Background" instance=ExtResource("2_ktsct")]
+offset_left = 188.0
+offset_top = 204.0
+offset_right = 188.0
+offset_bottom = 204.0
+door_id = "cur1a"
+target_scene = "res://scenes/rooms/curator/room_cur2.tscn"
+locked_sprite = ExtResource("3_cpsbs")
+unlocked_sprite = ExtResource("4_juypk")
+statement_id_to_unlock = "act1b"
+
+[node name="Lie" parent="Background/Door" index="0"]
+offset_left = -254.0
+offset_top = -334.0
+offset_right = 258.0
+offset_bottom = -89.0
+text = "All of our staff is handpicked, and rigorously screened. I can assure you nobody on our staff would ever consider such a stunt."
+
+[node name="Statment" parent="Background" instance=ExtResource("3_5f5m1")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "I am the esteemed Curator at the Museum of Antiquated Artifacts."
+id = "cur1a"
+speaker = "Curator"
+
+[node name="Statment2" parent="Background" instance=ExtResource("3_5f5m1")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "I was presenting the artifact when I heard someone announce their intention to steal it!"
+id = "cur1b"
+speaker = "Curator"
+
+[node name="Statment3" parent="Background" instance=ExtResource("3_5f5m1")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "I looked around and sounded the alarm before that screwball went crazy with paint!"
+id = "cur1c"
+speaker = "Curator"
+
+[editable path="Background"]
+[editable path="Background/Door"]
