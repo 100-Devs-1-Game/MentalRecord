@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cq1v33lmadmcd"]
+[gd_scene load_steps=8 format=3 uid="uid://cq1v33lmadmcd"]
 
 [ext_resource type="Script" uid="uid://lh0bkv4n03f4" path="res://scripts/objects/door.gd" id="1_yar34"]
 [ext_resource type="Material" uid="uid://cou30e5j6gexb" path="res://materials/ui_line_jitter.tres" id="2_aji8h"]
 [ext_resource type="Texture2D" uid="uid://dioetyj627ppb" path="res://assets/objects/doorgeneric/Door.png" id="2_vedx6"]
 [ext_resource type="Theme" uid="uid://dp76re34dkvyy" path="res://themes/lie.tres" id="2_xm0wp"]
 [ext_resource type="Texture2D" uid="uid://0viv20n8lgxo" path="res://assets/objects/doorgeneric/DoorOpen.png" id="3_hfw7n"]
+[ext_resource type="Shader" uid="uid://c3kedlvm0tag8" path="res://shaders/line_jitter.gdshader" id="6_vedx6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfw7n"]
+shader = ExtResource("6_vedx6")
+shader_parameter/shaking = true
+shader_parameter/amplitude = 1.0
+shader_parameter/noise_scale = 4.0
+shader_parameter/noise_speed = 2.0
+shader_parameter/dissolve_value = 0.0
 
 [node name="Door" type="Control"]
 layout_mode = 3
@@ -36,6 +45,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Sprite" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_hfw7n")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,6 +59,11 @@ offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_vedx6")
+
+[node name="ZoomPoint" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="gui_input" from="Sprite" to="." method="_on_sprite_gui_input"]
 [connection signal="mouse_entered" from="Sprite" to="." method="_on_mouse_entered"]
