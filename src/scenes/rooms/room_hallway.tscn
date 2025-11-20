@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5dtp3by2mppp"]
+[gd_scene load_steps=7 format=3 uid="uid://b5dtp3by2mppp"]
 
 [ext_resource type="Script" uid="uid://c3wivtbuttsvf" path="res://scripts/3d_parts/camera_3d_pan.gd" id="1_kaivi"]
 [ext_resource type="PackedScene" uid="uid://bskk16xpsru6p" path="res://scenes/objects/door3d.tscn" id="2_ta1w6"]
@@ -15,6 +15,9 @@ background_mode = 2
 sky = SubResource("Sky_iyx0m")
 tonemap_mode = 2
 
+[sub_resource type="BoxMesh" id="BoxMesh_tp7ds"]
+size = Vector3(100, 0.5, 100)
+
 [node name="test" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -28,37 +31,57 @@ shadow_enabled = true
 script = ExtResource("1_kaivi")
 
 [node name="door3d" parent="." instance=ExtResource("2_ta1w6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5897932, -0.0797289, -4.648307)
+transform = Transform3D(0.13358642, 0, 0.7380072, 0, 0.7500001, 0, -0.7380072, 0, 0.13358642, -2.2428613, -0.2385369, -3.8214016)
 door_id = "halla"
 target_scene = "res://scenes/rooms/curator/room_cur1.tscn"
 start_unlocked = true
 
 [node name="door3d2" parent="." instance=ExtResource("2_ta1w6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7021876, 1.0453547, -4.648307)
+transform = Transform3D(0.13358642, 0, 0.7380072, 0, 0.7500001, 0, -0.7380072, 0, 0.13358642, -1.9439349, -0.2581712, -6.428359)
 door_id = "hallb"
 target_scene = "res://scenes/rooms/activist/room_act1.tscn"
 start_unlocked = true
 
 [node name="door3d3" parent="." instance=ExtResource("2_ta1w6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10536623, 2.0402994, -4.648307)
+transform = Transform3D(0.13358642, 0, 0.7380072, 0, 0.7500001, 0, -0.7380072, 0, 0.13358642, -1.4307507, -0.26189446, -8.827133)
 door_id = "hallc"
 target_scene = "res://scenes/rooms/guard/room_gua1.tscn"
 start_unlocked = true
 
 [node name="door3d4" parent="." instance=ExtResource("2_ta1w6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4137368, 1.8584518, -4.648307)
+transform = Transform3D(0.15100074, 0, -0.73464197, 0, 0.75, 0, 0.73464197, 0, 0.15100074, 1.9185579, -0.27436113, -8.855474)
 door_id = "halld"
 target_scene = "res://scenes/rooms/medium/room_med1.tscn"
 start_unlocked = true
 
 [node name="door3d5" parent="." instance=ExtResource("2_ta1w6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0601811, 0.8231659, -4.648307)
+transform = Transform3D(0.15100074, 0, -0.73464197, 0, 0.75, 0, 0.73464197, 0, 0.15100074, 2.2952447, -0.25455427, -6.409417)
 door_id = "halle"
 target_scene = "res://scenes/rooms/mole/room_mol1.tscn"
 start_unlocked = true
 
 [node name="door3d6" parent="." instance=ExtResource("2_ta1w6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0601811, -0.075868726, -4.124474)
+transform = Transform3D(0.15100074, 0, -0.73464197, 0, 0.75, 0, 0.73464197, 0, 0.15100074, 2.7993793, -0.31355911, -4.2678776)
 door_id = "hallf"
 target_scene = "res://scenes/rooms/scientist/room_sci1.tscn"
 start_unlocked = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9841838, 0)
+mesh = SubResource("BoxMesh_tp7ds")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1757462, 0)
+mesh = SubResource("BoxMesh_tp7ds")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 5.9604645e-08, -1, 0, 1, 5.9604645e-08, 0, 2.1757462, -12.158574)
+mesh = SubResource("BoxMesh_tp7ds")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.17811525, 0.9840096, 5.8651544e-08, 0, 5.9604645e-08, -1, -0.9840096, 0.17811525, 1.0616496e-08, 1.9197586, 2.1757462, -29.79142)
+mesh = SubResource("BoxMesh_tp7ds")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.20133442, 0.9795226, 5.8384096e-08, 0, 5.9604645e-08, -1, -0.9795226, -0.20133442, -1.2000466e-08, -1.9386367, 2.1757462, -29.727829)
+mesh = SubResource("BoxMesh_tp7ds")

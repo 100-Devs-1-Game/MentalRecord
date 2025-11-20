@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhj2i7vawwhnx"]
+[gd_scene load_steps=8 format=3 uid="uid://dhj2i7vawwhnx"]
 
 [ext_resource type="Script" uid="uid://v3ot1ydrxl8b" path="res://scripts/menu/main_menu_buttons.gd" id="1_1y04j"]
+[ext_resource type="Texture2D" uid="uid://bqohwuknwhkbc" path="res://assets/title/TitleBG.png" id="1_41mg3"]
+[ext_resource type="Material" uid="uid://iych61o7e7oh" path="res://materials/line_jitter_material.tres" id="1_d6nss"]
+[ext_resource type="Theme" uid="uid://p0hn422nuqnl" path="res://themes/statement_item.tres" id="1_ij8q7"]
 [ext_resource type="PackedScene" uid="uid://brtlbuty384ai" path="res://scenes/UI/settings.tscn" id="2_klkgf"]
+[ext_resource type="Texture2D" uid="uid://d13p6ocscng2h" path="res://assets/title/Title.png" id="2_tarun"]
+[ext_resource type="Texture2D" uid="uid://bpfptsp8ci214" path="res://assets/title/EncrustedEgg.png" id="3_tu3op"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,6 +15,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = ExtResource("1_d6nss")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_41mg3")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -33,12 +48,15 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="Title" type="TextureRect" parent="MarginContainer/HSplitContainer/VBoxContainer"]
+material = ExtResource("1_d6nss")
 layout_mode = 2
+texture = ExtResource("2_tarun")
 stretch_mode = 4
 
 [node name="MenuContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/VBoxContainer" node_paths=PackedStringArray("settings")]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_ij8q7")
 theme_override_constants/separation = 16
 alignment = 1
 script = ExtResource("1_1y04j")
@@ -48,26 +66,32 @@ settings = NodePath("../../../../Settings")
 
 [node name="NewGameButton" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "New Game"
 
 [node name="ContinueButton" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Continue"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Settings"
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Credits"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Quit"
 
 [node name="Version" type="Label" parent="MarginContainer/HSplitContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.50534403, 0.5053441, 0.50534403, 1)
 text = "v0.1"
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HSplitContainer"]
@@ -75,7 +99,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Graphic" type="TextureRect" parent="MarginContainer/HSplitContainer/CenterContainer"]
+material = ExtResource("1_d6nss")
 layout_mode = 2
+texture = ExtResource("3_tu3op")
 stretch_mode = 4
 
 [node name="Settings" parent="." instance=ExtResource("2_klkgf")]
