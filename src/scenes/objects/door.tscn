@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://lh0bkv4n03f4" path="res://scripts/objects/door.gd" id="1_yar34"]
 [ext_resource type="Material" uid="uid://cou30e5j6gexb" path="res://materials/ui_line_jitter.tres" id="2_aji8h"]
-[ext_resource type="Texture2D" uid="uid://mecr3f443kgk" path="res://assets/ui/PurpleBubble9Slice.png" id="2_uw3m6"]
+[ext_resource type="Texture2D" uid="uid://dioetyj627ppb" path="res://assets/objects/doorgeneric/Door.png" id="2_vedx6"]
 [ext_resource type="Theme" uid="uid://dp76re34dkvyy" path="res://themes/lie.tres" id="2_xm0wp"]
-[ext_resource type="Texture2D" uid="uid://dhen58e6khlm0" path="res://assets/ui/Paper9Slice.png" id="3_w0irj"]
+[ext_resource type="Texture2D" uid="uid://0viv20n8lgxo" path="res://assets/objects/doorgeneric/DoorOpen.png" id="3_hfw7n"]
 
 [node name="Door" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_yar34")
-locked_sprite = ExtResource("2_uw3m6")
-unlocked_sprite = ExtResource("3_w0irj")
+locked_sprite = ExtResource("2_vedx6")
+unlocked_sprite = ExtResource("3_hfw7n")
 metadata/depth = 0.2
 
 [node name="Lie" type="Label" parent="."]
@@ -48,7 +48,7 @@ offset_right = 48.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_uw3m6")
+texture = ExtResource("2_vedx6")
 
 [connection signal="gui_input" from="Sprite" to="." method="_on_sprite_gui_input"]
 [connection signal="mouse_entered" from="Sprite" to="." method="_on_mouse_entered"]
