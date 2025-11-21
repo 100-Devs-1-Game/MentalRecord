@@ -21,3 +21,5 @@ texture = ExtResource("2_352f5")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034423828, 0.050445557, -0.013671875)
 shape = SubResource("BoxShape3D_352f5")
+
+[node name="ZoomPoint" type="Node3D" parent="."]

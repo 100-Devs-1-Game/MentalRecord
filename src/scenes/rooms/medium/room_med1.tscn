@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://1rnwdxht6ydr"]
+[gd_scene load_steps=5 format=3 uid="uid://1rnwdxht6ydr"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_lgox1"]
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_tm8a3"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_f4oj3"]
+[ext_resource type="Texture2D" uid="uid://b7ve78fotyyg5" path="res://assets/characters/medium.png" id="3_qrwcf"]
 
 [node name="RoomTemplate" type="Node2D"]
 
@@ -10,16 +11,31 @@
 position = Vector2(960, 540)
 
 [node name="Door" parent="Background" instance=ExtResource("2_tm8a3")]
-offset_left = 188.0
-offset_top = 204.0
-offset_right = 188.0
-offset_bottom = 204.0
+offset_left = 155.0
+offset_top = 194.0
+offset_right = 155.0
+offset_bottom = 194.0
 door_id = "med1a"
 target_scene = "res://scenes/rooms/medium/room_med2.tscn"
+locked_sprite = ExtResource("3_qrwcf")
+unlocked_sprite = ExtResource("3_qrwcf")
 statement_id_to_unlock = "mol2c"
 
 [node name="Lie" parent="Background/Door" index="0"]
+offset_left = 197.0
+offset_top = 65.0
+offset_right = 709.0
+offset_bottom = 166.0
 text = "Today was my first day at the museum, so… yeah."
+
+[node name="Sprite" parent="Background/Door" index="1"]
+texture = ExtResource("3_qrwcf")
+
+[node name="ZoomPoint" parent="Background/Door" index="2"]
+offset_left = -16.0
+offset_top = -209.0
+offset_right = 24.0
+offset_bottom = -169.0
 
 [node name="Statment" parent="Background" instance=ExtResource("3_f4oj3")]
 offset_left = -392.0
@@ -31,10 +47,10 @@ id = "med1a"
 speaker = "Medium"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_f4oj3")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 50.0
+offset_top = -375.0
+offset_right = 306.0
+offset_bottom = -283.0
 text = "There’s a person that listens from under the museum, you know. Their pet died... but you probably won’t believe me."
 id = "med1b"
 speaker = "Medium"

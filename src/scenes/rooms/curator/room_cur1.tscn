@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://22s8eliqignm"]
+[gd_scene load_steps=5 format=3 uid="uid://22s8eliqignm"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_2xfnn"]
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_ktsct"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_5f5m1"]
+[ext_resource type="Texture2D" uid="uid://bfnmutti7msjm" path="res://assets/characters/curator.png" id="3_8vh50"]
 
 [node name="RoomTemplate" type="Node2D"]
 
@@ -16,38 +17,53 @@ offset_right = 188.0
 offset_bottom = 204.0
 door_id = "cur1a"
 target_scene = "res://scenes/rooms/curator/room_cur2.tscn"
+locked_sprite = ExtResource("3_8vh50")
+unlocked_sprite = ExtResource("3_8vh50")
 statement_id_to_unlock = "act1b"
 
 [node name="Lie" parent="Background/Door" index="0"]
-offset_left = -254.0
-offset_top = -334.0
-offset_right = 258.0
-offset_bottom = -89.0
+offset_left = 111.0
+offset_top = -39.0
+offset_right = 623.0
+offset_bottom = 206.0
 text = "All of our staff is handpicked, and rigorously screened. I can assure you nobody on our staff would ever consider such a stunt."
 
+[node name="Sprite" parent="Background/Door" index="1"]
+offset_left = -333.0
+offset_top = -632.0
+offset_right = 61.0
+offset_bottom = 314.0
+texture = ExtResource("3_8vh50")
+
+[node name="ZoomPoint" parent="Background/Door" index="2"]
+offset_left = -95.0
+offset_top = -455.0
+offset_right = -55.0
+offset_bottom = -415.0
+
 [node name="Statment" parent="Background" instance=ExtResource("3_5f5m1")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = 372.0
+offset_top = -484.0
+offset_right = 628.0
+offset_bottom = -392.0
 text = "I am the esteemed Curator at the Museum of Antiquated Artifacts."
 id = "cur1a"
 speaker = "Curator"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_5f5m1")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 580.0
+offset_top = -309.0
+offset_right = 836.0
+offset_bottom = -217.0
 text = "I was presenting the artifact when I heard someone announce their intention to steal it!"
 id = "cur1b"
 speaker = "Curator"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_5f5m1")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 638.0
+offset_top = -75.0
+offset_right = 894.0
+offset_bottom = 17.0
 text = "I looked around and sounded the alarm before that screwball went crazy with paint!"
 id = "cur1c"
 speaker = "Curator"

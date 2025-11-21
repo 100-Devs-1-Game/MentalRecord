@@ -14,7 +14,7 @@ class_name Door3D
 # --- onready variables ---
 @onready var camera: Camera3D = get_viewport().get_camera_3d()
 @onready var sprite_3d: Sprite3D = $Sprite3D
-
+@onready var zoom_point: Node3D = $ZoomPoint
 
 # --- built-in methods ---
 ## Initializes the door and connects state-update signals.
@@ -114,7 +114,7 @@ func check_click(event: InputEventMouseButton) -> void:
 
 		var result = space_state.intersect_ray(query)
 		if result and result.collider == self:
-			var screen_pos = Vector2(get_viewport().size) * camera.unproject_position(global_position) / Vector2(1920, 1080)
+			var screen_pos = Vector2(get_viewport().size) * camera.unproject_position(zoom_point.global_position) / Vector2(1920, 1080)
 			SceneManager.change_room(target_scene, screen_pos)
 
 
