@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://tno3y27nhspq"]
+[gd_scene load_steps=4 format=3 uid="uid://tno3y27nhspq"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_loidi"]
+[ext_resource type="Texture2D" uid="uid://tyf8tmm86blt" path="res://assets/backgrounds/culprit/Outline.png" id="2_loidi"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_j7vhu"]
 
 [node name="RoomTemplate" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_loidi")]
 position = Vector2(960, 540)
+
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_loidi")
 
 [node name="Statment" parent="Background" instance=ExtResource("3_j7vhu")]
 offset_left = -392.0
