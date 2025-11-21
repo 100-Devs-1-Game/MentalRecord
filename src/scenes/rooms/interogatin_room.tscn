@@ -1,0 +1,126 @@
+[gd_scene load_steps=13 format=3 uid="uid://cri4e16urfx6o"]
+
+[ext_resource type="Script" uid="uid://c3wivtbuttsvf" path="res://scripts/3d_parts/camera_3d_pan.gd" id="1_tawuf"]
+[ext_resource type="PackedScene" uid="uid://bskk16xpsru6p" path="res://scenes/objects/door3d.tscn" id="2_82mel"]
+[ext_resource type="PackedScene" uid="uid://dx0kfvrg0jxyu" path="res://assets/3d/desk_big.glb" id="3_aib8o"]
+[ext_resource type="PackedScene" uid="uid://d0h4uqw3tuj5e" path="res://assets/3d/ceiling_fan.glb" id="4_6loe8"]
+[ext_resource type="PackedScene" uid="uid://btewwlfu7k27n" path="res://assets/3d/lamp_architect.glb" id="5_6loe8"]
+[ext_resource type="PackedScene" uid="uid://bxrk18lfluu13" path="res://assets/3d/mug.glb" id="6_2brvf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aib8o"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_iyx0m"]
+sky_material = SubResource("ProceduralSkyMaterial_aib8o")
+
+[sub_resource type="Environment" id="Environment_6loe8"]
+background_mode = 2
+sky = SubResource("Sky_iyx0m")
+tonemap_mode = 4
+tonemap_exposure = 0.75
+
+[sub_resource type="Animation" id="Animation_2brvf"]
+resource_name = "env_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ceiling_fan:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 6.2831855, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lamp_architect/OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15057904, 0.20704618, 0.28860983, 0.35135108),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_buqmo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ceiling_fan:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lamp_architect/OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7kmqq"]
+_data = {
+&"RESET": SubResource("Animation_buqmo"),
+&"env_animation": SubResource("Animation_2brvf")
+}
+
+[node name="interogatin_room" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6loe8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.82974935, 0.5581362, 0, -0.5581362, 0.82974935, 0, 3.070694, 0)
+script = ExtResource("1_tawuf")
+
+[node name="door3d" parent="." instance=ExtResource("2_82mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056062818, 0.7035291, -4.648307)
+visible = false
+door_id = ""
+target_scene = ""
+statement_id_to_unlock = ""
+
+[node name="desk_big" parent="." instance=ExtResource("3_aib8o")]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1, 0, -1.5, 0, -6.556708e-08, 0, 0, -10)
+
+[node name="ceiling_fan" parent="." instance=ExtResource("4_6loe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
+
+[node name="lamp_architect" parent="." instance=ExtResource("5_6loe8")]
+transform = Transform3D(0.50774896, 0, -0.8615051, 0, 1, 0, 0.8615051, 0, 0.50774896, 1.7119465, 0.9419335, -10.143118)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lamp_architect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68576646, 0.21166134)
+light_color = Color(1, 1, 0.4627451, 1)
+omni_range = 1.489
+omni_attenuation = 0.5
+
+[node name="mug" parent="." instance=ExtResource("6_2brvf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75006276, 0.9500892, -10.54084)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7kmqq")
+}
+autoplay = "env_animation"
