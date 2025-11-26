@@ -39,11 +39,14 @@ mesh = SubResource("BoxMesh_bl13t")
 [node name="door3d" parent="." instance=ExtResource("2_bflcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056062818, 0.7035291, -4.648307)
 door_id = "da2"
+statement_id_to_unlock = "test1"
+display_lie = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
 
 [node name="Background" parent="CanvasLayer" instance=ExtResource("3_30tst")]
+show_bg = false
 
 [node name="Statment" parent="CanvasLayer/Background" instance=ExtResource("4_7d7jw")]
 offset_left = 685.0

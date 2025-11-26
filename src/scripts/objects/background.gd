@@ -2,21 +2,23 @@ extends Node2D
 # Manager parallax 2d background
 
 ## --- export variables ---
-
 @export var pan_strength := 0.05
+@export var show_bg: bool = true
 
 ## --- onready variables ---
-
 @onready var camera = get_viewport().get_camera_2d()
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set the start positions of each child
 	for child in get_children():
+		# Remove textures if background is disabled
+		if not show_bg and child is Sprite2D:
+			child.texture = null
+
 		if child.has_meta("depth"):
 			child.set_meta("start_pos", child.position)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta: float) -> void:
 	var viewport_size = get_viewport_rect().size
 	var mouse_pos = get_viewport().get_mouse_position()

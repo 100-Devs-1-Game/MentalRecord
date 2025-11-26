@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bskk16xpsru6p"]
+[gd_scene load_steps=7 format=3 uid="uid://bskk16xpsru6p"]
 
 [ext_resource type="Script" uid="uid://dffrhh5nadfl7" path="res://scripts/objects/door3d.gd" id="1_7soci"]
 [ext_resource type="Texture2D" uid="uid://dioetyj627ppb" path="res://assets/objects/doorgeneric/Door.png" id="2_352f5"]
 [ext_resource type="Texture2D" uid="uid://0viv20n8lgxo" path="res://assets/objects/doorgeneric/DoorOpen.png" id="3_goltf"]
+[ext_resource type="Material" uid="uid://cou30e5j6gexb" path="res://materials/ui_line_jitter.tres" id="4_2ve71"]
+[ext_resource type="Theme" uid="uid://dp76re34dkvyy" path="res://themes/lie.tres" id="5_onqkm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_352f5"]
 size = Vector3(2.4643555, 3.6430054, 0.44140625)
@@ -23,3 +25,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034423828, 0.050445557, -0.
 shape = SubResource("BoxShape3D_352f5")
 
 [node name="ZoomPoint" type="Node3D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Lie" type="Label" parent="CanvasLayer"]
+z_index = 1
+material = ExtResource("4_2ve71")
+offset_right = 512.0
+offset_bottom = 53.0
+theme = ExtResource("5_onqkm")
+text = "LieText"
+horizontal_alignment = 1
+autowrap_mode = 3
