@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://d0h4uqw3tuj5e" path="res://assets/3d/ceiling_fan.glb" id="4_6loe8"]
 [ext_resource type="PackedScene" uid="uid://btewwlfu7k27n" path="res://assets/3d/lamp_architect.glb" id="5_6loe8"]
 [ext_resource type="PackedScene" uid="uid://bxrk18lfluu13" path="res://assets/3d/mug.glb" id="6_2brvf"]
+[ext_resource type="PackedScene" uid="uid://m3ayg4exnfi" path="res://assets/3d/internal/BuildingDoor.glb" id="6_nniwa"]
 [ext_resource type="Texture2D" uid="uid://by674wyx8d60i" path="res://assets/3d/misc_textures/black-parquet.jpg" id="7_o565m"]
 [ext_resource type="Texture2D" uid="uid://3jawsf624ja1" path="res://assets/3d/misc_textures/white-striped-plaster-texture.jpg" id="8_nniwa"]
-[ext_resource type="PackedScene" uid="uid://ctb26negesrwe" path="res://assets/3d/door.glb" id="9_o565m"]
 [ext_resource type="PackedScene" uid="uid://dtq0mr6nftcd3" path="res://assets/3d/internal/Chair.glb" id="11_i3171"]
 [ext_resource type="PackedScene" uid="uid://c6xpmm7ejwk1b" path="res://assets/3d/internal/Table.glb" id="12_o1jtk"]
 
@@ -158,8 +158,8 @@ spot_angle = 76.3
 [node name="mug" parent="props" instance=ExtResource("6_2brvf")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.79582274, 1.2518907, -10.54084)
 
-[node name="door" parent="props" instance=ExtResource("9_o565m")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.7209435, 3.0174775, -19.960133)
+[node name="BuildingDoor" parent="props" instance=ExtResource("6_nniwa")]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 3.5955353, 0, -15.533062)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -183,7 +183,7 @@ mesh = SubResource("QuadMesh_nniwa")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="wall_0"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10, 0, -25)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.997155, 0, -25)
 mesh = SubResource("QuadMesh_nniwa")
 skeleton = NodePath("../..")
 
@@ -205,12 +205,12 @@ mesh = SubResource("QuadMesh_o565m")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="wall_1"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10, 6.25, -25)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.997155, 6.25, -25)
 mesh = SubResource("QuadMesh_o565m")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="wall_1"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 6.25, -20)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 6.25, -15.572102)
 mesh = SubResource("QuadMesh_7o1iw")
 skeleton = NodePath("../..")
 
