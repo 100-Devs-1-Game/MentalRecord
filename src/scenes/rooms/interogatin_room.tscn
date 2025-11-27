@@ -1,14 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://cri4e16urfx6o"]
+[gd_scene load_steps=23 format=3 uid="uid://cri4e16urfx6o"]
 
 [ext_resource type="Script" uid="uid://c3wivtbuttsvf" path="res://scripts/3d_parts/camera_3d_pan.gd" id="1_tawuf"]
-[ext_resource type="PackedScene" uid="uid://bskk16xpsru6p" path="res://scenes/objects/door3d.tscn" id="2_82mel"]
 [ext_resource type="PackedScene" uid="uid://dh7bn1khdr5yk" path="res://assets/3d/meshes/CeilingFan.glb" id="3_7o1iw"]
 [ext_resource type="PackedScene" uid="uid://6v16oob1c0ux" path="res://assets/3d/meshes/Mug.glb" id="5_nniwa"]
 [ext_resource type="PackedScene" uid="uid://bdglba7ck4bay" path="res://assets/3d/meshes/Lamp.glb" id="6_7o1iw"]
 [ext_resource type="PackedScene" uid="uid://m3ayg4exnfi" path="res://assets/3d/meshes/BuildingDoor.glb" id="6_nniwa"]
 [ext_resource type="Material" uid="uid://dgjnxd3nkoqie" path="res://assets/3d/materials/concrete.tres" id="7_nniwa"]
 [ext_resource type="Material" uid="uid://20piwuxkcmyx" path="res://assets/3d/materials/plaster.tres" id="8_7o1iw"]
+[ext_resource type="Texture2D" uid="uid://crmdow3p5b6a7" path="res://assets/3d/materials/concrete_albedo.png" id="9_7o1iw"]
 [ext_resource type="PackedScene" uid="uid://dtq0mr6nftcd3" path="res://assets/3d/meshes/Chair.glb" id="11_i3171"]
+[ext_resource type="Texture2D" uid="uid://bias5x3acu1wv" path="res://assets/3d/materials/plaster_albedo.png" id="11_o1jtk"]
 [ext_resource type="PackedScene" uid="uid://c6xpmm7ejwk1b" path="res://assets/3d/meshes/Table.glb" id="12_o1jtk"]
 
 [sub_resource type="Environment" id="Environment_6loe8"]
@@ -85,11 +86,8 @@ material = ExtResource("7_nniwa")
 size = Vector2(50, 50)
 orientation = 1
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7kmqq"]
-load_path = "res://.godot/imported/simple-gray-granite-wall-background.jpg-d8544297c799cf936937536b21571974.s3tc.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o565m"]
-albedo_texture = SubResource("CompressedTexture2D_7kmqq")
+albedo_texture = ExtResource("9_7o1iw")
 uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="QuadMesh" id="QuadMesh_nniwa"]
@@ -98,11 +96,8 @@ material = SubResource("StandardMaterial3D_o565m")
 size = Vector2(50, 2.5)
 orientation = 0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nniwa"]
-load_path = "res://.godot/imported/white-striped-plaster-texture.jpg-31dfb13e544306ab544e6d475c8560d9.s3tc.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kmqq"]
-albedo_texture = SubResource("CompressedTexture2D_nniwa")
+albedo_texture = ExtResource("11_o1jtk")
 uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="QuadMesh" id="QuadMesh_o565m"]
@@ -111,11 +106,8 @@ material = SubResource("StandardMaterial3D_7kmqq")
 size = Vector2(50, 10)
 orientation = 0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o565m"]
-load_path = "res://.godot/imported/white-striped-plaster-texture.jpg-31dfb13e544306ab544e6d475c8560d9.s3tc.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nniwa"]
-albedo_texture = SubResource("CompressedTexture2D_o565m")
+albedo_texture = ExtResource("11_o1jtk")
 uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="QuadMesh" id="QuadMesh_7o1iw"]
@@ -129,18 +121,29 @@ orientation = 0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6loe8")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.90408254, -0.1973319, 0.3790711, 0, 0.8870109, 0.4617486, -0.42735788, -0.41745886, 0.801931, 7, 7.362005, -3)
+light_energy = 4.5
+shadow_enabled = true
+shadow_bias = 2.5
+spot_range = 22.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.90125036
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.8910065, 0.29181945, -0.34777692, 0, 0.76604444, 0.6427876, 0.45399052, -0.5727279, 0.6825506, 0.5, 5, -4.5)
 script = ExtResource("1_tawuf")
 
-[node name="door3d" parent="." instance=ExtResource("2_82mel")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056062818, 0.7035291, -4.648307)
-visible = false
-door_id = ""
-target_scene = ""
-statement_id_to_unlock = ""
-
 [node name="props" type="Node3D" parent="."]
+
+[node name="Chair2" parent="props" instance=ExtResource("11_i3171")]
+transform = Transform3D(-2.6226834e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.6226834e-08, 0, 0, -8.460388)
+
+[node name="Chair3" parent="props" instance=ExtResource("11_i3171")]
+transform = Transform3D(-0.5143004, 0, 0.3090228, 0, 0.6, 0, -0.3090228, 0, -0.5143004, -0.6065111, 0, -12.033492)
+
+[node name="Table" parent="props" instance=ExtResource("12_o1jtk")]
+transform = Transform3D(-2.6226834e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.6226834e-08, 0, 0, -10)
 
 [node name="CeilingFan" parent="props" instance=ExtResource("3_7o1iw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9895895, -10.0129795)
@@ -166,7 +169,7 @@ libraries = {
 }
 autoplay = "env_animation"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.0332098, -25)
 mesh = SubResource("QuadMesh_2brvf")
 
@@ -187,7 +190,7 @@ mesh = SubResource("QuadMesh_nniwa")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="wall_0"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, -20)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, -15.5)
 mesh = SubResource("QuadMesh_nniwa")
 skeleton = NodePath("../..")
 
@@ -211,7 +214,7 @@ mesh = SubResource("QuadMesh_o565m")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="wall_1"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 6.25, -15.572102)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 6.25, -15.5)
 material_override = ExtResource("8_7o1iw")
 mesh = SubResource("QuadMesh_7o1iw")
 skeleton = NodePath("../..")
@@ -221,23 +224,5 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 
 mesh = SubResource("QuadMesh_o565m")
 skeleton = NodePath("../..")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.90408254, -0.1973319, 0.3790711, 0, 0.8870109, 0.4617486, -0.42735788, -0.41745886, 0.801931, 7, 7.362005, -3)
-light_energy = 6.0
-shadow_enabled = true
-shadow_bias = 2.5
-spot_range = 22.0
-spot_angle = 60.0
-spot_angle_attenuation = 0.90125036
-
-[node name="Chair2" parent="." instance=ExtResource("11_i3171")]
-transform = Transform3D(-2.6226834e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.6226834e-08, 0, 0, -8.460388)
-
-[node name="Chair3" parent="." instance=ExtResource("11_i3171")]
-transform = Transform3D(-0.5143004, 0, 0.3090228, 0, 0.6, 0, -0.3090228, 0, -0.5143004, -0.6065111, 0, -12.033492)
-
-[node name="Table (1)" parent="." instance=ExtResource("12_o1jtk")]
-transform = Transform3D(-2.6226834e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.6226834e-08, 0, 0, -10)
-
-[editable path="Chair3"]
-[editable path="Table (1)"]
+[editable path="props/Chair3"]
+[editable path="props/Table"]
