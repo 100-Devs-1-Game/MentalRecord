@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://btewwlfu7k27n"
-path="res://.godot/imported/lamp_architect.glb-9acd9556d42d3853e6ee36923d237387.scn"
+uid="uid://bdglba7ck4bay"
+path="res://.godot/imported/Lamp.glb-906a1d98940ed8010c4993ee702d74c6.scn"
 
 [deps]
 
-source_file="res://assets/3d/lamp_architect.glb"
-dest_files=["res://.godot/imported/lamp_architect.glb-9acd9556d42d3853e6ee36923d237387.scn"]
+source_file="res://assets/3d/internal/Lamp.glb"
+dest_files=["res://.godot/imported/Lamp.glb-906a1d98940ed8010c4993ee702d74c6.scn"]
 
 [params]
 
