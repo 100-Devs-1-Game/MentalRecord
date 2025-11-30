@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://q2ejrg0kmkn2"]
+
+[ext_resource type="Texture2D" uid="uid://cfaa48oxd6v6u" path="res://assets/3d/materials/lightmetal_orm.png" id="2"]
+
+[resource]
+albedo_color = Color(0.8203125, 0.8203125, 0.8203125, 1)
+metallic = 0.3
+roughness_texture = ExtResource("2")
+roughness_texture_channel = 1
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 60.91871

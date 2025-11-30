@@ -1,11 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://cq1v33lmadmcd"]
 
 [ext_resource type="Script" uid="uid://lh0bkv4n03f4" path="res://scripts/objects/door.gd" id="1_yar34"]
-[ext_resource type="Material" uid="uid://cou30e5j6gexb" path="res://materials/ui_line_jitter.tres" id="2_aji8h"]
+[ext_resource type="Material" uid="uid://cou30e5j6gexb" path="res://shadermaterials/ui_line_jitter.tres" id="2_aji8h"]
 [ext_resource type="Texture2D" uid="uid://dioetyj627ppb" path="res://assets/objects/doorgeneric/Door.png" id="2_vedx6"]
 [ext_resource type="Theme" uid="uid://dp76re34dkvyy" path="res://themes/lie.tres" id="2_xm0wp"]
 [ext_resource type="Texture2D" uid="uid://0viv20n8lgxo" path="res://assets/objects/doorgeneric/DoorOpen.png" id="3_hfw7n"]
 [ext_resource type="Shader" uid="uid://c3kedlvm0tag8" path="res://shaders/line_jitter.gdshader" id="6_vedx6"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfw7n"]
 shader = ExtResource("6_vedx6")

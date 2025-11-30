@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dj3vpgx2a4edc"]
+
+[ext_resource type="Texture2D" uid="uid://dgbkk1sgu48d7" path="res://assets/3d/materials/greywood_albedo.png" id="1"]
+
+[resource]
+albedo_texture = ExtResource("1")
+uv1_triplanar = true
+uv2_triplanar = true

@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bievsy4rdaupo"]
+
+[ext_resource type="Texture2D" uid="uid://c7kkx63bu3n5o" path="res://assets/3d/materials/scratchymetal_orm.png" id="1_mjc33"]
+
+
+[resource]
+albedo_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+metallic = 1.0
+metallic_texture = ExtResource("1_mjc33")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("1_mjc33")
+roughness_texture_channel = 1
+uv1_triplanar = true
