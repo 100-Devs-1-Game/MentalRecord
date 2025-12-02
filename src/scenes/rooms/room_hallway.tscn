@@ -63,7 +63,7 @@ start_unlocked = true
 [node name="door3d6" parent="." instance=ExtResource("2_ta1w6")]
 transform = Transform3D(0.15100074, 0, -0.73464197, 0, 0.75, 0, 0.73464197, 0, 0.15100074, 2.7993793, -0.31355911, -4.2678776)
 door_id = "hallf"
-target_scene = "res://scenes/rooms/culprit/room_cul99.tscn"
+target_scene = "res://scenes/rooms/scientist/room_sci1.tscn"
 start_unlocked = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
