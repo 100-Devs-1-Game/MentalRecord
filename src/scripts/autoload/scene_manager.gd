@@ -4,6 +4,7 @@ extends Node
 ## --- private variables ---
 var _current_level: Node = null
 var _default_level: String = "res://scenes/rooms/room_hallway.tscn"
+var _end_scene: String = "res://scenes/rooms/ending.tscn"
 var _level_stack: Array = []
 var transitioning: bool = false
 
@@ -19,8 +20,8 @@ var _culprit_level_stack: Array = [
 	"res://scenes/rooms/culprit/room_cul91.tscn",
 	"res://scenes/rooms/culprit/room_cul90.tscn",
 	"res://scenes/rooms/culprit/room_cul89.tscn",
-	"res://scenes/rooms/culprit/room_cul88.tscn"
-	
+	"res://scenes/rooms/culprit/room_cul88.tscn",
+	"res://scenes/rooms/culprit/room_cul0.tscn"
 ]
 
 ## --- onready variables ---
@@ -105,6 +106,16 @@ func exit_room() -> void:
 		transitioning = true
 		_transition_rect.play_transition(Vector2(get_viewport().size / 2), null, old_tex, true, func():
 			transitioning = false
+			
+			# Check if in culprit final room
+			if (new_room == _culprit_level_stack[_culprit_level_stack.size()-1]):
+				# Remove current room
+				if _current_level and is_instance_valid(_current_level):
+					_current_level.queue_free()
+					
+				# Go to end
+				clear_rooms()
+				get_tree().change_scene_to_file(_end_scene)
 		)
 		
 ## Unloads levels and resets to default

@@ -1,0 +1,150 @@
+[gd_scene load_steps=19 format=3 uid="uid://njwpk2fhgnih"]
+
+[ext_resource type="Script" uid="uid://c3wivtbuttsvf" path="res://scripts/3d_parts/camera_3d_pan.gd" id="1_twcag"]
+[ext_resource type="PackedScene" uid="uid://bc0wrqybujjf3" path="res://scenes/objects/letter.tscn" id="2_twcag"]
+[ext_resource type="Script" uid="uid://w4kwkapq6hjs" path="res://scripts/transition/fade_in.gd" id="3_xoby6"]
+[ext_resource type="Texture2D" uid="uid://crmdow3p5b6a7" path="res://assets/3d/materials/concrete_albedo.png" id="4_sd68a"]
+[ext_resource type="Material" uid="uid://20piwuxkcmyx" path="res://assets/3d/materials/plaster.tres" id="5_caphg"]
+[ext_resource type="Texture2D" uid="uid://bias5x3acu1wv" path="res://assets/3d/materials/plaster_albedo.png" id="6_fild8"]
+[ext_resource type="Material" uid="uid://dgjnxd3nkoqie" path="res://assets/3d/materials/concrete.tres" id="7_odhwg"]
+[ext_resource type="Texture2D" uid="uid://cya0x404beu0" path="res://assets/decor/Chicken.png" id="8_caphg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bl13t"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_iyx0m"]
+sky_material = SubResource("ProceduralSkyMaterial_bl13t")
+
+[sub_resource type="Environment" id="Environment_74lek"]
+background_energy_multiplier = 0.39
+sky = SubResource("Sky_iyx0m")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o565m"]
+albedo_texture = ExtResource("4_sd68a")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_f61ne"]
+lightmap_size_hint = Vector2i(252, 252)
+material = SubResource("StandardMaterial3D_o565m")
+size = Vector2(50, 2.5)
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kmqq"]
+albedo_texture = ExtResource("6_fild8")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ck8k7"]
+lightmap_size_hint = Vector2i(252, 252)
+material = SubResource("StandardMaterial3D_7kmqq")
+size = Vector2(50, 10)
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nniwa"]
+albedo_texture = ExtResource("6_fild8")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_qpct2"]
+lightmap_size_hint = Vector2i(252, 252)
+material = SubResource("StandardMaterial3D_nniwa")
+size = Vector2(50, 10)
+orientation = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_388ai"]
+lightmap_size_hint = Vector2i(252, 252)
+material = ExtResource("7_odhwg")
+size = Vector2(50, 50)
+orientation = 1
+
+[node name="ending" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_74lek")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.73643976, -0.6752634, 0.040937, 0.4561516, 0.54034287, 0.7070752, -0.49958205, -0.5020448, 0.70595247, 1.467422, 8.559938, -3.8915005)
+light_energy = 4.5
+shadow_enabled = true
+shadow_bias = 2.5
+spot_range = 19.05
+spot_attenuation = 2.6
+spot_angle = 37.43
+spot_angle_attenuation = 0.90125036
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5969751, 2.5105019, -3.7081203)
+script = ExtResource("1_twcag")
+
+[node name="letter" parent="." instance=ExtResource("2_twcag")]
+transform = Transform3D(0.01, 0, 0, 0, 0.008690895, 0.0049465494, 0, -0.0049465494, 0.008690895, 0.32358643, 0.12923482, -10.328231)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("3_xoby6")
+
+[node name="wall_0" type="Node3D" parent="."]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="wall_0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4415894, 0, -25)
+mesh = SubResource("QuadMesh_f61ne")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="wall_0"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.8090134, 0, -25)
+mesh = SubResource("QuadMesh_f61ne")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="wall_0"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, -10.379532)
+mesh = SubResource("QuadMesh_f61ne")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="wall_0"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, 0)
+mesh = SubResource("QuadMesh_f61ne")
+skeleton = NodePath("../..")
+
+[node name="wall_1" type="Node3D" parent="."]
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="wall_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4415894, 6.25, -25)
+material_override = ExtResource("5_caphg")
+mesh = SubResource("QuadMesh_ck8k7")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="wall_1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.8090134, 6.25, -25)
+material_override = ExtResource("5_caphg")
+mesh = SubResource("QuadMesh_ck8k7")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="wall_1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 6.25, -10.379532)
+material_override = ExtResource("5_caphg")
+mesh = SubResource("QuadMesh_qpct2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="wall_1"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 6.25, 0)
+mesh = SubResource("QuadMesh_ck8k7")
+skeleton = NodePath("../..")
+
+[node name="floor" type="MeshInstance3D" parent="wall_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.0332098, -25)
+mesh = SubResource("QuadMesh_388ai")
+
+[node name="cell" type="MeshInstance3D" parent="wall_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 11.310719, -25)
+mesh = SubResource("QuadMesh_388ai")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.6302764, 4.5511255, -10.367659)
+texture = ExtResource("8_caphg")

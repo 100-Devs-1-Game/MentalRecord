@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc0wrqybujjf3"]
+
+[ext_resource type="Script" uid="uid://dmp0bw28vtqe0" path="res://scripts/objects/letter.gd" id="1_aqrrv"]
+[ext_resource type="Texture2D" uid="uid://bias5x3acu1wv" path="res://assets/3d/materials/plaster_albedo.png" id="2_gmbui"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_352f5"]
+size = Vector3(20.348541, 20.474224, 0.44140625)
+
+[node name="letter" type="StaticBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+script = ExtResource("1_aqrrv")
+target_scene = "res://scenes/rooms/endletter.tscn"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+modulate = Color(0.6006637, 0.62380517, 0.4656508, 1)
+texture = ExtResource("2_gmbui")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024642944, 0.054216385, -0.013671875)
+shape = SubResource("BoxShape3D_352f5")

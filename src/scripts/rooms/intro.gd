@@ -3,6 +3,7 @@ extends Control
 
 ## --- export variables ---
 @export var game_scene: String
+@export var is_ending: bool
 
 ## --- private variables ---
 var _fade_time = 2.0
@@ -16,7 +17,8 @@ var _is_bottom_reached = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Setup
-	continue_button.hide()
+	if (!is_ending):
+		continue_button.hide()
 
 	# Wait a frame so scroll sizes are correct
 	await get_tree().process_frame
@@ -47,7 +49,8 @@ func fade_out_and_exit() -> void:
 	tween.tween_property(fade_rect, "modulate:a", 1.0, _fade_time)
 	await tween.finished
 	get_tree().change_scene_to_file(game_scene)
-	SceneManager.load_start_room()
+	if (!is_ending):
+		SceneManager.load_start_room()
 
 # Checks for scroll reaching the bottom
 func _on_scroll_changed(_value: float) -> void:
