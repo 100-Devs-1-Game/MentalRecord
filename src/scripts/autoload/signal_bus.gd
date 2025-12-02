@@ -20,4 +20,8 @@ signal door_state_changed(door_id: String, is_open: bool)
 ## @param stack_size: Size of level stack.
 signal level_stack_updated(stack_size: int)
 
+## Emitted when the paused state is updated
+## @param paused_state: New paused state
+signal paused_state_changed(paused_state: bool)
+
 @warning_ignore_restore("unused_signal")
