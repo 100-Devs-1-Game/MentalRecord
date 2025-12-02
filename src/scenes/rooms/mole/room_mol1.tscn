@@ -31,6 +31,12 @@ text = "I have no idea what goes on in there. He lost one of his relics, already
 [node name="Sprite" parent="Background/Door" index="1"]
 texture = ExtResource("3_cif8p")
 
+[node name="ZoomPoint" parent="Background/Door" index="2"]
+offset_left = -14.0
+offset_top = -275.0
+offset_right = 26.0
+offset_bottom = -235.0
+
 [node name="Statment" parent="Background" instance=ExtResource("3_sjda7")]
 offset_left = -322.0
 offset_top = -318.0

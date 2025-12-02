@@ -44,6 +44,12 @@ offset_bottom = 1024.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_tajvv")
 
+[node name="ZoomPoint" parent="Background/Door2" index="2"]
+offset_left = 435.0
+offset_top = 452.0
+offset_right = 475.0
+offset_bottom = 492.0
+
 [node name="Door" parent="Background" instance=ExtResource("2_m5rti")]
 offset_left = -66.0
 offset_top = 213.0
@@ -70,6 +76,12 @@ offset_right = 1262.0
 offset_bottom = 609.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_tajvv")
+
+[node name="ZoomPoint" parent="Background/Door" index="2"]
+offset_left = 701.0
+offset_top = 21.0
+offset_right = 741.0
+offset_bottom = 61.0
 
 [node name="Statment" parent="Background" instance=ExtResource("3_trry5")]
 offset_left = -75.0

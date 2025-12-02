@@ -23,10 +23,10 @@ func _process(_delta: float) -> void:
 func toggle_pause() -> void:
 	if paused:
 		pause_menu.hide()
-		Engine.time_scale = 1
+		SignalBus.paused_state_changed.emit(false)
 	else:
 		pause_menu.show()
-		Engine.time_scale = 0
+		SignalBus.paused_state_changed.emit(true)
 		
 	paused = !paused
 	

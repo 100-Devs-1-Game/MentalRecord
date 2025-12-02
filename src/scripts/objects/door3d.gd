@@ -14,6 +14,9 @@ class_name Door3D
 @export var texture_locked: Texture2D
 @export var texture_unlocked: Texture2D
 
+# --- private variables ---
+var paused = false
+
 # --- onready variables ---
 @onready var camera: Camera3D = get_viewport().get_camera_3d()
 @onready var sprite_3d: Sprite3D = $Sprite3D
@@ -32,6 +35,7 @@ func _ready() -> void:
 
 	update_visual()
 	SignalBus.door_state_changed.connect(received_update_signal)
+	SignalBus.paused_state_changed.connect(paused_state_changed)
 
 func _process(_delta: float) -> void:
 	if not (display_lie and lie_label and camera and sprite_3d):
@@ -127,7 +131,7 @@ func get_all_rects() -> Array[Rect2]:
 ## Handles mouse button release events.
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
-		if is_door_unlocked():
+		if is_door_unlocked() and !paused:
 			check_click(event)
 
 
@@ -155,3 +159,7 @@ func check_click(event: InputEventMouseButton) -> void:
 func received_update_signal(updated_door_id: String, _is_open: bool) -> void:
 	if door_id == updated_door_id:
 		update_visual()
+		
+## Called when the paused state is changed
+func paused_state_changed(paused_state: bool):
+	paused = paused_state

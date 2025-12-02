@@ -48,6 +48,12 @@ offset_right = 347.0
 offset_bottom = 392.0
 texture = ExtResource("6_p7f62")
 
+[node name="ZoomPoint" parent="Background/Door" index="2"]
+offset_left = -195.0
+offset_top = -189.0
+offset_right = -155.0
+offset_bottom = -149.0
+
 [node name="Statment" parent="Background" instance=ExtResource("3_mo54i")]
 offset_left = -491.0
 offset_top = -456.0
