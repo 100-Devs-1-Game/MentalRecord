@@ -1,13 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://dykxtpu7wndbi"]
+[gd_scene load_steps=9 format=3 uid="uid://dykxtpu7wndbi"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_a2mce"]
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_atuid"]
+[ext_resource type="Texture2D" uid="uid://ch0ajuo0ul0ri" path="res://assets/backgrounds/curator/WarehouseBG.png" id="2_mhekm"]
+[ext_resource type="Texture2D" uid="uid://bjvs71hmpplhl" path="res://assets/backgrounds/curator/WarehouseMG.png" id="3_jchnw"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_mo54i"]
+[ext_resource type="Texture2D" uid="uid://btgs15mjxaxsu" path="res://assets/backgrounds/curator/WarehouseFG.png" id="4_p7f62"]
+[ext_resource type="Texture2D" uid="uid://bqwvoa1a5l41s" path="res://assets/doors/curator/CuratorDoorClosed.png" id="6_p7f62"]
+[ext_resource type="Texture2D" uid="uid://bsntcheege1v5" path="res://assets/doors/curator/CuratorDoorOpen.png" id="7_v86ol"]
 
 [node name="RoomTemplate" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_a2mce")]
 position = Vector2(960, 540)
+
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_mhekm")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("3_jchnw")
+
+[node name="ForegroundSprite" parent="Background" index="2"]
+texture = ExtResource("4_p7f62")
 
 [node name="Door" parent="Background" instance=ExtResource("2_atuid")]
 offset_left = 188.0
@@ -16,38 +30,47 @@ offset_right = 188.0
 offset_bottom = 204.0
 door_id = "cur2a"
 target_scene = "res://scenes/rooms/curator/room_cur3.tscn"
+locked_sprite = ExtResource("6_p7f62")
+unlocked_sprite = ExtResource("7_v86ol")
 statement_id_to_unlock = "act3a"
 
 [node name="Lie" parent="Background/Door" index="0"]
-offset_left = -248.0
-offset_top = -270.0
-offset_right = 264.0
-offset_bottom = -73.0
+offset_left = -449.0
+offset_top = -225.0
+offset_right = 63.0
+offset_bottom = -28.0
 text = "Could you believe it? All of those people, and not one of them knows who ended up with the egg?"
 
+[node name="Sprite" parent="Background/Door" index="1"]
+offset_left = -677.0
+offset_top = -632.0
+offset_right = 347.0
+offset_bottom = 392.0
+texture = ExtResource("6_p7f62")
+
 [node name="Statment" parent="Background" instance=ExtResource("3_mo54i")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -491.0
+offset_top = -456.0
+offset_right = -235.0
+offset_bottom = -364.0
 text = "I heard about that sickly person in the sewers. Quite a shame really. However, I intend to keep my reputation out of the waste below."
 id = "cur2a"
 speaker = "Curator"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_mo54i")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 403.0
+offset_top = -259.0
+offset_right = 659.0
+offset_bottom = -167.0
 text = "I do wish the museum pipes didn’t run through the sewers. It makes maintenance rather difficult."
 id = "cur2b"
 speaker = "Curator"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_mo54i")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 539.0
+offset_top = 307.0
+offset_right = 795.0
+offset_bottom = 399.0
 text = "Rumors about a former employee committing theft are true. The MoAA has since learned from their mistakes by investing in security technology."
 id = "cur2c"
 speaker = "Curator"

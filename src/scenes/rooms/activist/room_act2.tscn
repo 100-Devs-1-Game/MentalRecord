@@ -1,49 +1,68 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmv8pko6564c6"]
+[gd_scene load_steps=9 format=3 uid="uid://cmv8pko6564c6"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_kowmq"]
+[ext_resource type="Texture2D" uid="uid://ywrt1sp3562i" path="res://assets/backgrounds/activist/MineBG.png" id="2_jsyug"]
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_p4h63"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_1rnm1"]
+[ext_resource type="Texture2D" uid="uid://gh66f3eg0e56" path="res://assets/backgrounds/activist/MineMG.png" id="3_ljqvh"]
+[ext_resource type="Texture2D" uid="uid://ua7518hcofh2" path="res://assets/doors/activist/ActivistDoorClosed.png" id="4_cc1jl"]
+[ext_resource type="Texture2D" uid="uid://cul8tns2hfpqp" path="res://assets/backgrounds/activist/MineFG.png" id="4_sjl2r"]
+[ext_resource type="Texture2D" uid="uid://44vihd2xc7cw" path="res://assets/doors/activist/ActivistDoorOpen.png" id="5_pwqsm"]
 
 [node name="RoomTemplate" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_kowmq")]
 position = Vector2(960, 540)
 
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_jsyug")
+
 [node name="Door" parent="Background" instance=ExtResource("2_p4h63")]
-offset_left = 188.0
-offset_top = 204.0
-offset_right = 188.0
-offset_bottom = 204.0
+offset_left = -31.0
+offset_top = -54.0
+offset_right = -31.0
+offset_bottom = -54.0
 door_id = "act2a"
 target_scene = "res://scenes/rooms/activist/room_act3.tscn"
+locked_sprite = ExtResource("4_cc1jl")
+unlocked_sprite = ExtResource("5_pwqsm")
 statement_id_to_unlock = "med3c"
 
 [node name="Lie" parent="Background/Door" index="0"]
 text = "There are no such thing as supernatural phenomena."
 
+[node name="Sprite" parent="Background/Door" index="1"]
+texture = ExtResource("4_cc1jl")
+
+[node name="MidgroundSprite" parent="Background" index="2"]
+texture = ExtResource("3_ljqvh")
+
+[node name="ForegroundSprite" parent="Background" index="3"]
+texture = ExtResource("4_sjl2r")
+
 [node name="Statment" parent="Background" instance=ExtResource("3_1rnm1")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -463.0
+offset_top = 195.0
+offset_right = -207.0
+offset_bottom = 287.0
 text = "Thanks to help from my friend, I was able to get the guard to let me in unsupervised..."
 id = "act2a"
 speaker = "Activist"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_1rnm1")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 123.0
+offset_top = 205.0
+offset_right = 379.0
+offset_bottom = 297.0
 text = "The curator must have known I was there, cause they sounded the alarm! I decided that was my chance to strike."
 id = "act2b"
 speaker = "Activist"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_1rnm1")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = -169.0
+offset_top = 347.0
+offset_right = 87.0
+offset_bottom = 439.0
 text = "The scientist told me something impossible..."
 id = "act2c"
 speaker = "Activist"

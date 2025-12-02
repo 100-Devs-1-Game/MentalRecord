@@ -1,36 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4ah76xdurcvi"]
+[gd_scene load_steps=5 format=3 uid="uid://b4ah76xdurcvi"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_1p28q"]
+[ext_resource type="Texture2D" uid="uid://b4j50dfb472mn" path="res://assets/backgrounds/curator/OfficeBG.png" id="2_o8e4b"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_bcm4t"]
+[ext_resource type="Texture2D" uid="uid://dic17jgxmoa63" path="res://assets/backgrounds/curator/OfficeMG.png" id="3_x12ln"]
 
 [node name="RoomTemplate" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_1p28q")]
 position = Vector2(960, 540)
 
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_o8e4b")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("3_x12ln")
+
 [node name="Statment" parent="Background" instance=ExtResource("3_bcm4t")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -378.0
+offset_top = -47.0
+offset_right = -122.0
+offset_bottom = 45.0
 text = "I musn’t let the reputation of my employees be tarnished, or we’ll all end up like that crazy old animal!"
 id = "cur3a"
 speaker = "Curator"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_bcm4t")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 83.0
+offset_top = -35.0
+offset_right = 339.0
+offset_bottom = 57.0
 text = "That scientist is always making off with artifacts. I could have sworn I even witnessed her with one in hand!"
 id = "cur3b"
 speaker = "Curator"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_bcm4t")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = -135.0
+offset_top = 197.0
+offset_right = 121.0
+offset_bottom = 289.0
 text = "We’ve already lost the iridium chicken... I can’t bear any more misfortune."
 id = "cur4c"
 speaker = "Curator"

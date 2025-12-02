@@ -1,59 +1,103 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgmyr6beq0tum"]
+[gd_scene load_steps=9 format=3 uid="uid://dgmyr6beq0tum"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_qkn8i"]
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_lyaem"]
+[ext_resource type="Texture2D" uid="uid://k5ppsoynilf0" path="res://assets/backgrounds/activist/CourtBG.png" id="2_mve4s"]
+[ext_resource type="Texture2D" uid="uid://dvg8mpw1awhqd" path="res://assets/backgrounds/activist/CourtMG.png" id="3_8qhqy"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_n6c6d"]
+[ext_resource type="Texture2D" uid="uid://cr2oyfydq52ru" path="res://assets/backgrounds/activist/CourtFG.png" id="4_23bnm"]
+[ext_resource type="Texture2D" uid="uid://burpbyohlf1ve" path="res://assets/doors/activist/ActivistDoor2Closed.png" id="6_vfg5h"]
+[ext_resource type="Texture2D" uid="uid://dv063g6b4pqu2" path="res://assets/doors/activist/ActivistDoor2Open.png" id="7_8qhqy"]
 
 [node name="RoomTemplate" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_qkn8i")]
 position = Vector2(960, 540)
 
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_mve4s")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("3_8qhqy")
+
+[node name="ForegroundSprite" parent="Background" index="2"]
+texture = ExtResource("4_23bnm")
+
 [node name="Door" parent="Background" instance=ExtResource("2_lyaem")]
-offset_left = -25.0
-offset_top = 213.0
-offset_right = -25.0
-offset_bottom = 213.0
+offset_left = 528.0
+offset_top = -222.0
+offset_right = 528.0
+offset_bottom = -222.0
 door_id = "act3a"
 target_scene = "res://scenes/rooms/culprit/room_cul99.tscn"
+locked_sprite = ExtResource("6_vfg5h")
+unlocked_sprite = ExtResource("7_8qhqy")
 statement_id_to_unlock = "sci3b"
+metadata/depth = 0.9
 
 [node name="Lie" parent="Background/Door" index="0"]
+offset_left = -427.0
+offset_top = 260.0
+offset_right = 85.0
+offset_bottom = 313.0
 text = "The voice is a hallucination."
 
+[node name="Sprite" parent="Background/Door" index="1"]
+offset_left = -131.0
+offset_top = -337.0
+offset_right = 893.0
+offset_bottom = 687.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_vfg5h")
+
 [node name="Door2" parent="Background" instance=ExtResource("2_lyaem")]
-offset_left = 610.0
-offset_top = 277.0
-offset_right = 610.0
-offset_bottom = 277.0
+offset_left = -554.0
+offset_top = -282.0
+offset_right = -554.0
+offset_bottom = -282.0
 door_id = "act3b"
+locked_sprite = ExtResource("6_vfg5h")
+unlocked_sprite = ExtResource("7_8qhqy")
+metadata/depth = 0.9
 
 [node name="Lie" parent="Background/Door2" index="0"]
+offset_left = -148.0
+offset_top = 318.0
+offset_right = 364.0
+offset_bottom = 371.0
 text = "I must be losing it. "
 
+[node name="Sprite" parent="Background/Door2" index="1"]
+offset_left = 140.0
+offset_top = -280.0
+offset_right = 1164.0
+offset_bottom = 744.0
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("6_vfg5h")
+
 [node name="Statment" parent="Background" instance=ExtResource("3_n6c6d")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -261.0
+offset_top = -447.0
+offset_right = -5.0
+offset_bottom = -355.0
 text = "In the car, while we were being taken away, I was handed the egg..."
 id = "act3a"
 speaker = "Activist"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_n6c6d")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 37.0
+offset_top = -287.0
+offset_right = 293.0
+offset_bottom = -195.0
 text = "I hear a soothing voice right now, but I’m all alone."
 id = "act3b"
 speaker = "Activist"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_n6c6d")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = -170.0
+offset_top = -127.0
+offset_right = 86.0
+offset_bottom = -35.0
 text = "You don’t hear it? It’s almost welcoming."
 id = "act3c"
 speaker = "Activist"
