@@ -1,36 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://bncmijj6ndsps"]
+[gd_scene load_steps=6 format=3 uid="uid://bncmijj6ndsps"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_i7nw0"]
+[ext_resource type="Texture2D" uid="uid://cjjnqur7kl8nb" path="res://assets/backgrounds/guard/FactoryBG.png" id="2_jacy8"]
+[ext_resource type="Texture2D" uid="uid://dkifg5bo31ncq" path="res://assets/backgrounds/guard/FactoryMG.png" id="3_hf1w0"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_jacy8"]
+[ext_resource type="Texture2D" uid="uid://b3w0mrh7yseop" path="res://assets/backgrounds/guard/FactoryFG.png" id="4_dnvx4"]
 
 [node name="RoomTemplate" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_i7nw0")]
 position = Vector2(960, 540)
 
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_jacy8")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("3_hf1w0")
+
+[node name="ForegroundSprite" parent="Background" index="2"]
+texture = ExtResource("4_dnvx4")
+
 [node name="Statment" parent="Background" instance=ExtResource("3_jacy8")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -314.0
+offset_top = -203.0
+offset_right = -58.0
+offset_bottom = -111.0
 text = "I am a robot. People always judge me for shouting in broken english, but it’s part of my identity..."
 id = "gua3a"
 speaker = "Guard"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_jacy8")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 95.0
+offset_top = -182.0
+offset_right = 351.0
+offset_bottom = -90.0
 text = "FOLLOWING RETRIEVAL OF EGG, NEW COMMAND RECEIVED: PLACE EGG IN SARCOPHAGUS"
 id = "gua3b"
 speaker = "Guard"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_jacy8")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 481.0
+offset_top = -133.0
+offset_right = 737.0
+offset_bottom = -41.0
 text = "ONCE EGG SECURE IN  SARCOPHAGUS, YOUNG GIRL DETECTED ON THE LOWER LEVEL."
 id = "gua3c"
 speaker = "Guard"

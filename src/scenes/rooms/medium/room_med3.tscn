@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bub6n180wroq4"]
+[gd_scene load_steps=5 format=3 uid="uid://bub6n180wroq4"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_ib2q2"]
+[ext_resource type="Texture2D" uid="uid://dhujat5d0agrc" path="res://assets/backgrounds/medium/DetentionBG.png" id="2_7h708"]
+[ext_resource type="Texture2D" uid="uid://cju2jrbn26fl7" path="res://assets/backgrounds/medium/DetentionMG.png" id="3_m4tkf"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_p4wfx"]
 
 [node name="RoomTemplate" type="Node2D"]
@@ -8,29 +10,34 @@
 [node name="Background" parent="." instance=ExtResource("1_ib2q2")]
 position = Vector2(960, 540)
 
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_7h708")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("3_m4tkf")
+
 [node name="Statment" parent="Background" instance=ExtResource("3_p4wfx")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -84.0
+offset_top = -262.0
+offset_right = 172.0
+offset_bottom = -170.0
 text = "I took the egg, but then I heard a voice telling me I’d get in trouble… was it my dad?"
 id = "med3a"
 speaker = "Medium"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_p4wfx")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 103.0
+offset_right = 359.0
+offset_bottom = 92.0
 text = "I got scared, and I flushed it... I’m not a bad kid!"
 id = "med3b"
 speaker = "Medium"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_p4wfx")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 539.0
+offset_top = 15.0
+offset_right = 795.0
+offset_bottom = 107.0
 text = "Ghosts are real, and I see them. I knew where the egg was because the mummy told me."
 id = "med3c"
 speaker = "Medium"

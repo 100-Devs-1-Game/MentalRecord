@@ -1,36 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6pj44nklfxf2"]
+[gd_scene load_steps=6 format=3 uid="uid://c6pj44nklfxf2"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_yv5go"]
+[ext_resource type="Texture2D" uid="uid://ca6sdxdbeu0mi" path="res://assets/backgrounds/mole/ConstructionBG.png" id="2_3dgjc"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_3dgjc"]
+[ext_resource type="Texture2D" uid="uid://cupijfen8ev8" path="res://assets/backgrounds/mole/ConstructionMG.png" id="3_j8c15"]
+[ext_resource type="Texture2D" uid="uid://b21qgc55agw6t" path="res://assets/backgrounds/mole/ConstructionFG.png" id="4_sc13g"]
 
 [node name="RoomTemplate" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_yv5go")]
 position = Vector2(960, 540)
 
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_3dgjc")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("3_j8c15")
+
+[node name="ForegroundSprite" parent="Background" index="2"]
+texture = ExtResource("4_sc13g")
+
 [node name="Statment" parent="Background" instance=ExtResource("3_3dgjc")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -390.0
+offset_top = -402.0
+offset_right = -134.0
+offset_bottom = -310.0
 text = "For the first time in years, someone called out to me. But their voice... it didn’t bounce off the pipes like normal. "
 id = "mol3a"
 speaker = "Mole"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_3dgjc")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = -29.0
+offset_top = -212.0
+offset_right = 227.0
+offset_bottom = -120.0
 text = "When the egg came through the pipes, they told me to send it back up through the water system."
 id = "mol3b"
 speaker = "Mole"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_3dgjc")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 443.0
+offset_top = -41.0
+offset_right = 699.0
+offset_bottom = 51.0
 text = "I heard the vault open just once before the ceremony, but that’s it! Did they really put it back in?"
 id = "mol3c"
 speaker = "Mole"

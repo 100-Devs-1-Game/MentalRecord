@@ -1,49 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://crkytcplhs4d5"]
+[gd_scene load_steps=8 format=3 uid="uid://crkytcplhs4d5"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_f3h3b"]
+[ext_resource type="Texture2D" uid="uid://3mdn34iee6lf" path="res://assets/backgrounds/mole/SewerBG.png" id="2_1j4j2"]
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_qgnf2"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_81hnl"]
+[ext_resource type="Texture2D" uid="uid://birmfekan07af" path="res://assets/doors/mole/MoleDoorClosed.png" id="4_uv2ej"]
+[ext_resource type="Texture2D" uid="uid://dnesrba61k0wl" path="res://assets/doors/mole/MoleDoorOpen.png" id="5_4lcet"]
+[ext_resource type="Texture2D" uid="uid://dvge21pj32730" path="res://assets/backgrounds/mole/SewerMG.png" id="6_o355q"]
 
 [node name="RoomTemplate" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_f3h3b")]
 position = Vector2(960, 540)
 
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_1j4j2")
+
 [node name="Door" parent="Background" instance=ExtResource("2_qgnf2")]
-offset_left = 188.0
-offset_top = 204.0
-offset_right = 188.0
-offset_bottom = 204.0
+offset_left = 135.0
+offset_top = 185.0
+offset_right = 135.0
+offset_bottom = 185.0
 door_id = "mol2a"
 target_scene = "res://scenes/rooms/mole/room_mol3.tscn"
+locked_sprite = ExtResource("4_uv2ej")
+unlocked_sprite = ExtResource("5_4lcet")
 statement_id_to_unlock = "cur2b"
 
 [node name="Lie" parent="Background/Door" index="0"]
+offset_left = -423.0
+offset_top = 38.0
+offset_right = 89.0
+offset_bottom = 139.0
 text = "I had no way to cause a robbery or a flood."
 
+[node name="Sprite" parent="Background/Door" index="1"]
+offset_left = -654.0
+offset_top = -691.0
+offset_right = 370.0
+offset_bottom = 333.0
+texture = ExtResource("4_uv2ej")
+
+[node name="ZoomPoint" parent="Background/Door" index="2"]
+offset_left = -184.0
+offset_top = -225.0
+offset_right = -144.0
+offset_bottom = -185.0
+
+[node name="MidgroundSprite" parent="Background" index="2"]
+texture = ExtResource("6_o355q")
+
 [node name="Statment" parent="Background" instance=ExtResource("3_81hnl")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -447.0
+offset_top = -473.0
+offset_right = -191.0
+offset_bottom = -381.0
 text = "A long time ago, I got scammed, made a bad deal... and lost my most favorite job as a curator! At least I can be close to the museum from the sewers."
 id = "mol2a"
 speaker = "Mole"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_81hnl")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 260.0
+offset_top = -373.0
+offset_right = 516.0
+offset_bottom = -281.0
 text = "Back when I was the curator, I worked with this mute. I heard they got into some trouble, too... Maybe I can use them as a scapegoat."
 id = "mol2b"
 speaker = "Mole"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_81hnl")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 494.0
+offset_top = 246.0
+offset_right = 750.0
+offset_bottom = 338.0
 text = "Some kid is always writing me letters, talking to me about my old pet - what!"
 id = "mol2c"
 speaker = "Mole"

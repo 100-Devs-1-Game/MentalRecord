@@ -1,51 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjjkjhg4t6nec"]
+[gd_scene load_steps=9 format=3 uid="uid://cjjkjhg4t6nec"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_lmfmp"]
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_icusc"]
+[ext_resource type="Texture2D" uid="uid://4un4omdqtuxq" path="res://assets/backgrounds/medium/GraveyardBG.png" id="2_lxr46"]
+[ext_resource type="Texture2D" uid="uid://caqjm6oydjear" path="res://assets/backgrounds/medium/GraveyardMG.png" id="3_83ale"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_xsbfj"]
+[ext_resource type="Texture2D" uid="uid://bkobq2xm0r5r" path="res://assets/backgrounds/medium/GraveyardFG.png" id="4_glq6q"]
+[ext_resource type="Texture2D" uid="uid://cg5eog310scqi" path="res://assets/doors/medium/MediumDoorClosed.png" id="6_83ale"]
+[ext_resource type="Texture2D" uid="uid://b1daoivtcosiv" path="res://assets/doors/medium/MediumDoorOpen.png" id="7_glq6q"]
 
 [node name="RoomTemplate" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_lmfmp")]
 position = Vector2(960, 540)
 
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_lxr46")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("3_83ale")
+
+[node name="ForegroundSprite" parent="Background" index="2"]
+texture = ExtResource("4_glq6q")
+
 [node name="Door" parent="Background" instance=ExtResource("2_icusc")]
-offset_left = 188.0
-offset_top = 204.0
-offset_right = 188.0
-offset_bottom = 204.0
+offset_left = -44.0
+offset_top = 88.0
+offset_right = -44.0
+offset_bottom = 88.0
 door_id = "med2a"
 target_scene = "res://scenes/rooms/medium/room_med3.tscn"
+locked_sprite = ExtResource("6_83ale")
+unlocked_sprite = ExtResource("7_glq6q")
 statement_id_to_unlock = "gua3c"
 
 [node name="Lie" parent="Background/Door" index="0"]
-offset_top = -217.0
-offset_bottom = -68.0
+offset_left = -268.0
+offset_top = 4.0
+offset_right = 244.0
+offset_bottom = 153.0
 text = "I didn’t get to explore the first floor today, I only heard about it."
 
+[node name="Sprite" parent="Background/Door" index="1"]
+texture = ExtResource("6_83ale")
+
+[node name="ZoomPoint" parent="Background/Door" index="2"]
+offset_left = -26.0
+offset_top = -317.0
+offset_right = 14.0
+offset_bottom = -277.0
+
 [node name="Statment" parent="Background" instance=ExtResource("3_xsbfj")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -199.0
+offset_top = -460.0
+offset_right = 57.0
+offset_bottom = -368.0
 text = "The egg was in the sarcophagus, on the first floor."
 id = "med2a"
 speaker = "Medium"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_xsbfj")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 410.0
+offset_top = -374.0
+offset_right = 666.0
+offset_bottom = -282.0
 text = "I can’t say how I know… I don’t want to get in trouble."
 id = "med2b"
 speaker = "Medium"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_xsbfj")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 582.0
+offset_top = 34.0
+offset_right = 838.0
+offset_bottom = 126.0
 text = "Mom was distracted with some rich-looking guy."
 id = "med2c"
 speaker = "Medium"
