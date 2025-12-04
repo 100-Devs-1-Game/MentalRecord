@@ -4,7 +4,7 @@ extends VBoxContainer
 ## --- exported variables ---
 @export var intro_scene: String
 @export var game_scene: String
-@export var credits_scene: String
+@export var credits: Control
 @export var settings: Control
 
 ## --- onready vars ---
@@ -32,7 +32,7 @@ func _open_settings() -> void:
 	
 ## Loads credits scene
 func _goto_credits() -> void:
-	get_tree().change_scene_to_file(credits_scene)
+	credits.show()
 	
 ## Quits the game
 func _quit_game() -> void:
