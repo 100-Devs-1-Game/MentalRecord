@@ -22,6 +22,9 @@ var _speaker_icons: Dictionary = {
 
 func _ready():
 	SignalBus.dialogue_added.connect(dialogue_added)
+	var discovered_speakers = InventoryManager.get_discovered_speakers()
+	if (discovered_speakers.size() > 0):
+		speaker_filter = discovered_speakers.get(0)
 	refresh_list()
 	_refresh_speaker_filter_menu()
 	

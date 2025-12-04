@@ -7,8 +7,8 @@ extends Node
 @export var save_path: String = "user://MentalRecord/inventory_data.save" ## Default save file path.
 
 # --- private variables ---
-var _dialogues: Dictionary[String, Dictionary] = {} ## Keys = dialogue_id, Values = metadata.
-var _doors: Dictionary[String, bool] = {} ## Keys = door_id, Values = true if open.
+var _dialogues: Dictionary = {} ## Keys = dialogue_id, Values = metadata.
+var _doors: Dictionary = {} ## Keys = door_id, Values = true if open.
 var _discovered_speakers: Array = []
 
 # --- public methods ---

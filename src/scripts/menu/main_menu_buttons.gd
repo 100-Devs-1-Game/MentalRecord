@@ -16,6 +16,7 @@ func _new_game() -> void:
 	
 ## Loads data from save file and enters game scene
 func _load_game() -> void:
+	InventoryManager.load_from_file("save")
 	get_tree().change_scene_to_file(game_scene)
 	SceneManager.load_start_room()
 	
