@@ -64,12 +64,32 @@ theme_override_constants/margin_bottom = 32
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="VolumeLabel" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Master Volume"
 
 [node name="Volume" type="HSlider" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
+min_value = -80.0
+max_value = 0.0
+
+[node name="MusicLabel" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicVolume" type="HSlider" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = -80.0
+max_value = 0.0
+
+[node name="SoundLabel" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sound Volume"
+
+[node name="SoundVolume" type="HSlider" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = -80.0
+max_value = 0.0
 
 [node name="Control" type="Control" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -80,4 +100,6 @@ layout_mode = 2
 text = "Close"
 
 [connection signal="value_changed" from="NinePatchRect/MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="value_changed" from="NinePatchRect/MarginContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="NinePatchRect/MarginContainer/VBoxContainer/SoundVolume" to="." method="_on_sound_volume_value_changed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Close" to="." method="_on_close_pressed"]
