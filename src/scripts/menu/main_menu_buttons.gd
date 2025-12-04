@@ -11,7 +11,7 @@ extends VBoxContainer
 @onready var continue_button: Button = $ContinueButton
 
 func _ready() -> void:
-	if (!InventoryManager.load_from_file()): #use default path
+	if (!InventoryManager.load_from_file("save")):
 		continue_button.hide()
 
 ## --- private methods ---
