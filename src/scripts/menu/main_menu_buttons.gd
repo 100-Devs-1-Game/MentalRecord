@@ -7,6 +7,13 @@ extends VBoxContainer
 @export var credits_scene: String
 @export var settings: Control
 
+## --- onready vars ---
+@onready var continue_button: Button = $ContinueButton
+
+func _ready() -> void:
+	if (!InventoryManager.load_from_file("save")):
+		continue_button.hide()
+
 ## --- private methods ---
 
 ## Starts a new game and loads into the game scene
@@ -16,7 +23,6 @@ func _new_game() -> void:
 	
 ## Loads data from save file and enters game scene
 func _load_game() -> void:
-	InventoryManager.load_from_file("save")
 	get_tree().change_scene_to_file(game_scene)
 	SceneManager.load_start_room()
 	
