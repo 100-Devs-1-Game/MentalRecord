@@ -1,53 +1,79 @@
-[gd_scene load_steps=4 format=3 uid="uid://df1w3ekimfc7s"]
+[gd_scene load_steps=8 format=3 uid="uid://df1w3ekimfc7s"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_kjf4o"]
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_6in0m"]
+[ext_resource type="Texture2D" uid="uid://b2clovonxy5w2" path="res://assets/backgrounds/scientist/LabBG.png" id="2_vquf7"]
+[ext_resource type="Texture2D" uid="uid://di4auc62bykk1" path="res://assets/backgrounds/scientist/LabMG.png" id="3_kr8bv"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_vquf7"]
+[ext_resource type="Texture2D" uid="uid://cqsn5g6ik1bcp" path="res://assets/doors/scientist/ScientistDoorClosed.png" id="5_mfc0s"]
+[ext_resource type="Texture2D" uid="uid://bu43tcq7jw1je" path="res://assets/doors/scientist/ScientistDoorOpen.png" id="6_1324j"]
 
 [node name="RoomTemplate" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_kjf4o")]
 position = Vector2(960, 540)
 
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_vquf7")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("3_kr8bv")
+
 [node name="Door" parent="Background" instance=ExtResource("2_6in0m")]
-offset_left = 188.0
-offset_top = 204.0
-offset_right = 188.0
-offset_bottom = 204.0
+offset_left = 32.0
+offset_top = -193.0
+offset_right = 32.0
+offset_bottom = -193.0
 door_id = "sci2a"
 target_scene = "res://scenes/rooms/scientist/room_sci3.tscn"
+locked_sprite = ExtResource("5_mfc0s")
+unlocked_sprite = ExtResource("6_1324j")
 statement_id_to_unlock = "cur3b"
+metadata/depth = 0.5
 
 [node name="Lie" parent="Background/Door" index="0"]
-offset_left = -251.0
-offset_top = -211.0
-offset_right = 261.0
-offset_bottom = -62.0
+offset_left = 277.0
+offset_top = 163.0
+offset_right = 789.0
+offset_bottom = 312.0
 text = "These artifacts are one of a kind. I wouldn’t dare take one without authorization. "
 
+[node name="Sprite" parent="Background/Door" index="1"]
+offset_left = -270.0
+offset_top = -77.0
+offset_right = 754.0
+offset_bottom = 947.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_mfc0s")
+
+[node name="ZoomPoint" parent="Background/Door" index="2"]
+offset_left = -18.0
+offset_top = 288.0
+offset_right = 22.0
+offset_bottom = 328.0
+
 [node name="Statment" parent="Background" instance=ExtResource("3_vquf7")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -128.0
+offset_top = -432.0
+offset_bottom = -340.0
 text = "The activist, I saw them get taken away. I saw them, they didn’t take anything!"
 id = "sci2a"
 speaker = "Scientist"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_vquf7")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 262.0
+offset_top = -438.0
+offset_right = 518.0
+offset_bottom = -346.0
 text = "I heard someone tell me to save my friend, and I didn’t hesitate."
 id = "sci2b"
 speaker = "Scientist"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_vquf7")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 673.0
+offset_top = -445.0
+offset_right = 929.0
+offset_bottom = -353.0
 text = "If they find out I was working with an activist, I could lose my CT scanner privileges."
 id = "sci2c"
 speaker = "Scientist"
