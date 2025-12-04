@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://6rk8wngbob31"]
+[gd_scene load_steps=26 format=3 uid="uid://6rk8wngbob31"]
 
 [ext_resource type="Script" uid="uid://c3wivtbuttsvf" path="res://scripts/3d_parts/camera_3d_pan.gd" id="1_me2bs"]
 [ext_resource type="PackedScene" uid="uid://dtq0mr6nftcd3" path="res://assets/3d/meshes/Chair.glb" id="2_c0w5v"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://crmdow3p5b6a7" path="res://assets/3d/materials/concrete_albedo.png" id="9_1h75b"]
 [ext_resource type="Material" uid="uid://20piwuxkcmyx" path="res://assets/3d/materials/plaster.tres" id="10_evgm5"]
 [ext_resource type="Texture2D" uid="uid://bias5x3acu1wv" path="res://assets/3d/materials/plaster_albedo.png" id="11_7wl6h"]
+[ext_resource type="Texture2D" uid="uid://b1y6ib6fye2m" path="res://assets/characters/scientist.png" id="12_me2bs"]
 [ext_resource type="PackedScene" uid="uid://bskk16xpsru6p" path="res://scenes/objects/door3d.tscn" id="12_y23cl"]
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="14_cknyf"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="14_me2bs"]
@@ -228,16 +229,19 @@ libraries = {
 autoplay = "env_animation"
 
 [node name="door3d" parent="." instance=ExtResource("12_y23cl")]
-transform = Transform3D(0.34999993, 0, 0, 0, 0.35000005, 0, 0, 0, 0.34999993, 1.8994813, 1.7173996, -7.696377)
+transform = Transform3D(0.34999993, 0, 0, 0, 0.35000005, 0, 0, 0, 0.34999993, 2.4517198, 1.7173996, -7.945507)
 door_id = "sci1a"
 target_scene = "res://scenes/rooms/scientist/room_sci2.tscn"
 statement_id_to_unlock = "mol1c"
 lie_text = "I hold myself to the highest ethical standards, science deserves as much. I would never do anything unlawful."
 display_lie = true
-lie_screen_offset = Vector2(100, -250)
+lie_screen_offset = Vector2(400, -50)
+texture_locked = ExtResource("12_me2bs")
+texture_unlocked = ExtResource("12_me2bs")
 
 [node name="Sprite3D" parent="door3d" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1698048, 0)
+texture = ExtResource("12_me2bs")
 
 [node name="CollisionShape3D" parent="door3d" index="1"]
 transform = Transform3D(1.0000002, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, 1.0000002, 0.034427643, -0.1932025, -0.013679504)
@@ -260,6 +264,7 @@ offset_bottom = -156.0
 text = "I am a researcher at the MoAA. I was studying rocks and water when the alarm sounded, and a moment later the building started flooding..."
 id = "sci1a"
 speaker = "Scientist"
+metadata/_edit_use_anchors_ = true
 
 [node name="Statment2" parent="Background" instance=ExtResource("14_me2bs")]
 offset_left = 54.0
@@ -269,6 +274,7 @@ offset_bottom = -304.0
 text = "These artifacts deserve much more than those useless displays. They deserve study!"
 id = "sci1b"
 speaker = "Scientist"
+metadata/_edit_use_anchors_ = true
 
 [node name="Statment3" parent="Background" instance=ExtResource("14_me2bs")]
 offset_left = 475.0
@@ -278,6 +284,7 @@ offset_bottom = -144.0
 text = "Can you tell that guard to stop shouting? I can hear it across the hall."
 id = "sci1c"
 speaker = "Scientist"
+metadata/_edit_use_anchors_ = true
 
 [editable path="room/props/Chair3"]
 [editable path="room/props/Table"]
