@@ -121,14 +121,24 @@ func from_dict(data: Dictionary) -> void:
 ## @return True if saved successfully.
 func save_to_file(path: String = "") -> bool:
 	var file_path := path if path != "" else save_path
+
+	var dir := DirAccess.open("user://")
+	if dir == null:
+		push_error("Failed to access user://")
+		return false
+
+	if not dir.dir_exists("MentalRecord"):
+		dir.make_dir("MentalRecord")
+
 	var file := FileAccess.open(file_path, FileAccess.WRITE)
 	if file == null:
 		push_error("Failed to open save file: %s" % file_path)
 		return false
-	var json_data := JSON.stringify(to_dict())
-	file.store_string(json_data)
+
+	file.store_string(JSON.stringify(to_dict()))
 	file.close()
 	return true
+
 
 ## Loads data from a .save file in user://
 ## @param path: Optional override path.
