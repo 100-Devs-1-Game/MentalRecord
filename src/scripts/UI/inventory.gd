@@ -1,18 +1,10 @@
 extends Control
 
+## --- export variables ---
+@export var speaker_icons: Dictionary[String, Texture2D]
+
 ## --- public variables ---
 var speaker_filter: String = ""
-
-## --- private variables ---
-var _speaker_icons: Dictionary = {
-	"Curator": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
-	"Activist": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
-	"Guard": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
-	"Medium": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
-	"Mole": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
-	"Scientist": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex",
-	"Culprit": "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
-}
 
 ## --- onready variables ---
 @onready var scroll_container: ScrollContainer = $NinePatchRect/MarginContainer/ScrollContainer
@@ -47,8 +39,8 @@ func refresh_list(filter_speaker: String = "") -> void:
 	for statement in statements:
 		var btn = statement_item_scene.instantiate()
 		# Set icon if available
-		if _speaker_icons.has(speaker_filter):
-			btn.icon = load(_speaker_icons[speaker_filter])
+		if speaker_icons.has(speaker_filter):
+			btn.icon = speaker_icons[speaker_filter]
 		inv_slots.add_child(btn)
 		btn.set_meta_info(statement)
 		statement["new"] = false
@@ -89,8 +81,8 @@ func _refresh_speaker_filter_menu():
 		speaker_filter_menu.set_item_metadata(idx, speaker_name)
 
 		# Set icon if available
-		if _speaker_icons.has(speaker_name):
-			speaker_filter_menu.set_item_icon(idx, load(_speaker_icons[speaker_name]))
+		if speaker_icons.has(speaker_name):
+			speaker_filter_menu.set_item_icon(idx, speaker_icons[speaker_name])
 
 		idx += 1
 		

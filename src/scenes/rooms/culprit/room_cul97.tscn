@@ -21,28 +21,28 @@ texture = ExtResource("3_ntf2v")
 texture = ExtResource("4_3m0hp")
 
 [node name="Statment" parent="Background" instance=ExtResource("3_scyge")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = 294.0
+offset_top = -448.0
+offset_right = 550.0
+offset_bottom = -356.0
 text = "The chicken would survive, later hatching a chick."
 id = "cul997a"
 speaker = "Culprit"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_scyge")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 323.0
+offset_top = -137.0
+offset_right = 579.0
+offset_bottom = -45.0
 text = "The chick was without a head, like its parent. Still, the people believed it to be a monster."
 id = "cul97b"
 speaker = "Culprit"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_scyge")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 352.0
+offset_top = 181.0
+offset_right = 608.0
+offset_bottom = 273.0
 text = "Without its head, the chick lived in silence, but it still sought a remedy."
 id = "cul97c"
 speaker = "Culprit"

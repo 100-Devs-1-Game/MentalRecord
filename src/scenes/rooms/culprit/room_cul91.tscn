@@ -21,28 +21,28 @@ texture = ExtResource("3_ryi7c")
 texture = ExtResource("4_7cd5d")
 
 [node name="Statment" parent="Background" instance=ExtResource("3_7q6po")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -349.0
+offset_top = -241.0
+offset_right = -93.0
+offset_bottom = -149.0
 text = "After her time with the egg, she saw her friend being dragged away."
 id = "cul91a"
 speaker = "Culprit"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_7q6po")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 290.0
+offset_top = -107.0
+offset_right = 546.0
+offset_bottom = -15.0
 text = "Sometimes, all it takes is a little push. So that’s what I did."
 id = "cul91b"
 speaker = "Culprit"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_7q6po")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 546.0
+offset_top = 251.0
+offset_right = 802.0
+offset_bottom = 343.0
 text = "The guard would take her, too, for her attack. By then, I was long gone."
 id = "cul91c"
 speaker = "Culprit"

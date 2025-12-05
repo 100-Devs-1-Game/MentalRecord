@@ -21,37 +21,37 @@ texture = ExtResource("3_4lnrt")
 texture = ExtResource("4_ylotr")
 
 [node name="Statment" parent="Background" instance=ExtResource("3_rxrsh")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = 80.0
+offset_top = -472.0
+offset_right = 336.0
+offset_bottom = -380.0
 text = "Once again I was surprised, as the egg found its way into the hands of a sewer-dweller."
 id = "cul92a"
 speaker = "Culprit"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_rxrsh")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 509.0
+offset_top = -165.0
+offset_right = 765.0
+offset_bottom = -73.0
 text = "The mole. A good man, truly. As you saw, he can be a little rough around the edges, but at his heart, he cared more about this place than anyone."
 id = "cul92b"
 speaker = "Culprit"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_rxrsh")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 272.0
+offset_top = 12.0
+offset_right = 528.0
+offset_bottom = 104.0
 text = "Not sure if he could tell it was me who told him to send the egg back through the pipes. After all, it was his first time hearing me."
 id = "cul92c"
 speaker = "Culprit"
 
 [node name="Statment4" parent="Background" instance=ExtResource("3_rxrsh")]
-offset_left = 413.0
-offset_top = 94.0
-offset_right = 669.0
-offset_bottom = 186.0
+offset_left = 606.0
+offset_top = 228.0
+offset_right = 862.0
+offset_bottom = 320.0
 text = "Once the scientist got her hands on the egg, it was easy to tell she’d been waiting for this."
 id = "cul92d"
 speaker = "Culprit"

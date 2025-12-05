@@ -13,37 +13,37 @@ position = Vector2(960, 540)
 texture = ExtResource("2_loidi")
 
 [node name="Statment" parent="Background" instance=ExtResource("3_j7vhu")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = 596.0
+offset_top = -471.0
+offset_right = 852.0
+offset_bottom = -379.0
 text = "I see you’ve made your decision. Then so be it."
 id = "cul88a"
 speaker = "Culprit"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_j7vhu")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 207.0
+offset_top = -321.0
+offset_right = 463.0
+offset_bottom = -229.0
 text = "Know that I will stop at nothing to get the egg back. No matter how deep the vault, I will have it."
 id = "cul88b"
 speaker = "Culprit"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_j7vhu")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 83.0
+offset_top = -18.0
+offset_right = 339.0
+offset_bottom = 74.0
 text = "Soon, you’ll reach the end of my mind and arrive in front of me. While you’ve caught me, I have to say, I appreciate our little chat."
 id = "cul88c"
 speaker = "Culprit"
 
 [node name="Statment4" parent="Background" instance=ExtResource("3_j7vhu")]
-offset_left = 408.0
-offset_top = 119.0
-offset_right = 664.0
-offset_bottom = 211.0
+offset_left = 260.0
+offset_top = 264.0
+offset_right = 516.0
+offset_bottom = 356.0
 text = "Until next time, detective. I’m sure I’ll be seeing you."
 id = "cul88d"
 speaker = "Culprit"

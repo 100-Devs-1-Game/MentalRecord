@@ -76,7 +76,7 @@ func change_room(scene_path: String, door_center: Vector2 = Vector2.ZERO) -> voi
 ## Exits the current room and loads from stack
 func exit_room() -> void:
 	# Save
-	InventoryManager.save_to_file("save")
+	InventoryManager.save_to_file() #ueses the default path
 	
 	if transitioning:
 		return

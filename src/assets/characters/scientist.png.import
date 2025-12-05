@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clt0u6k4rfmi"
-path.s3tc="res://.godot/imported/activist.png-c068c1d1f11172ab1066746f7c1bc33d.s3tc.ctex"
+uid="uid://b1y6ib6fye2m"
+path.s3tc="res://.godot/imported/scientist.png-bf5a7b6d3ec309ec331292a5c210584f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/characters/activist.png"
-dest_files=["res://.godot/imported/activist.png-c068c1d1f11172ab1066746f7c1bc33d.s3tc.ctex"]
+source_file="res://assets/characters/scientist.png"
+dest_files=["res://.godot/imported/scientist.png-bf5a7b6d3ec309ec331292a5c210584f.s3tc.ctex"]
 
 [params]
 

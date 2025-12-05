@@ -1,0 +1,291 @@
+[gd_scene load_steps=26 format=3 uid="uid://6rk8wngbob31"]
+
+[ext_resource type="Script" uid="uid://c3wivtbuttsvf" path="res://scripts/3d_parts/camera_3d_pan.gd" id="1_me2bs"]
+[ext_resource type="PackedScene" uid="uid://dtq0mr6nftcd3" path="res://assets/3d/meshes/Chair.glb" id="2_c0w5v"]
+[ext_resource type="PackedScene" uid="uid://c6xpmm7ejwk1b" path="res://assets/3d/meshes/Table.glb" id="3_oabjq"]
+[ext_resource type="PackedScene" uid="uid://dh7bn1khdr5yk" path="res://assets/3d/meshes/CeilingFan.glb" id="4_um878"]
+[ext_resource type="PackedScene" uid="uid://6v16oob1c0ux" path="res://assets/3d/meshes/Mug.glb" id="6_ynwly"]
+[ext_resource type="PackedScene" uid="uid://bdglba7ck4bay" path="res://assets/3d/meshes/Lamp.glb" id="7_dw2d5"]
+[ext_resource type="Material" uid="uid://dgjnxd3nkoqie" path="res://assets/3d/materials/concrete.tres" id="8_rmt2w"]
+[ext_resource type="Texture2D" uid="uid://crmdow3p5b6a7" path="res://assets/3d/materials/concrete_albedo.png" id="9_1h75b"]
+[ext_resource type="Material" uid="uid://20piwuxkcmyx" path="res://assets/3d/materials/plaster.tres" id="10_evgm5"]
+[ext_resource type="Texture2D" uid="uid://bias5x3acu1wv" path="res://assets/3d/materials/plaster_albedo.png" id="11_7wl6h"]
+[ext_resource type="Texture2D" uid="uid://b1y6ib6fye2m" path="res://assets/characters/scientist.png" id="12_me2bs"]
+[ext_resource type="PackedScene" uid="uid://bskk16xpsru6p" path="res://scenes/objects/door3d.tscn" id="12_y23cl"]
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="14_cknyf"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="14_me2bs"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_3wf56"]
+lightmap_size_hint = Vector2i(252, 252)
+material = ExtResource("8_rmt2w")
+size = Vector2(50, 50)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhshk"]
+albedo_texture = ExtResource("9_1h75b")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_1jxd8"]
+lightmap_size_hint = Vector2i(252, 252)
+material = SubResource("StandardMaterial3D_mhshk")
+size = Vector2(50, 2.5)
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n413r"]
+albedo_texture = ExtResource("11_7wl6h")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ca3ra"]
+lightmap_size_hint = Vector2i(252, 252)
+material = SubResource("StandardMaterial3D_n413r")
+size = Vector2(50, 10)
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtum7"]
+albedo_texture = ExtResource("11_7wl6h")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_k4fqu"]
+lightmap_size_hint = Vector2i(252, 252)
+material = SubResource("StandardMaterial3D_wtum7")
+size = Vector2(50, 10)
+orientation = 0
+
+[sub_resource type="Environment" id="Environment_6lgtp"]
+ambient_light_source = 2
+ambient_light_color = Color(0.002119937, 0.038033906, 0.07990316, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.25
+tonemap_white = 0.5
+
+[sub_resource type="Animation" id="Animation_buqmo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("room/props/Lamp2/SpotLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("room/props/CeilingFan:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2brvf"]
+resource_name = "env_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("room/props/Lamp2/SpotLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.13333334, 0.23333333, 0.28860983, 0.35135108),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("room/props/CeilingFan:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 6.2831855, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7kmqq"]
+_data = {
+&"RESET": SubResource("Animation_buqmo"),
+&"env_animation": SubResource("Animation_2brvf")
+}
+
+[node name="sci1" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.9341235, 0.16914898, -0.3143277, 0, 0.8805931, 0.47387308, 0.35694996, -0.44265598, 0.8225827, 0.5, 4.259318, -4.5)
+script = ExtResource("1_me2bs")
+
+[node name="room" type="Node3D" parent="."]
+
+[node name="props" type="Node3D" parent="room"]
+
+[node name="Chair2" parent="room/props" instance=ExtResource("2_c0w5v")]
+transform = Transform3D(-2.6226834e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.6226834e-08, 0, 0, -8.460388)
+
+[node name="Chair3" parent="room/props" instance=ExtResource("2_c0w5v")]
+transform = Transform3D(-0.5143004, 0, 0.3090228, 0, 0.6, 0, -0.3090228, 0, -0.5143004, -0.6065111, 0, -12.033492)
+
+[node name="Table" parent="room/props" instance=ExtResource("3_oabjq")]
+transform = Transform3D(-2.6226834e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.6226834e-08, 0, 0, -10)
+
+[node name="CeilingFan" parent="room/props" instance=ExtResource("4_um878")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9895895, -10.0129795)
+
+[node name="Mug" parent="room/props" instance=ExtResource("6_ynwly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8259181, 1.2650949, -10.532773)
+
+[node name="Lamp2" parent="room/props" instance=ExtResource("7_dw2d5")]
+transform = Transform3D(0.59651905, 0, -0.8025989, 0, 1, 0, 0.8025989, 0, 0.59651905, 1.4557453, 1.2627336, -10.245251)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="room/props/Lamp2"]
+transform = Transform3D(0.9943249, 0.10638547, 4.650257e-09, 0, -4.3711395e-08, 1, 0.10638547, -0.9943249, -4.346333e-08, -0.07530451, 0.3924489, 0.5171151)
+light_color = Color(1, 0.96862745, 0.8039216, 1)
+shadow_enabled = true
+spot_angle = 76.3
+
+[node name="floor" type="MeshInstance3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.0332098, -25)
+mesh = SubResource("QuadMesh_3wf56")
+skeleton = NodePath("../..")
+
+[node name="cell" type="MeshInstance3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 11.310719, -25)
+mesh = SubResource("QuadMesh_3wf56")
+skeleton = NodePath("../..")
+
+[node name="wall_0" type="Node3D" parent="room"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="room/wall_0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -25)
+mesh = SubResource("QuadMesh_1jxd8")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="room/wall_0"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.997155, 0, -25)
+mesh = SubResource("QuadMesh_1jxd8")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="room/wall_0"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, -15.5)
+mesh = SubResource("QuadMesh_1jxd8")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="room/wall_0"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, 0)
+mesh = SubResource("QuadMesh_1jxd8")
+skeleton = NodePath("../../..")
+
+[node name="wall_1" type="Node3D" parent="room"]
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="room/wall_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 6.25, -25)
+material_override = ExtResource("10_evgm5")
+mesh = SubResource("QuadMesh_ca3ra")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="room/wall_1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.997155, 6.25, -25)
+material_override = ExtResource("10_evgm5")
+mesh = SubResource("QuadMesh_ca3ra")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="room/wall_1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 6.25, -15.5)
+material_override = ExtResource("10_evgm5")
+mesh = SubResource("QuadMesh_k4fqu")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="room/wall_1"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 6.25, 0)
+mesh = SubResource("QuadMesh_ca3ra")
+skeleton = NodePath("../../..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6lgtp")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.90408254, -0.1973319, 0.3790711, 0, 0.8870109, 0.4617486, -0.42735788, -0.41745886, 0.801931, 7, 7.362005, -3)
+light_energy = 4.5
+shadow_enabled = true
+shadow_bias = 2.5
+spot_range = 22.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.90125036
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7kmqq")
+}
+autoplay = "env_animation"
+
+[node name="door3d" parent="." instance=ExtResource("12_y23cl")]
+transform = Transform3D(0.34999993, 0, 0, 0, 0.35000005, 0, 0, 0, 0.34999993, 2.4517198, 2.1334033, -7.945507)
+door_id = "sci1a"
+target_scene = "res://scenes/rooms/scientist/room_sci2.tscn"
+statement_id_to_unlock = "mol1c"
+lie_text = "I hold myself to the highest ethical standards, science deserves as much. I would never do anything unlawful."
+display_lie = true
+lie_screen_offset = Vector2(400, -50)
+texture_locked = ExtResource("12_me2bs")
+texture_unlocked = ExtResource("12_me2bs")
+
+[node name="Sprite3D" parent="door3d" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1698048, 0)
+texture = ExtResource("12_me2bs")
+
+[node name="CollisionShape3D" parent="door3d" index="1"]
+transform = Transform3D(1.0000002, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, 1.0000002, 0.034427643, -0.1932025, -0.013679504)
+
+[node name="ZoomPoint" parent="door3d" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8071656, 0)
+
+[node name="Lie" parent="door3d/CanvasLayer" index="0"]
+text = "I don’t do teams, especially with thieves. Just extra hassle. "
+
+[node name="Background" parent="." instance=ExtResource("14_cknyf")]
+position = Vector2(960, 540)
+show_bg = false
+
+[node name="Statment" parent="Background" instance=ExtResource("14_me2bs")]
+offset_left = -392.0
+offset_top = -248.0
+offset_right = -136.0
+offset_bottom = -156.0
+text = "I am a researcher at the MoAA. I was studying rocks and water when the alarm sounded, and a moment later the building started flooding..."
+id = "sci1a"
+speaker = "Scientist"
+metadata/_edit_use_anchors_ = true
+
+[node name="Statment2" parent="Background" instance=ExtResource("14_me2bs")]
+offset_left = 54.0
+offset_top = -396.0
+offset_right = 310.0
+offset_bottom = -304.0
+text = "These artifacts deserve much more than those useless displays. They deserve study!"
+id = "sci1b"
+speaker = "Scientist"
+metadata/_edit_use_anchors_ = true
+
+[node name="Statment3" parent="Background" instance=ExtResource("14_me2bs")]
+offset_left = 475.0
+offset_top = -236.0
+offset_right = 731.0
+offset_bottom = -144.0
+text = "Can you tell that guard to stop shouting? I can hear it across the hall."
+id = "sci1c"
+speaker = "Scientist"
+metadata/_edit_use_anchors_ = true
+
+[editable path="room/props/Chair3"]
+[editable path="room/props/Table"]
+[editable path="door3d"]

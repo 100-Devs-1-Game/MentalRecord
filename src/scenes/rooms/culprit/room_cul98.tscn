@@ -21,28 +21,28 @@ texture = ExtResource("3_gl12b")
 texture = ExtResource("4_0u5df")
 
 [node name="Statment" parent="Background" instance=ExtResource("3_2yswc")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -109.0
+offset_top = -245.0
+offset_right = 147.0
+offset_bottom = -153.0
 text = "This museum showing, such fuss, such spectacle. They don’t even know its power, its history."
 id = "cul98a"
 speaker = "Culprit"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_2yswc")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = -283.0
+offset_top = 66.0
+offset_right = -27.0
+offset_bottom = 158.0
 text = "Let me tell you a story... There once lived a chicken with the face of a man."
 id = "cul98b"
 speaker = "Culprit"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_2yswc")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 180.0
+offset_top = 146.0
+offset_right = 436.0
+offset_bottom = 238.0
 text = "Upon its discovery, the locals cut its head. Believing it to be cursed, they sealed it away. "
 id = "cul98c"
 speaker = "Culprit"

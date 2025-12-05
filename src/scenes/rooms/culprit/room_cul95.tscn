@@ -21,28 +21,28 @@ texture = ExtResource("3_12lvh")
 texture = ExtResource("4_xi6ra")
 
 [node name="Statment" parent="Background" instance=ExtResource("3_syolv")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -266.0
+offset_top = -463.0
+offset_right = -10.0
+offset_bottom = -371.0
 text = "Like the chick, I found a remediation of my own. The egg’s counterpart, the mother’s silver remains."
 id = "cul95a"
 speaker = "Culprit"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_syolv")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = 309.0
+offset_top = -268.0
+offset_right = 565.0
+offset_bottom = -176.0
 text = "The chicken I hold only has one ability - to connect my thoughts to whoever holds the egg."
 id = "cul95b"
 speaker = "Culprit"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_syolv")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = 456.0
+offset_top = 95.0
+offset_right = 712.0
+offset_bottom = 187.0
 text = "With the egg and the remains, I’ve had the chance to learn a lot. Everyone’s thoughts are so noisy compared to mine."
 id = "cul95c"
 speaker = "Culprit"

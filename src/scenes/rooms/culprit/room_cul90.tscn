@@ -17,28 +17,28 @@ texture = ExtResource("2_03xxn")
 texture = ExtResource("3_56nsu")
 
 [node name="Statment" parent="Background" instance=ExtResource("3_3hlkn")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -122.0
+offset_top = -184.0
+offset_right = 134.0
+offset_bottom = -92.0
 text = "While I managed my escape, I left empty-handed. Since the artifact was under police custody, I thought it best to wait until the commotion died down."
 id = "cul90a"
 speaker = "Culprit"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_3hlkn")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = -122.0
+offset_top = -44.0
+offset_right = 134.0
+offset_bottom = 48.0
 text = "Somehow, the egg found its way to the activist in the car. Time would have eventually allowed me to press them to leave it somewhere."
 id = "cul90b"
 speaker = "Culprit"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_3hlkn")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = -121.0
+offset_top = 94.0
+offset_right = 135.0
+offset_bottom = 186.0
 text = "But then you came along. I have to say, you’re quite hard to read. Not like the others at all. Nonetheless, we find ourselves in this situation now."
 id = "cul90c"
 speaker = "Culprit"

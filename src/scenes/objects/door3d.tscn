@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://dffrhh5nadfl7" path="res://scripts/objects/door3d.gd" id="1_7soci"]
 [ext_resource type="Texture2D" uid="uid://dioetyj627ppb" path="res://assets/objects/doorgeneric/Door.png" id="2_352f5"]
 [ext_resource type="Texture2D" uid="uid://0viv20n8lgxo" path="res://assets/objects/doorgeneric/DoorOpen.png" id="3_goltf"]
-[ext_resource type="Material" uid="uid://cou30e5j6gexb" path="res://materials/ui_line_jitter.tres" id="4_2ve71"]
+[ext_resource type="Material" uid="uid://cou30e5j6gexb" path="res://shadermaterials/ui_line_jitter.tres" id="4_2ve71"]
 [ext_resource type="Theme" uid="uid://dp76re34dkvyy" path="res://themes/lie.tres" id="5_onqkm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_352f5"]
-size = Vector3(2.4643555, 3.6430054, 0.44140625)
+size = Vector3(2.4643555, 7, 0.44140625)
 
 [node name="door3d" type="StaticBody3D"]
 script = ExtResource("1_7soci")
@@ -18,6 +18,7 @@ texture_locked = ExtResource("2_352f5")
 texture_unlocked = ExtResource("3_goltf")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
 texture = ExtResource("2_352f5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

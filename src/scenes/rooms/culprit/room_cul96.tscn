@@ -21,28 +21,28 @@ texture = ExtResource("3_4ifji")
 texture = ExtResource("4_hxwnr")
 
 [node name="Statment" parent="Background" instance=ExtResource("3_0j8yl")]
-offset_left = -392.0
-offset_top = -248.0
-offset_right = -136.0
-offset_bottom = -156.0
+offset_left = -117.0
+offset_top = -279.0
+offset_right = 139.0
+offset_bottom = -187.0
 text = "It wouldn’t take long for the chick to find its mother’s head, hoping to rejoin its family. "
 id = "cul96a"
 speaker = "Culprit"
 
 [node name="Statment2" parent="Background" instance=ExtResource("3_0j8yl")]
-offset_left = 54.0
-offset_top = -396.0
-offset_right = 310.0
-offset_bottom = -304.0
+offset_left = -113.0
+offset_top = -55.0
+offset_right = 143.0
+offset_bottom = 37.0
 text = "But their reunion didn’t go as the chick had hoped. "
 id = "cul96b"
 speaker = "Culprit"
 
 [node name="Statment3" parent="Background" instance=ExtResource("3_0j8yl")]
-offset_left = 475.0
-offset_top = -236.0
-offset_right = 731.0
-offset_bottom = -144.0
+offset_left = -110.0
+offset_top = 195.0
+offset_right = 146.0
+offset_bottom = 287.0
 text = "After decades of isolation, the mother’s head swallowed its child, and an egg was created. "
 id = "cul96c"
 speaker = "Culprit"

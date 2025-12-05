@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://x54ebkynsfi7"]
+[gd_scene load_steps=10 format=3 uid="uid://x54ebkynsfi7"]
 
 [ext_resource type="Script" uid="uid://crqod57l7b4wt" path="res://scripts/UI/inventory.gd" id="1_7c7qg"]
 [ext_resource type="Texture2D" uid="uid://dhen58e6khlm0" path="res://assets/ui/Paper9Slice.png" id="2_egg3t"]
+[ext_resource type="Texture2D" uid="uid://c0ryfa2olv4lv" path="res://assets/charactericons/activist_icon.png" id="2_krngk"]
+[ext_resource type="Texture2D" uid="uid://iep3cpntejp8" path="res://assets/charactericons/curator_icon.png" id="2_xx4tc"]
 [ext_resource type="Theme" uid="uid://p0hn422nuqnl" path="res://themes/statement_item.tres" id="3_lvvmf"]
+[ext_resource type="Texture2D" uid="uid://b6d6p760cwedm" path="res://assets/charactericons/guard_icon.png" id="4_vftb6"]
+[ext_resource type="Texture2D" uid="uid://jbpv0mncwcf6" path="res://assets/charactericons/medium_icon.png" id="5_l4saf"]
+[ext_resource type="Texture2D" uid="uid://dfd3vuodva8mv" path="res://assets/charactericons/mole_icon.png" id="6_14ymb"]
+[ext_resource type="Texture2D" uid="uid://bd4cxic62bo5c" path="res://assets/charactericons/scientist_icon.png" id="7_5bw7c"]
 
 [node name="inventory" type="Control" groups=["inventory"]]
 layout_mode = 3
@@ -13,12 +19,21 @@ offset_right = 292.0
 offset_bottom = -195.0
 grow_vertical = 2
 script = ExtResource("1_7c7qg")
+speaker_icons = Dictionary[String, Texture2D]({
+"Activist": ExtResource("2_krngk"),
+"Curator": ExtResource("2_xx4tc"),
+"Guard": ExtResource("4_vftb6"),
+"Medium": ExtResource("5_l4saf"),
+"Mole": ExtResource("6_14ymb"),
+"Scientist": ExtResource("7_5bw7c")
+})
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
@@ -52,10 +67,10 @@ size_flags_vertical = 3
 
 [node name="SpeakerFilter" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 298.0
-offset_top = 4.0
-offset_right = 354.0
-offset_bottom = 47.0
+offset_left = 365.0
+offset_top = -1.0
+offset_right = 446.0
+offset_bottom = 50.0
 theme = ExtResource("3_lvvmf")
 
 [connection signal="item_selected" from="SpeakerFilter" to="." method="_on_speaker_filter_item_selected"]

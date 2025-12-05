@@ -22,31 +22,36 @@ var paused = false
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var zoom_point: Node3D = $ZoomPoint
 
-@onready var lie_label: Label = $CanvasLayer/Lie
+@onready var lie: Label = $CanvasLayer/Lie
 
 # --- built-in methods ---
 ## Initializes the door and connects state-update signals.
 func _ready() -> void:
 	add_to_group("doors")
 
-	if lie_label:
-		lie_label.text = lie_text
-		lie_label.visible = display_lie
+	if lie:
+		lie.text = lie_text
+		lie.visible = display_lie
 
 	update_visual()
 	SignalBus.door_state_changed.connect(received_update_signal)
 	SignalBus.paused_state_changed.connect(paused_state_changed)
 
-func _process(_delta: float) -> void:
-	if not (display_lie and lie_label and camera and sprite_3d):
+	if (is_door_unlocked()):
+		lie.hide()
+
+func _process(_delta: float) -> void: 
+	if not camera:
+		camera = get_viewport().get_camera_3d()
+	if not (display_lie and lie and camera and sprite_3d):
 		return
 
 	var world_pos := sprite_3d.global_position
 	var screen_pos := camera.unproject_position(world_pos)
 
-	var label_size := lie_label.size
+	var label_size := lie.size
 
-	lie_label.position = screen_pos - (label_size * 0.5) + lie_screen_offset
+	lie.position = screen_pos - (label_size * 0.5) + lie_screen_offset
 
 
 # --- public methods ---
@@ -69,8 +74,24 @@ func is_door_unlocked() -> bool:
 
 ## Unlocks the door and emits a state-change signal.
 func unlock() -> void:
+	# Mark the door as open in the InventoryManager.
 	InventoryManager.set_door_state(door_id, true)
+
+	# Update visuals locally.
 	update_visual()
+	
+	# Do lie dissolve animation
+	lie.material = lie.material.duplicate()
+	var tween := create_tween()
+	tween.tween_method(func(p):
+		lie.material.set_shader_parameter("dissolve_value", p)
+	, 0.0, 1.0, 1.0)
+	
+	tween.tween_callback(func():
+		lie.hide()
+	)
+
+	# Emit global signal for others to update.
 	if SignalBus.has_signal("door_state_changed"):
 		SignalBus.door_state_changed.emit(door_id, true)
 
@@ -122,8 +143,8 @@ func get_all_rects() -> Array[Rect2]:
 		)
 
 	# ---------------- Lie label rect (UI space) ----------------
-	if display_lie and lie_label and lie_label.visible:
-		rects.append(lie_label.get_global_rect())
+	if display_lie and lie and lie.visible:
+		rects.append(lie.get_global_rect())
 
 	return rects
 

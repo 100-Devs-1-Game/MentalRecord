@@ -5,7 +5,7 @@
 
 [resource]
 Button/constants/icon_max_width = 32
-Button/font_sizes/font_size = 20
+Button/font_sizes/font_size = 24
 Button/styles/disabled = ExtResource("1_8dbyp")
 Button/styles/focus = ExtResource("1_8dbyp")
 Button/styles/hover = ExtResource("3_o8ucb")

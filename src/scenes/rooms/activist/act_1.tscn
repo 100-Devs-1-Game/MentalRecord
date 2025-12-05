@@ -1,0 +1,287 @@
+[gd_scene load_steps=26 format=3 uid="uid://bfjgmdhbyg4rq"]
+
+[ext_resource type="Script" uid="uid://c3wivtbuttsvf" path="res://scripts/3d_parts/camera_3d_pan.gd" id="1_s6ein"]
+[ext_resource type="PackedScene" uid="uid://dtq0mr6nftcd3" path="res://assets/3d/meshes/Chair.glb" id="2_sndl8"]
+[ext_resource type="PackedScene" uid="uid://c6xpmm7ejwk1b" path="res://assets/3d/meshes/Table.glb" id="3_g7yhe"]
+[ext_resource type="PackedScene" uid="uid://dh7bn1khdr5yk" path="res://assets/3d/meshes/CeilingFan.glb" id="4_rdi63"]
+[ext_resource type="PackedScene" uid="uid://6v16oob1c0ux" path="res://assets/3d/meshes/Mug.glb" id="6_e6q5e"]
+[ext_resource type="PackedScene" uid="uid://bdglba7ck4bay" path="res://assets/3d/meshes/Lamp.glb" id="7_57fuk"]
+[ext_resource type="Material" uid="uid://dgjnxd3nkoqie" path="res://assets/3d/materials/concrete.tres" id="8_mnu80"]
+[ext_resource type="Texture2D" uid="uid://crmdow3p5b6a7" path="res://assets/3d/materials/concrete_albedo.png" id="9_qjait"]
+[ext_resource type="Material" uid="uid://20piwuxkcmyx" path="res://assets/3d/materials/plaster.tres" id="10_4d865"]
+[ext_resource type="Texture2D" uid="uid://bias5x3acu1wv" path="res://assets/3d/materials/plaster_albedo.png" id="11_0kkfy"]
+[ext_resource type="PackedScene" uid="uid://bskk16xpsru6p" path="res://scenes/objects/door3d.tscn" id="12_whxp0"]
+[ext_resource type="Texture2D" uid="uid://clt0u6k4rfmi" path="res://assets/characters/activist.png" id="13_xsxbo"]
+[ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="14_nqj22"]
+[ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="15_p7dgh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2brvf"]
+lightmap_size_hint = Vector2i(252, 252)
+material = ExtResource("8_mnu80")
+size = Vector2(50, 50)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhshk"]
+albedo_texture = ExtResource("9_qjait")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_nniwa"]
+lightmap_size_hint = Vector2i(252, 252)
+material = SubResource("StandardMaterial3D_mhshk")
+size = Vector2(50, 2.5)
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n413r"]
+albedo_texture = ExtResource("11_0kkfy")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_o565m"]
+lightmap_size_hint = Vector2i(252, 252)
+material = SubResource("StandardMaterial3D_n413r")
+size = Vector2(50, 10)
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtum7"]
+albedo_texture = ExtResource("11_0kkfy")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_7o1iw"]
+lightmap_size_hint = Vector2i(252, 252)
+material = SubResource("StandardMaterial3D_wtum7")
+size = Vector2(50, 10)
+orientation = 0
+
+[sub_resource type="Environment" id="Environment_6loe8"]
+ambient_light_source = 2
+ambient_light_color = Color(0.002119937, 0.038033906, 0.07990316, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.25
+tonemap_white = 0.5
+
+[sub_resource type="Animation" id="Animation_buqmo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("room/props/Lamp2/SpotLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("room/props/CeilingFan:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2brvf"]
+resource_name = "env_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("room/props/Lamp2/SpotLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.13333334, 0.23333333, 0.28860983, 0.35135108),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("room/props/CeilingFan:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 6.2831855, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7kmqq"]
+_data = {
+&"RESET": SubResource("Animation_buqmo"),
+&"env_animation": SubResource("Animation_2brvf")
+}
+
+[node name="act_1" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.9341235, 0.16914898, -0.3143277, 0, 0.8805931, 0.47387308, 0.35694996, -0.44265598, 0.8225827, 0.5, 4.259318, -4.5)
+script = ExtResource("1_s6ein")
+
+[node name="room" type="Node3D" parent="."]
+
+[node name="props" type="Node3D" parent="room"]
+
+[node name="Chair2" parent="room/props" instance=ExtResource("2_sndl8")]
+transform = Transform3D(-2.6226834e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.6226834e-08, 0, 0, -8.460388)
+
+[node name="Chair3" parent="room/props" instance=ExtResource("2_sndl8")]
+transform = Transform3D(-0.5143004, 0, 0.3090228, 0, 0.6, 0, -0.3090228, 0, -0.5143004, -0.6065111, 0, -12.033492)
+
+[node name="Table" parent="room/props" instance=ExtResource("3_g7yhe")]
+transform = Transform3D(-2.6226834e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.6226834e-08, 0, 0, -10)
+
+[node name="CeilingFan" parent="room/props" instance=ExtResource("4_rdi63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9895895, -10.0129795)
+
+[node name="Mug" parent="room/props" instance=ExtResource("6_e6q5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8259181, 1.2650949, -10.532773)
+
+[node name="Lamp2" parent="room/props" instance=ExtResource("7_57fuk")]
+transform = Transform3D(0.59651905, 0, -0.8025989, 0, 1, 0, 0.8025989, 0, 0.59651905, 1.4557453, 1.2627336, -10.245251)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="room/props/Lamp2"]
+transform = Transform3D(0.9943249, 0.10638547, 4.650257e-09, 0, -4.3711395e-08, 1, 0.10638547, -0.9943249, -4.346333e-08, -0.07530451, 0.3924489, 0.5171151)
+light_color = Color(1, 0.96862745, 0.8039216, 1)
+shadow_enabled = true
+spot_angle = 76.3
+
+[node name="floor" type="MeshInstance3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.0332098, -25)
+mesh = SubResource("QuadMesh_2brvf")
+skeleton = NodePath("../..")
+
+[node name="cell" type="MeshInstance3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 11.310719, -25)
+mesh = SubResource("QuadMesh_2brvf")
+skeleton = NodePath("../..")
+
+[node name="wall_0" type="Node3D" parent="room"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="room/wall_0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -25)
+mesh = SubResource("QuadMesh_nniwa")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="room/wall_0"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.997155, 0, -25)
+mesh = SubResource("QuadMesh_nniwa")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="room/wall_0"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, -15.5)
+mesh = SubResource("QuadMesh_nniwa")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="room/wall_0"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, 0)
+mesh = SubResource("QuadMesh_nniwa")
+skeleton = NodePath("../../..")
+
+[node name="wall_1" type="Node3D" parent="room"]
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="room/wall_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 6.25, -25)
+material_override = ExtResource("10_4d865")
+mesh = SubResource("QuadMesh_o565m")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="room/wall_1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.997155, 6.25, -25)
+material_override = ExtResource("10_4d865")
+mesh = SubResource("QuadMesh_o565m")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="room/wall_1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 6.25, -15.5)
+material_override = ExtResource("10_4d865")
+mesh = SubResource("QuadMesh_7o1iw")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="room/wall_1"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 6.25, 0)
+mesh = SubResource("QuadMesh_o565m")
+skeleton = NodePath("../../..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6loe8")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.90408254, -0.1973319, 0.3790711, 0, 0.8870109, 0.4617486, -0.42735788, -0.41745886, 0.801931, 7, 7.362005, -3)
+light_energy = 4.5
+shadow_enabled = true
+shadow_bias = 2.5
+spot_range = 22.0
+spot_angle = 60.0
+spot_angle_attenuation = 0.90125036
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7kmqq")
+}
+autoplay = "env_animation"
+
+[node name="door3d" parent="." instance=ExtResource("12_whxp0")]
+transform = Transform3D(0.34999993, 0, 0, 0, 0.35000005, 0, 0, 0, 0.34999993, 4.9903564, 1.7173996, -7.696377)
+door_id = "act1a"
+target_scene = "res://scenes/rooms/activist/room_act2.tscn"
+statement_id_to_unlock = "sci2c"
+lie_text = "I don’t do teams, especially with thieves. Just extra hassle. "
+display_lie = true
+lie_screen_offset = Vector2(-400, 150)
+texture_locked = ExtResource("13_xsxbo")
+texture_unlocked = ExtResource("13_xsxbo")
+
+[node name="Sprite3D" parent="door3d" index="0"]
+texture = ExtResource("13_xsxbo")
+
+[node name="CollisionShape3D" parent="door3d" index="1"]
+transform = Transform3D(1.0000002, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, 1.0000002, 0.034427643, -0.36116934, -0.013679504)
+
+[node name="ZoomPoint" parent="door3d" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2935195, 0)
+
+[node name="Lie" parent="door3d/CanvasLayer" index="0"]
+text = "I don’t do teams, especially with thieves. Just extra hassle. "
+
+[node name="Background" parent="." instance=ExtResource("14_nqj22")]
+position = Vector2(960, 540)
+show_bg = false
+
+[node name="Statment" parent="Background" instance=ExtResource("15_p7dgh")]
+offset_left = 35.0
+offset_top = -434.0
+offset_right = 291.0
+offset_bottom = -342.0
+text = "It’s true that I covered everything with paint and smoke at the exhibit, but it was for a cause."
+id = "act1a"
+speaker = "Activist"
+
+[node name="Statment2" parent="Background" instance=ExtResource("15_p7dgh")]
+offset_left = -278.0
+offset_top = -259.0
+offset_right = -22.0
+offset_bottom = -167.0
+text = "The MoAA is bad! They’ve already gone through a scandal with an employee in the past!"
+id = "act1b"
+speaker = "Activist"
+
+[node name="Statment3" parent="Background" instance=ExtResource("15_p7dgh")]
+offset_left = 36.0
+offset_top = -69.0
+offset_right = 292.0
+offset_bottom = 23.0
+text = "The people need to know!"
+id = "act1c"
+speaker = "Activist"
+
+[editable path="room/props/Chair3"]
+[editable path="room/props/Table"]
+[editable path="door3d"]

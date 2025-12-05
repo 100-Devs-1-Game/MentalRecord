@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhj2i7vawwhnx"]
+[gd_scene load_steps=9 format=3 uid="uid://dhj2i7vawwhnx"]
 
 [ext_resource type="Script" uid="uid://v3ot1ydrxl8b" path="res://scripts/menu/main_menu_buttons.gd" id="1_1y04j"]
 [ext_resource type="Texture2D" uid="uid://bqohwuknwhkbc" path="res://assets/title/TitleBG.png" id="1_41mg3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://brtlbuty384ai" path="res://scenes/UI/settings.tscn" id="2_klkgf"]
 [ext_resource type="Texture2D" uid="uid://d13p6ocscng2h" path="res://assets/title/Title.png" id="2_tarun"]
 [ext_resource type="Texture2D" uid="uid://bpfptsp8ci214" path="res://assets/title/EncrustedEgg.png" id="3_tu3op"]
+[ext_resource type="PackedScene" uid="uid://cjiaaim28l68d" path="res://scenes/UI/credits.tscn" id="8_pt6um"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -53,7 +54,7 @@ layout_mode = 2
 texture = ExtResource("2_tarun")
 stretch_mode = 4
 
-[node name="MenuContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/VBoxContainer" node_paths=PackedStringArray("settings")]
+[node name="MenuContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/VBoxContainer" node_paths=PackedStringArray("credits", "settings")]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_ij8q7")
@@ -62,6 +63,7 @@ alignment = 1
 script = ExtResource("1_1y04j")
 intro_scene = "res://scenes/rooms/intro.tscn"
 game_scene = "res://scenes/global/game.tscn"
+credits = NodePath("../../../../Credits")
 settings = NodePath("../../../../Settings")
 
 [node name="NewGameButton" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/MenuContainer"]
@@ -105,6 +107,10 @@ texture = ExtResource("3_tu3op")
 stretch_mode = 4
 
 [node name="Settings" parent="." instance=ExtResource("2_klkgf")]
+visible = false
+layout_mode = 1
+
+[node name="Credits" parent="." instance=ExtResource("8_pt6um")]
 visible = false
 layout_mode = 1
 

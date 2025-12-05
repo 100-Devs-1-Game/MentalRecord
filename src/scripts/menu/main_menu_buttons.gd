@@ -4,14 +4,14 @@ extends VBoxContainer
 ## --- exported variables ---
 @export var intro_scene: String
 @export var game_scene: String
-@export var credits_scene: String
+@export var credits: Control
 @export var settings: Control
 
 ## --- onready vars ---
 @onready var continue_button: Button = $ContinueButton
 
 func _ready() -> void:
-	if (!InventoryManager.load_from_file("save")):
+	if (!InventoryManager.load_from_file()): #use default path
 		continue_button.hide()
 
 ## --- private methods ---
@@ -32,7 +32,7 @@ func _open_settings() -> void:
 	
 ## Loads credits scene
 func _goto_credits() -> void:
-	get_tree().change_scene_to_file(credits_scene)
+	credits.show()
 	
 ## Quits the game
 func _quit_game() -> void:
