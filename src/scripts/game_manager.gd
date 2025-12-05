@@ -33,11 +33,3 @@ func toggle_pause() -> void:
 ## Pauses or unpauses the game
 func open_settings() -> void:
 	settings.show()
-
-
-# test
-
-func _input(_event):
-	if Input.is_action_just_pressed("test"):
-		for i in get_tree().get_nodes_in_group("doors"):
-			print(i)
