@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cw7l2rxvat3r0"]
+[gd_scene load_steps=13 format=3 uid="uid://cw7l2rxvat3r0"]
 
 [ext_resource type="Script" uid="uid://7u8bkxbvuppd" path="res://scripts/UI/dialoge.gd" id="1_v8m3l"]
 [ext_resource type="Texture2D" uid="uid://clt0u6k4rfmi" path="res://assets/characters/activist.png" id="1_vlfyx"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://b7ve78fotyyg5" path="res://assets/characters/medium.png" id="5_3dxfc"]
 [ext_resource type="Texture2D" uid="uid://b1y6ib6fye2m" path="res://assets/characters/scientist.png" id="7_10bal"]
 [ext_resource type="Texture2D" uid="uid://dioetyj627ppb" path="res://assets/objects/doorgeneric/Door.png" id="8_eefdx"]
+[ext_resource type="Shader" uid="uid://cxa8epk3mvrat" path="res://shaders/blur.gdshader" id="9_smqal"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3dxfc"]
+shader = ExtResource("9_smqal")
+shader_parameter/amount = 3.0000001425
+shader_parameter/tint_color = Color(0.8, 0.7921569, 0.87058824, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlfyx"]
 bg_color = Color(0.6313726, 0.3529412, 0.3137255, 1)
@@ -50,6 +56,15 @@ medium_sprite = ExtResource("5_3dxfc")
 mole_sprite = ExtResource("2_0d1px")
 scientist_sprite = ExtResource("7_10bal")
 culprit_sprite = ExtResource("8_eefdx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_3dxfc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
