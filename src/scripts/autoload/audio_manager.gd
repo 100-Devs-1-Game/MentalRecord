@@ -43,6 +43,7 @@ func set_main_music_parameter(param: String, value: float):
 func stop_main_music():
 	playing = false
 	# Play audio tracks
+	intro_player.stop()
 	bass.stop()
 	keys.stop()
 	strings.stop()
