@@ -123,13 +123,6 @@ _data = {
 [node name="cur_1" type="Node3D"]
 
 [node name="Music" parent="." instance=ExtResource("1_n6sot")]
-parameters = {
-"stem_bass": 1.0,
-"stem_drums": 0.0,
-"stem_keys": 1.0,
-"stem_strings": 1.0,
-"stem_woodwinds": 1.0
-}
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.9341235, 0.16914898, -0.3143277, 0, 0.8805931, 0.47387308, 0.35694996, -0.44265598, 0.8225827, 0.5, 4.259318, -4.5)
