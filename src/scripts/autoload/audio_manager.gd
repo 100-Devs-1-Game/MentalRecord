@@ -37,7 +37,7 @@ func set_main_music_parameter(param: String, value: float):
 	var tween := create_tween()
 	tween.tween_method(func(i):
 		track.volume_db = i
-	, start, linear_to_db(value), 1.0)
+	, start, linear_to_db(value), 2.0)
 	
 ## Stops the main music
 func stop_main_music():

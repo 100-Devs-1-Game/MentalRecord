@@ -47,7 +47,7 @@ layout_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="LetterColor" type="ColorRect" parent="ScrollContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 4000)
+custom_minimum_size = Vector2(0, 3500)
 layout_mode = 2
 color = Color(0.7105664, 0.65066594, 0.6035094, 1)
 

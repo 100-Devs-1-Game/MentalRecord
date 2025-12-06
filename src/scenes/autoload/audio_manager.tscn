@@ -28,10 +28,8 @@ stream = ExtResource("5_ccgl5")
 bus = &"Music"
 
 [node name="Woodwinds" type="AudioStreamPlayer" parent="."]
-bus = &"Music"
-
-[node name="WoodwindsLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_dka11")
+bus = &"Music"
 
 [node name="Drums" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_s06pa")
