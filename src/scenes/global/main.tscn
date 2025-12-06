@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhj2i7vawwhnx"]
+[gd_scene load_steps=11 format=3 uid="uid://dhj2i7vawwhnx"]
 
 [ext_resource type="Script" uid="uid://v3ot1ydrxl8b" path="res://scripts/menu/main_menu_buttons.gd" id="1_1y04j"]
 [ext_resource type="Texture2D" uid="uid://bqohwuknwhkbc" path="res://assets/title/TitleBG.png" id="1_41mg3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://brtlbuty384ai" path="res://scenes/UI/settings.tscn" id="2_klkgf"]
 [ext_resource type="Texture2D" uid="uid://d13p6ocscng2h" path="res://assets/title/Title.png" id="2_tarun"]
 [ext_resource type="Texture2D" uid="uid://bpfptsp8ci214" path="res://assets/title/EncrustedEgg.png" id="3_tu3op"]
+[ext_resource type="Texture2D" uid="uid://dfq8ad2phfgps" path="res://assets/external/FMOD Logo White - Transparent Background.png" id="7_xrfst"]
 [ext_resource type="PackedScene" uid="uid://cjiaaim28l68d" path="res://scenes/UI/credits.tscn" id="8_pt6um"]
 
 [node name="Control" type="Control"]
@@ -97,10 +98,21 @@ layout_mode = 2
 focus_mode = 0
 text = "Quit"
 
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 225
+
+[node name="FMODLogo" type="TextureRect" parent="MarginContainer/HSplitContainer/VBoxContainer/MarginContainer"]
+modulate = Color(0.3515629, 0.3515629, 0.35156286, 1)
+layout_mode = 2
+texture = ExtResource("7_xrfst")
+expand_mode = 5
+stretch_mode = 4
+
 [node name="Version" type="Label" parent="MarginContainer/HSplitContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.50534403, 0.5053441, 0.50534403, 1)
-text = "v0.1"
+text = "v1.0"
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2
