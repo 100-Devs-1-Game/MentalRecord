@@ -35,8 +35,8 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 512
-theme_override_constants/margin_right = 512
+theme_override_constants/margin_left = 256
+theme_override_constants/margin_right = 256
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
 layout_mode = 2
@@ -47,7 +47,7 @@ layout_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="LetterColor" type="ColorRect" parent="ScrollContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 1230)
+custom_minimum_size = Vector2(0, 4000)
 layout_mode = 2
 color = Color(0.7105664, 0.65066594, 0.6035094, 1)
 
@@ -69,6 +69,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_u7h4a")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "
 
 Dear Mrs Keick,
@@ -100,14 +101,15 @@ color = Color(0, 0, 0, 1)
 
 [node name="ContinueButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1554.0
-offset_top = 988.0
-offset_right = 1729.0
-offset_bottom = 1041.0
+offset_left = 1671.0
+offset_top = 977.0
+offset_right = 1846.0
+offset_bottom = 1030.0
 theme_override_font_sizes/font_size = 32
 text = "Continue..."
 
 [node name="FadeRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
