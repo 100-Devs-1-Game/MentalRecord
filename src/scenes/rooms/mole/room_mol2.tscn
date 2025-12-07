@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://crkytcplhs4d5"]
+[gd_scene load_steps=9 format=3 uid="uid://crkytcplhs4d5"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_f3h3b"]
+[ext_resource type="PackedScene" uid="uid://00yhld500vw2" path="res://scenes/music.tscn" id="1_uv2ej"]
 [ext_resource type="Texture2D" uid="uid://3mdn34iee6lf" path="res://assets/backgrounds/mole/SewerBG.png" id="2_1j4j2"]
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_qgnf2"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_81hnl"]
@@ -10,11 +11,23 @@
 
 [node name="RoomTemplate" type="Node2D"]
 
+[node name="Music" parent="." instance=ExtResource("1_uv2ej")]
+parameters = {
+"stem_bass": 1.0,
+"stem_drums": 0.0,
+"stem_keys": 1.0,
+"stem_strings": 1.0,
+"stem_woodwinds": 1.0
+}
+
 [node name="Background" parent="." instance=ExtResource("1_f3h3b")]
 position = Vector2(960, 540)
 
 [node name="BackgroundSprite" parent="Background" index="0"]
 texture = ExtResource("2_1j4j2")
+
+[node name="MidgroundSprite" parent="Background" index="1"]
+texture = ExtResource("6_o355q")
 
 [node name="Door" parent="Background" instance=ExtResource("2_qgnf2")]
 offset_left = 135.0
@@ -46,9 +59,6 @@ offset_left = -184.0
 offset_top = -225.0
 offset_right = -144.0
 offset_bottom = -185.0
-
-[node name="MidgroundSprite" parent="Background" index="2"]
-texture = ExtResource("6_o355q")
 
 [node name="Statment" parent="Background" instance=ExtResource("3_81hnl")]
 offset_left = -447.0

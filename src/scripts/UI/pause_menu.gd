@@ -19,4 +19,5 @@ func _on_quit_pressed() -> void:
 	# Return to main menu
 	game.toggle_pause()
 	SceneManager.clear_rooms()
+	AudioManager.stop_main_music()
 	get_tree().change_scene_to_file(title_scene)

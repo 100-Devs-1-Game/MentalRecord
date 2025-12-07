@@ -20,6 +20,7 @@ var paused = false
 # --- onready variables ---
 @onready var camera: Camera3D = get_viewport().get_camera_3d()
 @onready var sprite_3d: Sprite3D = $Sprite3D
+@onready var shock_sprite: Sprite3D = $ShockSprite
 @onready var zoom_point: Node3D = $ZoomPoint
 
 @onready var lie: Label = $CanvasLayer/Lie
@@ -62,9 +63,12 @@ func update_visual() -> void:
 	if unlocked:
 		if texture_unlocked and sprite_3d:
 			sprite_3d.texture = texture_unlocked
+		if (!start_unlocked):
+			shock_sprite.show()
 	else:
 		if texture_locked and sprite_3d:
 			sprite_3d.texture = texture_locked
+		shock_sprite.hide()
 
 
 ## Returns true if the door is unlocked.

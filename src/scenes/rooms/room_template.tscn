@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0tr8yt6n4jwr"]
+[gd_scene load_steps=5 format=3 uid="uid://b0tr8yt6n4jwr"]
 
+[ext_resource type="PackedScene" uid="uid://00yhld500vw2" path="res://scenes/music.tscn" id="1_1tjkb"]
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_bx05y"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="2_53pnx"]
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_oxw5x"]
 
 [node name="RoomTemplate" type="Node2D"]
+
+[node name="Music" parent="." instance=ExtResource("1_1tjkb")]
 
 [node name="Background" parent="." instance=ExtResource("1_bx05y")]
 position = Vector2(960, 540)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://7wsw53pacs30"]
+[gd_scene load_steps=7 format=3 uid="uid://7wsw53pacs30"]
 
+[ext_resource type="PackedScene" uid="uid://00yhld500vw2" path="res://scenes/music.tscn" id="1_gl12b"]
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_vmr3u"]
 [ext_resource type="Texture2D" uid="uid://bbraprsnnitc5" path="res://assets/backgrounds/culprit/rockpaperscissors/RockPaperScissorsBG.png" id="2_2yswc"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_2yswc"]
@@ -7,6 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://ds2avugng1ytt" path="res://assets/backgrounds/culprit/rockpaperscissors/RockPaperScissorsFG.png" id="4_0u5df"]
 
 [node name="RoomTemplate" type="Node2D"]
+
+[node name="Music" parent="." instance=ExtResource("1_gl12b")]
+parameters = {
+"stem_bass": 0.0,
+"stem_drums": 1.0,
+"stem_keys": 0.0,
+"stem_strings": 1.0,
+"stem_woodwinds": 0.0
+}
 
 [node name="Background" parent="." instance=ExtResource("1_vmr3u")]
 position = Vector2(960, 540)

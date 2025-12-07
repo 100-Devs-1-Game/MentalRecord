@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://clxur51wr8fdf"]
+[gd_scene load_steps=27 format=3 uid="uid://clxur51wr8fdf"]
 
+[ext_resource type="PackedScene" uid="uid://00yhld500vw2" path="res://scenes/music.tscn" id="1_fyh87"]
 [ext_resource type="Script" uid="uid://c3wivtbuttsvf" path="res://scripts/3d_parts/camera_3d_pan.gd" id="1_vwqv2"]
 [ext_resource type="PackedScene" uid="uid://dtq0mr6nftcd3" path="res://assets/3d/meshes/Chair.glb" id="2_fyh87"]
 [ext_resource type="PackedScene" uid="uid://c6xpmm7ejwk1b" path="res://assets/3d/meshes/Table.glb" id="3_it1g3"]
@@ -120,6 +121,8 @@ _data = {
 }
 
 [node name="gua_1" type="Node3D"]
+
+[node name="Music" parent="." instance=ExtResource("1_fyh87")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.9341235, 0.16914898, -0.3143277, 0, 0.8805931, 0.47387308, 0.35694996, -0.44265598, 0.8225827, 0.5, 4.259318, -4.5)
@@ -242,10 +245,13 @@ texture_unlocked = ExtResource("14_fyh87")
 [node name="Sprite3D" parent="door3d" index="0"]
 texture = ExtResource("14_fyh87")
 
-[node name="CollisionShape3D" parent="door3d" index="1"]
+[node name="ShockSprite" parent="door3d" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.24398, 4.270514, 0.4159298)
+
+[node name="CollisionShape3D" parent="door3d" index="2"]
 transform = Transform3D(1.0000002, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, 1.0000002, 0.034427643, -0.1932025, -0.013679504)
 
-[node name="ZoomPoint" parent="door3d" index="2"]
+[node name="ZoomPoint" parent="door3d" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2935195, 0)
 
 [node name="Lie" parent="door3d/CanvasLayer" index="0"]

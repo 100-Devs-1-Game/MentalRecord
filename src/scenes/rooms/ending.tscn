@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://njwpk2fhgnih"]
+[gd_scene load_steps=20 format=3 uid="uid://njwpk2fhgnih"]
 
+[ext_resource type="PackedScene" uid="uid://00yhld500vw2" path="res://scenes/music.tscn" id="1_fild8"]
 [ext_resource type="Script" uid="uid://c3wivtbuttsvf" path="res://scripts/3d_parts/camera_3d_pan.gd" id="1_twcag"]
 [ext_resource type="PackedScene" uid="uid://bc0wrqybujjf3" path="res://scenes/objects/letter.tscn" id="2_twcag"]
 [ext_resource type="Script" uid="uid://w4kwkapq6hjs" path="res://scripts/transition/fade_in.gd" id="3_xoby6"]
@@ -58,6 +59,15 @@ size = Vector2(50, 50)
 orientation = 1
 
 [node name="ending" type="Node3D"]
+
+[node name="Music" parent="." instance=ExtResource("1_fild8")]
+parameters = {
+"stem_bass": 0.0,
+"stem_drums": 0.0,
+"stem_keys": 0.0,
+"stem_strings": 0.0,
+"stem_woodwinds": 0.0
+}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_74lek")

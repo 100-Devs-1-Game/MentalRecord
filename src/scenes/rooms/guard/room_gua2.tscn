@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://v224c7h43ak2"]
+[gd_scene load_steps=9 format=3 uid="uid://v224c7h43ak2"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_4j3he"]
+[ext_resource type="PackedScene" uid="uid://00yhld500vw2" path="res://scenes/music.tscn" id="1_tajvv"]
 [ext_resource type="Texture2D" uid="uid://y7erd5ega1aw" path="res://assets/backgrounds/guard/StorageBG.png" id="2_f6785"]
 [ext_resource type="PackedScene" uid="uid://cq1v33lmadmcd" path="res://scenes/objects/door.tscn" id="2_m5rti"]
 [ext_resource type="Texture2D" uid="uid://vopghmrbuyr6" path="res://assets/backgrounds/guard/StorageMG.png" id="3_4ujan"]
@@ -9,6 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://vypu5hpj1kfi" path="res://assets/doors/guard/GuardDoorOpen.png" id="6_4ujan"]
 
 [node name="RoomTemplate" type="Node2D"]
+
+[node name="Music" parent="." instance=ExtResource("1_tajvv")]
+parameters = {
+"stem_bass": 0.0,
+"stem_drums": 1.0,
+"stem_keys": 0.0,
+"stem_strings": 1.0,
+"stem_woodwinds": 1.0
+}
 
 [node name="Background" parent="." instance=ExtResource("1_4j3he")]
 position = Vector2(960, 540)

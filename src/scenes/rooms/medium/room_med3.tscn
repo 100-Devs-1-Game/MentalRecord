@@ -1,11 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bub6n180wroq4"]
+[gd_scene load_steps=6 format=3 uid="uid://bub6n180wroq4"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_ib2q2"]
+[ext_resource type="PackedScene" uid="uid://00yhld500vw2" path="res://scenes/music.tscn" id="1_p4wfx"]
 [ext_resource type="Texture2D" uid="uid://dhujat5d0agrc" path="res://assets/backgrounds/medium/DetentionBG.png" id="2_7h708"]
 [ext_resource type="Texture2D" uid="uid://cju2jrbn26fl7" path="res://assets/backgrounds/medium/DetentionMG.png" id="3_m4tkf"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_p4wfx"]
 
 [node name="RoomTemplate" type="Node2D"]
+
+[node name="Music" parent="." instance=ExtResource("1_p4wfx")]
+parameters = {
+"stem_bass": 1.0,
+"stem_drums": 1.0,
+"stem_keys": 1.0,
+"stem_strings": 0.0,
+"stem_woodwinds": 0.0
+}
 
 [node name="Background" parent="." instance=ExtResource("1_ib2q2")]
 position = Vector2(960, 540)

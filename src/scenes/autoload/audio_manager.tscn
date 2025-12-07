@@ -1,15 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://csgry4st2tgyv"]
+[gd_scene load_steps=8 format=3 uid="uid://csgry4st2tgyv"]
 
 [ext_resource type="Script" uid="uid://c70yprilbsxhv" path="res://scripts/autoload/audio_manager.gd" id="1_dwcjb"]
+[ext_resource type="AudioStream" uid="uid://dxn4ao44j54oe" path="res://assets/music/Intro.ogg" id="2_xa1qs"]
+[ext_resource type="AudioStream" uid="uid://b7pe5ngmgim3m" path="res://assets/music/BassLoop.ogg" id="3_2geml"]
+[ext_resource type="AudioStream" uid="uid://bfsbe3nndeueu" path="res://assets/music/KeysLoop.ogg" id="4_hhkxr"]
+[ext_resource type="AudioStream" uid="uid://nnny82eit7pr" path="res://assets/music/StringsLoop.ogg" id="5_ccgl5"]
+[ext_resource type="AudioStream" uid="uid://bgtallqlkcby7" path="res://assets/music/WoodwindsLoop.ogg" id="6_dka11"]
+[ext_resource type="AudioStream" uid="uid://clts6dvxrt3yg" path="res://assets/music/DrumsLoop.ogg" id="7_s06pa"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_dwcjb")
 
-[node name="MusicPlayerA" type="AudioStreamPlayer" parent="."]
+[node name="IntroPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xa1qs")
 bus = &"Music"
 
-[node name="MusicPlayerB" type="AudioStreamPlayer" parent="."]
+[node name="Bass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2geml")
+bus = &"Music"
+
+[node name="Keys" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hhkxr")
+bus = &"Music"
+
+[node name="Strings" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ccgl5")
+bus = &"Music"
+
+[node name="Woodwinds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dka11")
+bus = &"Music"
+
+[node name="Drums" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_s06pa")
 bus = &"Music"
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
+
+[connection signal="finished" from="IntroPlayer" to="." method="_on_intro_player_finished"]

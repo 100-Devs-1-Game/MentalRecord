@@ -1,12 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc18eq3f07wac"]
+[gd_scene load_steps=7 format=3 uid="uid://cc18eq3f07wac"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_3chn2"]
+[ext_resource type="PackedScene" uid="uid://00yhld500vw2" path="res://scenes/music.tscn" id="1_4ifji"]
 [ext_resource type="Texture2D" uid="uid://ddxux5k51e10m" path="res://assets/backgrounds/culprit/moontrees/MoonTreesBG.png" id="2_0j8yl"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_0j8yl"]
 [ext_resource type="Texture2D" uid="uid://cqkvoeu3jb8ok" path="res://assets/backgrounds/culprit/moontrees/MoonTreesMG.png" id="3_4ifji"]
 [ext_resource type="Texture2D" uid="uid://bbcw3wnheff2e" path="res://assets/backgrounds/culprit/moontrees/MoonTreesFG.png" id="4_hxwnr"]
 
 [node name="RoomTemplate" type="Node2D"]
+
+[node name="Music" parent="." instance=ExtResource("1_4ifji")]
+parameters = {
+"stem_bass": 1.0,
+"stem_drums": 0.0,
+"stem_keys": 0.0,
+"stem_strings": 0.0,
+"stem_woodwinds": 1.0
+}
 
 [node name="Background" parent="." instance=ExtResource("1_3chn2")]
 position = Vector2(960, 540)

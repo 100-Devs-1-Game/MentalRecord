@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbp45oypqa0ct"]
+[gd_scene load_steps=4 format=3 uid="uid://dbp45oypqa0ct"]
 
 [ext_resource type="Script" uid="uid://cpsx2f6uac5ab" path="res://scripts/rooms/intro.gd" id="1_a66g0"]
 [ext_resource type="Theme" uid="uid://p0hn422nuqnl" path="res://themes/statement_item.tres" id="2_0f8wm"]
+[ext_resource type="PackedScene" uid="uid://00yhld500vw2" path="res://scenes/music.tscn" id="2_440h5"]
 
 [node name="EndLetter" type="Control"]
 layout_mode = 3
@@ -13,6 +14,15 @@ grow_vertical = 2
 script = ExtResource("1_a66g0")
 game_scene = "res://scenes/global/main.tscn"
 is_ending = true
+
+[node name="Music" parent="." instance=ExtResource("2_440h5")]
+parameters = {
+"stem_bass": 1.0,
+"stem_drums": 0.0,
+"stem_keys": 0.0,
+"stem_strings": 0.0,
+"stem_woodwinds": 0.0
+}
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -48,7 +58,7 @@ layout_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="LetterColor" type="ColorRect" parent="ScrollContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 250)
+custom_minimum_size = Vector2(0, 512)
 layout_mode = 2
 color = Color(0.7105664, 0.65066594, 0.6035094, 1)
 
@@ -69,6 +79,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("2_0f8wm")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "
 I hereby confess to the theft of the ancient artifact known as the Iridium Chicken, and to orchestrating the theft of the artifact known as the Encrusted Egg, by means of psychological manipulation through supernatural forces. Feel free to pass any sentence down onto me, but don’t expect me to be around to serve it!
 
@@ -83,10 +94,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="ContinueButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1554.0
-offset_top = 988.0
-offset_right = 1729.0
-offset_bottom = 1041.0
+offset_left = 1543.0
+offset_top = 933.0
+offset_right = 1718.0
+offset_bottom = 986.0
 theme_override_font_sizes/font_size = 32
 text = "End..."
 

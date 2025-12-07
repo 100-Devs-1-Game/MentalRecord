@@ -1,12 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6sexjvsdt6aq"]
+[gd_scene load_steps=7 format=3 uid="uid://b6sexjvsdt6aq"]
 
 [ext_resource type="PackedScene" uid="uid://ddsqa4t3fxu0k" path="res://scenes/objects/background.tscn" id="1_acdgp"]
+[ext_resource type="PackedScene" uid="uid://00yhld500vw2" path="res://scenes/music.tscn" id="1_ntf2v"]
 [ext_resource type="Texture2D" uid="uid://bwn2ghmkecwoc" path="res://assets/backgrounds/culprit/rorschachsky/RorschachSkyBG.png" id="2_scyge"]
 [ext_resource type="Texture2D" uid="uid://xrsxf6jjkjee" path="res://assets/backgrounds/culprit/rorschachsky/RorschachSkyMG.png" id="3_ntf2v"]
 [ext_resource type="PackedScene" uid="uid://d3usjuo7k3r75" path="res://scenes/objects/statment.tscn" id="3_scyge"]
 [ext_resource type="Texture2D" uid="uid://b3hmkgte4bpr4" path="res://assets/backgrounds/culprit/rorschachsky/RorschachSkyFG.png" id="4_3m0hp"]
 
 [node name="RoomTemplate" type="Node2D"]
+
+[node name="Music" parent="." instance=ExtResource("1_ntf2v")]
+parameters = {
+"stem_bass": 0.0,
+"stem_drums": 0.0,
+"stem_keys": 0.0,
+"stem_strings": 1.0,
+"stem_woodwinds": 1.0
+}
 
 [node name="Background" parent="." instance=ExtResource("1_acdgp")]
 position = Vector2(960, 540)

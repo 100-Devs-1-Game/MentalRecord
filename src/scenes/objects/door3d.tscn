@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bskk16xpsru6p"]
+[gd_scene load_steps=8 format=3 uid="uid://bskk16xpsru6p"]
 
 [ext_resource type="Script" uid="uid://dffrhh5nadfl7" path="res://scripts/objects/door3d.gd" id="1_7soci"]
 [ext_resource type="Texture2D" uid="uid://dioetyj627ppb" path="res://assets/objects/doorgeneric/Door.png" id="2_352f5"]
 [ext_resource type="Texture2D" uid="uid://0viv20n8lgxo" path="res://assets/objects/doorgeneric/DoorOpen.png" id="3_goltf"]
 [ext_resource type="Material" uid="uid://cou30e5j6gexb" path="res://shadermaterials/ui_line_jitter.tres" id="4_2ve71"]
+[ext_resource type="Texture2D" uid="uid://efa4iqoyt371" path="res://assets/characters/effect_character.png" id="4_onqkm"]
 [ext_resource type="Theme" uid="uid://dp76re34dkvyy" path="res://themes/lie.tres" id="5_onqkm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_352f5"]
@@ -20,6 +21,12 @@ texture_unlocked = ExtResource("3_goltf")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
 texture = ExtResource("2_352f5")
+
+[node name="ShockSprite" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.8807113, 1.4121399, 0.4159286)
+visible = false
+billboard = 1
+texture = ExtResource("4_onqkm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034423828, 0.050445557, -0.013671875)
