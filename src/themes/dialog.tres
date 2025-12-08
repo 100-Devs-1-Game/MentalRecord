@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ccbec463ye2rx"]
+
+[ext_resource type="StyleBox" uid="uid://cvxykgwth17nk" path="res://themes/stylebox/octagon_bubble/octagon_bubble.tres" id="1_7fk7y"]
+[ext_resource type="StyleBox" uid="uid://cbymeva6nel2f" path="res://themes/stylebox/speechbubble/speech_bubble.tres" id="1_bhpvd"]
+
+[resource]
+Button/colors/font_color = Color(0.12225201, 0.12225232, 0.122252114, 1)
+Button/styles/disabled = ExtResource("1_7fk7y")
+Button/styles/focus = ExtResource("1_7fk7y")
+Button/styles/hover = ExtResource("1_7fk7y")
+Button/styles/normal = ExtResource("1_7fk7y")
+Button/styles/pressed = ExtResource("1_7fk7y")
+PanelContainer/styles/panel = ExtResource("1_bhpvd")
+RichTextLabel/colors/default_color = Color(0.12156863, 0.12156863, 0.12156863, 1)

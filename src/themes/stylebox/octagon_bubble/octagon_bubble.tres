@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cvxykgwth17nk"]
+
+[ext_resource type="Texture2D" uid="uid://ef6xkqwjfeic" path="res://assets/ui/OctagonBubble9Slice.png" id="1_afrfs"]
+
+[resource]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+texture = ExtResource("1_afrfs")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0

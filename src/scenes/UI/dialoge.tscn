@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cw7l2rxvat3r0"]
+[gd_scene load_steps=12 format=3 uid="uid://dws3u60gcn0uv"]
 
-[ext_resource type="Script" uid="uid://7u8bkxbvuppd" path="res://scripts/UI/dialoge.gd" id="1_v8m3l"]
+[ext_resource type="Theme" uid="uid://ccbec463ye2rx" path="res://themes/dialog.tres" id="1_3dxfc"]
+[ext_resource type="Script" path="res://scripts/UI/dialoge.gd" id="1_v8m3l"]
 [ext_resource type="Texture2D" uid="uid://clt0u6k4rfmi" path="res://assets/characters/activist.png" id="1_vlfyx"]
 [ext_resource type="Texture2D" uid="uid://bi6okglvgdi14" path="res://assets/characters/mole.png" id="2_0d1px"]
 [ext_resource type="Texture2D" uid="uid://bfnmutti7msjm" path="res://assets/characters/curator.png" id="3_di4px"]
@@ -15,33 +16,6 @@ shader = ExtResource("9_smqal")
 shader_parameter/amount = 3.0000001425
 shader_parameter/tint_color = Color(0.8, 0.7921569, 0.87058824, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlfyx"]
-bg_color = Color(0.6313726, 0.3529412, 0.3137255, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.27058825, 0.03529412, 0.13725491, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_right = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8m3l"]
-bg_color = Color(0.6313726, 0.3529412, 0.3137255, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.27058825, 0.03529412, 0.13725491, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 5.0
-expand_margin_right = 5.0
-
 [node name="dialoge" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -49,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3dxfc")
 script = ExtResource("1_v8m3l")
 activist_sprite = ExtResource("1_vlfyx")
 curator_sprite = ExtResource("3_di4px")
@@ -98,7 +73,6 @@ size_flags_vertical = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vlfyx")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -130,11 +104,8 @@ size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_3dxfc")
 theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_v8m3l")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_v8m3l")
-theme_override_styles/hover = SubResource("StyleBoxFlat_v8m3l")
-theme_override_styles/focus = SubResource("StyleBoxFlat_v8m3l")
 text = "SKIP >>>"
 
 [node name="space2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
