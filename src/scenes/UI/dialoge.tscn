@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dws3u60gcn0uv"]
 
 [ext_resource type="Theme" uid="uid://ccbec463ye2rx" path="res://themes/dialog.tres" id="1_3dxfc"]
-[ext_resource type="Script" path="res://scripts/UI/dialoge.gd" id="1_v8m3l"]
+[ext_resource type="Script" uid="uid://7u8bkxbvuppd" path="res://scripts/UI/dialoge.gd" id="1_v8m3l"]
 [ext_resource type="Texture2D" uid="uid://clt0u6k4rfmi" path="res://assets/characters/activist.png" id="1_vlfyx"]
 [ext_resource type="Texture2D" uid="uid://bi6okglvgdi14" path="res://assets/characters/mole.png" id="2_0d1px"]
 [ext_resource type="Texture2D" uid="uid://bfnmutti7msjm" path="res://assets/characters/curator.png" id="3_di4px"]
