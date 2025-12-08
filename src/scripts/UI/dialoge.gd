@@ -10,7 +10,6 @@ extends Control
 @export var medium_sprite: Texture2D
 @export var mole_sprite: Texture2D
 @export var scientist_sprite: Texture2D
-@export var culprit_sprite: Texture2D
 
 var skipping := false
 
@@ -29,7 +28,7 @@ func show_dialogue(speaker: String, text: String) -> void:
 		"medium": medium_sprite,
 		"mole": mole_sprite,
 		"scientist": scientist_sprite,
-		"culprit": culprit_sprite
+		"culprit": null
 	}
 
 	icon.texture = sprite_map.get(speaker.to_lower(), null)

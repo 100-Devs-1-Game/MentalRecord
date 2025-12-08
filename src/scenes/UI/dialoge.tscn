@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dws3u60gcn0uv"]
+[gd_scene load_steps=11 format=3 uid="uid://dws3u60gcn0uv"]
 
 [ext_resource type="Theme" uid="uid://ccbec463ye2rx" path="res://themes/dialog.tres" id="1_3dxfc"]
 [ext_resource type="Script" path="res://scripts/UI/dialoge.gd" id="1_v8m3l"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dryf7ip6ddree" path="res://assets/characters/guard.png" id="4_smqal"]
 [ext_resource type="Texture2D" uid="uid://b7ve78fotyyg5" path="res://assets/characters/medium.png" id="5_3dxfc"]
 [ext_resource type="Texture2D" uid="uid://b1y6ib6fye2m" path="res://assets/characters/scientist.png" id="7_10bal"]
-[ext_resource type="Texture2D" uid="uid://dioetyj627ppb" path="res://assets/objects/doorgeneric/Door.png" id="8_eefdx"]
 [ext_resource type="Shader" uid="uid://cxa8epk3mvrat" path="res://shaders/blur.gdshader" id="9_smqal"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3dxfc"]
@@ -31,7 +30,6 @@ guard_sprite = ExtResource("4_smqal")
 medium_sprite = ExtResource("5_3dxfc")
 mole_sprite = ExtResource("2_0d1px")
 scientist_sprite = ExtResource("7_10bal")
-culprit_sprite = ExtResource("8_eefdx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_3dxfc")
