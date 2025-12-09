@@ -10,7 +10,7 @@ var is_dragging: bool = false
 var drag_offset: Vector2 = Vector2.ZERO
 var original_pos: Vector2 = Vector2.ZERO
 var _return_tween = null  # SceneTreeTween | null
-const PAPER = preload("uid://c1176nj71okrv")
+const PAPER = preload("uid://cdfp1ioiuucds")
 const UNLOCK = preload("uid://dxlxoy5213tcr")
 
 # --- built-in methods ---
