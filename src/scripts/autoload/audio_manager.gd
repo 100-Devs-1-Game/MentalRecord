@@ -9,21 +9,14 @@ const CLICK = preload("uid://cniux05mljvby")
 @onready var synced_player: AudioStreamPlayer = $SyncedPlayer
 @onready var intro_player: AudioStreamPlayer = $IntroPlayer
 
-# --- constants ---
-const SYNC_LAYER_BASS = 0
-const SYNC_LAYER_KEYS = 1
-const SYNC_LAYER_STRINGS = 2
-const SYNC_LAYER_WOODWINDS = 3
-const SYNC_LAYER_DRUMS = 4
-
 # --- built-in functions ---
 func _ready():
 	track_dict = {
-		"stem_bass": SYNC_LAYER_BASS,
-		"stem_keys": SYNC_LAYER_KEYS,
-		"stem_strings": SYNC_LAYER_STRINGS,
-		"stem_woodwinds": SYNC_LAYER_WOODWINDS,
-		"stem_drums": SYNC_LAYER_DRUMS
+		"stem_bass": 0,
+		"stem_keys": 1,
+		"stem_strings": 2,
+		"stem_woodwinds": 3,
+		"stem_drums": 4
 	}
 
 # --- public methods ---
