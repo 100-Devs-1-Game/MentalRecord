@@ -6,21 +6,24 @@ var track_dict: Dictionary = {}
 const CLICK = preload("uid://cniux05mljvby")
 
 # --- onready variables ---
+@onready var synced_player: AudioStreamPlayer = $SyncedPlayer
 @onready var intro_player: AudioStreamPlayer = $IntroPlayer
-@onready var bass: AudioStreamPlayer = $Bass
-@onready var keys: AudioStreamPlayer = $Keys
-@onready var strings: AudioStreamPlayer = $Strings
-@onready var woodwinds: AudioStreamPlayer = $Woodwinds
-@onready var drums: AudioStreamPlayer = $Drums
+
+# --- constants ---
+const SYNC_LAYER_BASS = 0
+const SYNC_LAYER_KEYS = 1
+const SYNC_LAYER_STRINGS = 2
+const SYNC_LAYER_WOODWINDS = 3
+const SYNC_LAYER_DRUMS = 4
 
 # --- built-in functions ---
 func _ready():
 	track_dict = {
-		"stem_bass": bass,
-		"stem_keys": keys,
-		"stem_strings": strings,
-		"stem_woodwinds": woodwinds,
-		"stem_drums": drums
+		"stem_bass": SYNC_LAYER_BASS,
+		"stem_keys": SYNC_LAYER_KEYS,
+		"stem_strings": SYNC_LAYER_STRINGS,
+		"stem_woodwinds": SYNC_LAYER_WOODWINDS,
+		"stem_drums": SYNC_LAYER_DRUMS
 	}
 
 # --- public methods ---
@@ -29,30 +32,23 @@ func _ready():
 ## @param param: The name of the parameter
 ## @param value: The value of the parameter
 func set_main_music_parameter(param: String, value: float):
-	if (!playing):
+	if not playing:
 		start_music()
 	
-	var track: AudioStreamPlayer = track_dict[param]
-	var start: float = track.volume_db
-	var tween := create_tween()
-	tween.tween_method(func(i):
-		track.volume_db = i
-	, start, linear_to_db(value), 0.5)
+	var layer = track_dict[param]
+	var target_db = linear_to_db(value)
+	synced_player.stream.set_sync_stream_volume(layer, target_db)
 	
 ## Stops the main music
 func stop_main_music():
 	playing = false
-	# Play audio tracks
 	intro_player.stop()
-	bass.stop()
-	keys.stop()
-	strings.stop()
-	woodwinds.stop()
-	drums.stop()
-	
+	synced_player.stop()
+
 func start_music():
-	playing = true
-	intro_player.play()
+	if not playing:
+		playing = true
+		intro_player.play()
 	
 ## Plays the given sound effect
 ## @param stream: The audiostream to play
@@ -95,9 +91,5 @@ func get_sound_volume() -> float:
 # --- private methods ---
 
 func _on_intro_player_finished() -> void:
-	# Play audio tracks
-	bass.play()
-	keys.play()
-	strings.play()
-	woodwinds.play()
-	drums.play()
+	if playing:
+		synced_player.play()
